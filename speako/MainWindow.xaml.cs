@@ -40,7 +40,7 @@ namespace speako
         {
             //print line
             System.Diagnostics.Debug.WriteLine("stream:ads asd asd assd asd asd asd asd asd sd  ");
-            await Providers.Provider.SpeakText(speakInput.Text);
+            await speako.Common.AudioDevice.SpeakText(speakInput.Text);
         }
     }
 }

@@ -3,7 +3,7 @@ using speako.Providers;
 
 namespace speako.Google
 {
-    public class GoogleTTSProvider : Provider, ITTSProvider
+    public class GoogleTTSProvider : ITTSProvider
     {
         public async Task<Stream> GetSpeechFromTextAsync(string text, CancellationToken token)
         {
