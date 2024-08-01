@@ -1,17 +1,10 @@
 ﻿using NAudio.Wave;
-
-using speako.Features.Speak.Providers;
-using speako.Google;
-
-using System;
-using System.Collections.Generic;
+using speako.Services.Providers;
+using speako.Services.Providers.Google;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace speako.Features.Speak
-{
+namespace speako.Services.Speak
+{ 
   public class SpeakService : ISpeakService
   {
     private readonly IEnumerable<ITTSProvider> _providers;

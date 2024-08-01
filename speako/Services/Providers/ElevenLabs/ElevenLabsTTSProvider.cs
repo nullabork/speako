@@ -2,7 +2,7 @@
 
 using Newtonsoft.Json.Linq;
 
-namespace speako.Features.Speak.Providers
+namespace speako.Services.Providers.ElevenLabs
 {
     public class ElevenLabsTTSProvider : ITTSProvider
     {

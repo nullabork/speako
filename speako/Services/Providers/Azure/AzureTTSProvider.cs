@@ -1,8 +1,9 @@
 ﻿using Microsoft.CognitiveServices.Speech;
 using speako.Common;
+using speako.Services.Providers;
 using System.Drawing;
 
-namespace speako.Features.Speak.Providers
+namespace speako.Services.Providers.Azure
 {
     public class AzureTTSProvider : ITTSProvider
     {

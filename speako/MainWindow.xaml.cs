@@ -1,6 +1,6 @@
 ﻿
-using speako.Features.Speak;
-
+using speako.Services.Providers.Google;
+using speako.Services.Speak;
 using System.Windows;
 
 namespace speako
@@ -10,12 +10,12 @@ namespace speako
   /// </summary>
   public partial class MainWindow : Window
   {
-    private readonly ISpeakService _speak;
+    //private readonly ISpeakService _speak;
 
-    public MainWindow(ISpeakService speak)
+    public MainWindow()
     {
       InitializeComponent();
-      _speak = speak;
+      //_speak = speak;
     }
 
     private void MenuItem_Click(object sender, RoutedEventArgs e)
@@ -26,7 +26,7 @@ namespace speako
     private void googleTTSMenuItem_Click(object sender, RoutedEventArgs e)
     {
       var settingsWindow = new SettingsWindow();
-      var GoogleSettingsControl = new Google.GoogleSettingsControl();
+      var GoogleSettingsControl = new GoogleSettingsControl();
       settingsWindow.settingsScroller.Content = GoogleSettingsControl;
       settingsWindow.ShowDialog();
     }
@@ -35,7 +35,7 @@ namespace speako
     {
       //print line
       System.Diagnostics.Debug.WriteLine("stream:ads asd asd assd asd asd asd asd asd sd  ");
-      await _speak.SpeakText(speakInput.Text);
+      //await _speak.SpeakText(speakInput.Text);
     }
   }
 }

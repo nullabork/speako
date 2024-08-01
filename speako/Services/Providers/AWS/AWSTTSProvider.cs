@@ -2,7 +2,7 @@
 using Amazon.Polly;
 using Amazon.Polly.Model;
 
-namespace speako.Features.Speak.Providers
+namespace speako.Services.Providers.AWS
 {
     public class AWSTTSProvider : ITTSProvider
     {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.CognitiveServices.Speech;
 
-namespace speako.Features.Speak.Providers
+namespace speako.Services.Providers.Azure
 {
     public class AzureVoice : IVoice
     {

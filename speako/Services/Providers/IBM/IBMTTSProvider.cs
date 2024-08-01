@@ -1,7 +1,8 @@
 ﻿using IBM.Cloud.SDK.Core.Authentication.Iam;
 using IBM.Watson.TextToSpeech.v1;
+using speako.Services.Providers;
 
-namespace speako.Features.Speak.Providers
+namespace speako.Services.Providers.IBM
 {
     public class IBMTTSProvider : ITTSProvider
     {

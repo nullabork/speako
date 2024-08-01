@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.IO;
 using Newtonsoft.Json;
 
-namespace speako.Google
+namespace speako.Services.Providers.Google
 {
     public class GoogleAuthSettings : JsonSerializable<GoogleAuthSettings>
     {

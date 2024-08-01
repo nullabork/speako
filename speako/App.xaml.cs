@@ -4,17 +4,20 @@ using System.Windows;
 
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-
-using speako.Features.Speak;
-using speako.Features.Speak.Providers;
-using speako.Google;
+using speako.Services.Providers;
+using speako.Services.Providers.AWS;
+using speako.Services.Providers.Azure;
+using speako.Services.Providers.ElevenLabs;
+using speako.Services.Providers.Google;
+using speako.Services.Providers.IBM;
+using speako.Services.Speak;
 
 namespace speako
 {
   /// <summary>
   /// Interaction logic for App.xaml
   /// </summary>
-  public partial class App : Application
+  public partial class App : Application 
   {
     private IHost _host;
 
@@ -48,8 +51,8 @@ namespace speako
     protected override async void OnStartup(StartupEventArgs e)
     {
       await _host.StartAsync();
-      var mainWindow = _host.Services.GetRequiredService<MainWindow>();
-      mainWindow.Show();
+      //var mainWindow = _host.Services.GetRequiredService<MainWindow>();
+      //mainWindow.Show();
       base.OnStartup(e);
     }
 

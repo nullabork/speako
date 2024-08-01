@@ -1,7 +1,8 @@
 ﻿
 using IBM.Watson.TextToSpeech.v1.Model;
+using speako.Services.Providers;
 
-namespace speako.Features.Speak.Providers
+namespace speako.Services.Providers.IBM
 {
     public class IBMVoice : IVoice
     {
@@ -15,6 +16,3 @@ namespace speako.Features.Speak.Providers
         public string Language { get; }
     }
 }
-
-
-

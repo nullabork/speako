@@ -1,5 +1,5 @@
 ﻿
-namespace speako.Features.Speak
+namespace speako.Services.Speak
 {
   public interface ISpeakService
   {

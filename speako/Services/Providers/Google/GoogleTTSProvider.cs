@@ -1,8 +1,6 @@
 ﻿using Google.Cloud.TextToSpeech.V1;
 
-using speako.Features.Speak.Providers;
-
-namespace speako.Google
+namespace speako.Services.Providers.Google
 {
   public class GoogleTTSProvider : ITTSProvider
   {

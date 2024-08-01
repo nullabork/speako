@@ -1,6 +1,7 @@
 ﻿using Amazon.Polly.Model;
+using speako.Services.Providers;
 
-namespace speako.Features.Speak.Providers
+namespace speako.Services.Providers.AWS
 {
     public class AWSVoice : IVoice
     {
