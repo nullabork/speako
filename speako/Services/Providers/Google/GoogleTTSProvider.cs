@@ -5,6 +5,8 @@ namespace speako.Services.Providers.Google
   public class GoogleTTSProvider : ITTSProvider
   {
 
+    public string Name => "Google";
+
     public GoogleTTSProvider()
     {
 

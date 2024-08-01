@@ -7,6 +7,8 @@ namespace speako.Services.Providers.Azure
 {
     public class AzureTTSProvider : ITTSProvider
     {
+        public string Name => "Azure";
+
         private string subscriptionKey;
         private string region;
 

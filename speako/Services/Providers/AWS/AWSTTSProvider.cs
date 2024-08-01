@@ -6,6 +6,8 @@ namespace speako.Services.Providers.AWS
 {
     public class AWSTTSProvider : ITTSProvider
     {
+        public string Name => "Amazon";
+
         public async Task<Stream> GetSpeechFromTextAsync(string text, CancellationToken token)
         {
             var client = new AmazonPollyClient(RegionEndpoint.USEast1);

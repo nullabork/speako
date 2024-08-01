@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.Extensions.DependencyInjection;
 using speako.Services.Providers.Google;
 using speako.Services.Speak;
 using System.Windows;
@@ -11,10 +12,12 @@ namespace speako
   public partial class MainWindow : Window
   {
     //private readonly ISpeakService _speak;
+    private readonly IServiceProvider _serviceProvider;
 
-    public MainWindow()
+    public MainWindow(IServiceProvider serviceProvider)
     {
       InitializeComponent();
+      _serviceProvider = serviceProvider;
       //_speak = speak;
     }
 
@@ -36,6 +39,12 @@ namespace speako
       //print line
       System.Diagnostics.Debug.WriteLine("stream:ads asd asd assd asd asd asd asd asd sd  ");
       //await _speak.SpeakText(speakInput.Text);
+    }
+
+    private void providersMenuItem_Click(object sender, RoutedEventArgs e)
+    {
+      var providersSettingsWindow = _serviceProvider.GetRequiredService<ProvidersSettingsWindow>();
+      providersSettingsWindow.ShowDialog();
     }
   }
 }

@@ -6,6 +6,8 @@ namespace speako.Services.Providers.ElevenLabs
 {
     public class ElevenLabsTTSProvider : ITTSProvider
     {
+        public string Name => "Eleven Labs";
+
         private static readonly HttpClient client = createHttpClient();
 
         private static HttpClient createHttpClient()
@@ -51,7 +53,10 @@ namespace speako.Services.Providers.ElevenLabs
 
         public async Task<IEnumerable<IVoice>> GetVoicesAsync(CancellationToken token)
         {
-            throw new NotImplementedException();
+            return new List<IVoice>
+            {
+                new ElevenLabsVoice("EXAVITQu4vr4xnSDxMaL", "Eleven Labs Voice")
+            };
         }
     }
 

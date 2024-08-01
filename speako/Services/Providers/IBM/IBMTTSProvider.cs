@@ -6,6 +6,8 @@ namespace speako.Services.Providers.IBM
 {
     public class IBMTTSProvider : ITTSProvider
     {
+        public string Name => "IBM";
+  
         private string apiKey;
         private string serviceUrl;
 
