@@ -1,5 +1,5 @@
 ﻿using Google.Cloud.TextToSpeech.V1;
-using speako.Providers;
+using speako.Features.Speak.Providers;
 
 namespace speako.Google
 {

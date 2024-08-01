@@ -1,4 +1,4 @@
-﻿namespace speako.Providers
+﻿namespace speako.Features.Speak.Providers
 {
     public interface IVoice
     {
