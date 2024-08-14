@@ -8,7 +8,15 @@
               
 
             <StackPanel Width="500" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,-1,0,0">
-                <StackPanel Orientation="Vertical">
+        <StackPanel.Resources>
+            <Style TargetType="StackPanel">
+                <Setter Property="Margin" Value="0,0,0,10"/>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="Margin" Value="0,10,0,40"/>
+            </Style>
+        </StackPanel.Resources>
+        <StackPanel Orientation="Vertical">
                     <Label Content="Type" Target="{Binding ElementName=typeInput}"/>
                     <TextBox x:Name="typeInput" Text="{Binding Type, UpdateSourceTrigger=PropertyChanged}" TextChanged="input_TextChanged" />
                     <TextBlock Text="The type of service account. This field is typically static as 'service_account'." TextWrapping="Wrap" FontSize="10"/>
@@ -63,7 +71,8 @@
                     <TextBox x:Name="clientX509CertUrlInput" Text="{Binding ClientX509CertUrl, UpdateSourceTrigger=PropertyChanged}" TextChanged="input_TextChanged"/>
                     <TextBlock Text="URL to the X509 certificate. Ensure it's entered correctly for proper authentication." TextWrapping="Wrap"/>
                 </StackPanel>
+        <Button x:Name="button" Content="Save" Click="button_Click"/>
 
-            </StackPanel>
+    </StackPanel>
 
 </UserControl>

@@ -1,63 +1,82 @@
 ﻿using System.Net.Http.Headers;
 
 using Newtonsoft.Json.Linq;
+using speako.Services.Providers.AWS;
+using speako.Services.Providers.Azure;
+using speako.Settings;
 
 namespace speako.Services.Providers.ElevenLabs
 {
-    public class ElevenLabsTTSProvider : ITTSProvider
+  public class ElevenLabsTTSProvider : ITTSProvider
+  {
+    public string Name => "Eleven Labs";
+
+    public override string ToString()
     {
-        public string Name => "Eleven Labs";
+      return Name;
+    }
 
-        private static readonly HttpClient client = createHttpClient();
 
-        private static HttpClient createHttpClient()
+    private static readonly HttpClient client = createHttpClient();
+
+    private static HttpClient createHttpClient()
+    {
+      //Load JSON file from config/ElevenLabs.json and key the key api_key
+      var authFilePath = Path.Combine("config", "ElevenAuth.json");
+      var json = JObject.Parse(File.ReadAllText(authFilePath));
+      var apiKey = json["api_key"]?.ToString();
+
+      if (string.IsNullOrEmpty(apiKey))
+      {
+        throw new Exception($"API key not found in {authFilePath}");
+      }
+
+      var client = new HttpClient();
+      client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("audio/mpeg"));
+      client.DefaultRequestHeaders.Add("xi-api-key", apiKey);
+      return client;
+    }
+
+    public async Task<Stream> GetSpeechFromTextAsync(string text, CancellationToken token)
+    {
+      string voiceId = "EXAVITQu4vr4xnSDxMaL"; // Replace with the desired voice ID
+      string url = $"https://api.elevenlabs.io/v1/text-to-speech/{voiceId}/stream";
+
+      var requestData = new
+      {
+        text,
+        model_id = "eleven_monolingual_v1",
+        voice_settings = new
         {
-            //Load JSON file from config/ElevenLabs.json and key the key api_key
-            var authFilePath = Path.Combine("config", "ElevenAuth.json");
-            var json = JObject.Parse(File.ReadAllText(authFilePath));
-            var apiKey = json["api_key"]?.ToString();
-
-            if (string.IsNullOrEmpty(apiKey))
-            {
-                throw new Exception($"API key not found in {authFilePath}");
-            }
-
-            var client = new HttpClient();
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("audio/mpeg"));
-            client.DefaultRequestHeaders.Add("xi-api-key", apiKey);
-            return client;
+          stability = 0.5,
+          similarity_boost = 0.5
         }
+      };
 
-        public async Task<Stream> GetSpeechFromTextAsync(string text, CancellationToken token)
-        {
-            string voiceId = "EXAVITQu4vr4xnSDxMaL"; // Replace with the desired voice ID
-            string url = $"https://api.elevenlabs.io/v1/text-to-speech/{voiceId}/stream";
+      var response = await client.PostAsJsonAsync(url, requestData, token);
+      response.EnsureSuccessStatusCode();
 
-            var requestData = new
-            {
-                text,
-                model_id = "eleven_monolingual_v1",
-                voice_settings = new
-                {
-                    stability = 0.5,
-                    similarity_boost = 0.5
-                }
-            };
+      var stream = await response.Content.ReadAsStreamAsync(token);
+      return stream;
+    }
 
-            var response = await client.PostAsJsonAsync(url, requestData, token);
-            response.EnsureSuccessStatusCode();
-
-            var stream = await response.Content.ReadAsStreamAsync(token);
-            return stream;
-        }
-
-        public async Task<IEnumerable<IVoice>> GetVoicesAsync(CancellationToken token)
-        {
-            return new List<IVoice>
+    public async Task<IEnumerable<IVoice>> GetVoicesAsync(CancellationToken token)
+    {
+      return new List<IVoice>
             {
                 new ElevenLabsVoice("EXAVITQu4vr4xnSDxMaL", "Eleven Labs Voice")
             };
-        }
     }
+
+    public void OpenSettings()
+    {
+      //throw new NotImplementedException();
+    }
+
+    public void LoadSettings(ConfiguredProvider cp)
+    {
+      //throw new NotImplementedException();
+    }
+  }
 
 }

@@ -1,46 +1,64 @@
 ﻿using IBM.Cloud.SDK.Core.Authentication.Iam;
 using IBM.Watson.TextToSpeech.v1;
 using speako.Services.Providers;
+using speako.Services.Providers.AWS;
+using speako.Services.Providers.Google;
+using speako.Settings;
 
 namespace speako.Services.Providers.IBM
 {
-    public class IBMTTSProvider : ITTSProvider
+  public class IBMTTSProvider : ITTSProvider
+  {
+    public string Name => "IBM";
+
+    private string apiKey;
+    private string serviceUrl;
+
+    public override string ToString()
     {
-        public string Name => "IBM";
-  
-        private string apiKey;
-        private string serviceUrl;
-
-        public IBMTTSProvider()
-        {
-        }
-
-        public async Task<Stream> GetSpeechFromTextAsync(string text, CancellationToken token)
-        {
-
-            // Create IAM Authenticator
-            IamAuthenticator authenticator = new IamAuthenticator(apikey: apiKey);
-
-            // Create Text to Speech service
-            var textToSpeech = new TextToSpeechService(authenticator);
-            textToSpeech.SetServiceUrl(serviceUrl);
-
-            // Create a synthesize request
-            var result = textToSpeech.Synthesize(text, "audio/mpeg", "en-US_AllisonV3Voice");
-
-            return result.Result;
-        }
-
-        public async Task<IEnumerable<IVoice>> GetVoicesAsync(CancellationToken token)
-        {
-            IamAuthenticator authenticator = new IamAuthenticator(apikey: apiKey);
-
-            var textToSpeech = new TextToSpeechService(authenticator);
-            var response = textToSpeech.ListVoices();
-
-            return response.Result._Voices.Select(response => new IBMVoice(response)).ToList();
-        }
+      return Name;
     }
+
+    public IBMTTSProvider()
+    {
+    }
+
+    public async Task<Stream> GetSpeechFromTextAsync(string text, CancellationToken token)
+    {
+
+      // Create IAM Authenticator
+      IamAuthenticator authenticator = new IamAuthenticator(apikey: apiKey);
+
+      // Create Text to Speech service
+      var textToSpeech = new TextToSpeechService(authenticator);
+      textToSpeech.SetServiceUrl(serviceUrl);
+
+      // Create a synthesize request
+      var result = textToSpeech.Synthesize(text, "audio/mpeg", "en-US_AllisonV3Voice");
+
+      return result.Result;
+    }
+
+    public async Task<IEnumerable<IVoice>> GetVoicesAsync(CancellationToken token)
+    {
+      IamAuthenticator authenticator = new IamAuthenticator(apikey: apiKey);
+
+      var textToSpeech = new TextToSpeechService(authenticator);
+      var response = textToSpeech.ListVoices();
+
+      return response.Result._Voices.Select(response => new IBMVoice(response)).ToList();
+    }
+
+    public void OpenSettings()
+    {
+      //throw new NotImplementedException();
+    }
+
+    public void LoadSettings(ConfiguredProvider cp)
+    {
+      //throw new NotImplementedException();
+    }
+  }
 }
 
 

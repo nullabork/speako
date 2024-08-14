@@ -1,8 +1,13 @@
-﻿namespace speako.Services.Providers
+﻿using Newtonsoft.Json;
+
+namespace speako.Services.Providers
 {
-    public interface IVoice
-    {
-        string Name { get; }
-        string Language { get; }
-    }
+  public interface IVoice
+  {
+    string Name { get;}
+
+    string Language { get;}
+
+    string ConfuredProviderUUID { get; }
+  }
 }

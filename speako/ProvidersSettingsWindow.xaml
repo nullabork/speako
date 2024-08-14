@@ -11,7 +11,14 @@
             <RowDefinition Height="22*"/>
             <RowDefinition Height="195*"/>
         </Grid.RowDefinitions>
-        <ListBox x:Name="listBox" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <ListBox x:Name="providersListBox" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <EventSetter Event="MouseDoubleClick" Handler="ListBoxItem_MouseDoubleClick"/>
+                    <EventSetter Event="MouseRightButtonDown" Handler="ListBoxItem_MouseRightButtonDown"/>
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
         <ComboBox x:Name="providerComboBox" HorizontalAlignment="Left" Margin="31,10,0,0" VerticalAlignment="Top" Width="158"/>
         <Button x:Name="addProviderButton" Content="Add" HorizontalAlignment="Left" Margin="215,0,0,0" VerticalAlignment="Center" Click="addProviderButton_Click"/>
 

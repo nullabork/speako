@@ -6,15 +6,15 @@
         xmlns:local="clr-namespace:speako"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="813">
-
     <Grid>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="21"/>
-            <RowDefinition/>
+            <RowDefinition Height="335*"/>
+            <RowDefinition Height="28*"/>
             <RowDefinition Height="50.04"/>
         </Grid.RowDefinitions>
-        <Menu x:Name="menu" Grid.RowSpan="2">
+        <Menu x:Name="menu" Grid.RowSpan="3">
 
             <MenuItem Header="_File">
                 <MenuItem Header="_Open"/>
@@ -26,18 +26,25 @@
                 <MenuItem Header="_Paste"/>
                 <MenuItem Header="_Cut"/>
             </MenuItem>
-            <MenuItem Header="_Help">
-                <MenuItem Header="_About"/>
+            <MenuItem Header="_Voices" Click="voicesMenuItem_Click" >
             </MenuItem>
             <MenuItem Header="_Settings">
                 <MenuItem Header="_Providers" x:Name="providersMenuItem" Click="providersMenuItem_Click" />
             </MenuItem>
 
 
+
         </Menu>
-        <ListBox x:Name="messageHistoryOutput" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.RowSpan="2" Grid.Row="1"/>
-        <Button x:Name="speakButton" Content="Speak"  Width="40" Grid.Row="2" HorizontalAlignment="Right" Click="speakButton_Click"/>
-        <TextBox x:Name="speakInput" Margin="0,0,40,0" Grid.Row="2" TextWrapping="Wrap" Text="Speako's sly fox jumped quickly by the buzzing hive, vexing wizards with amazing glyphs, tricky japes, and uniquely obscure facts."/>
+        <ListBox x:Name="messageHistoryOutput" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Row="1"/>
+        <ComboBox x:Name="voicesComboBox" Grid.Row="2">
+            <ComboBox.ItemContainerStyle>
+                <Style TargetType="ComboBoxItem">
+                    <EventSetter Event="MouseUp" Handler="voicesComboBoxItem_MouseUp"/>
+                </Style>
+            </ComboBox.ItemContainerStyle>
+        </ComboBox>
+        <Button x:Name="speakButton" Content="Speak"  Width="40" Grid.Row="3" HorizontalAlignment="Left" Click="speakButton_Click" Margin="773,0,0,0"/>
+        <TextBox x:Name="speakInput" Margin="0,0,40,0" Grid.Row="3" TextWrapping="Wrap" Text="Speako's sly fox jumped quickly by the buzzing hive, vexing wizards with amazing glyphs, tricky japes, and uniquely obscure facts."/>
 
     </Grid>
 </Window>

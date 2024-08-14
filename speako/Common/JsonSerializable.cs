@@ -1,35 +1,61 @@
-﻿using System;
-using System.IO;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
-public abstract class JsonSerializable<T> : IJsonSerializable<T> where T : JsonSerializable<T>, new()
+public abstract class JsonSerializable<T> where T : JsonSerializable<T>, new()
 {
-    private static readonly Lazy<T> _instance = new Lazy<T>(() => Load());
+  public void Save()
+  {
+    var json = JsonConvert.SerializeObject(this, Formatting.Indented);
+    json = BeforeSave((T)this, json);
+    File.WriteAllText(FilePath, json);
+    AfterSave((T)this);
+  }
 
-    public static T Instance => _instance.Value;
+  public static string GetFilePath(string filename)
+  {
+    return Path.GetFullPath(Path.Combine("Config", filename + ".json"));
+  }
 
-    public void Save()
+  [JsonIgnore]
+  public string FilePath { get; private set; }
+
+  public static T Load()
+  {
+    return Load(typeof(T).Name);
+  }
+
+  public static T Load(string filename)
+  {
+    var instance = new T
     {
-        var json = JsonConvert.SerializeObject(this, Formatting.Indented);
-        File.WriteAllText(GetFilePath(), json);
-    }
+      FilePath = GetFilePath(filename)
+    };
+    instance.LoadFile();
+    return instance;
+  }
 
-    protected static string GetFilePath()
+  public void LoadFile()
+  {
+    if (File.Exists(FilePath))
     {
-        var tempInstance = new T();
-        return tempInstance.FilePath;
+      var json = File.ReadAllText(FilePath);
+      JsonConvert.PopulateObject(json, this);
+      AfterLoad((T)this);
     }
+  }
 
-    protected abstract string FilePath { get; }
+  protected virtual void AfterLoad(T instance)
+  {
+    // Default implementation does nothing
+  }
 
-    private static T Load()
-    {
-        var filePath = GetFilePath();
-        if (File.Exists(filePath))
-        {
-            var json = File.ReadAllText(filePath);
-            return JsonConvert.DeserializeObject<T>(json) ?? new T();
-        }
-        return new T();
-    }
+  protected virtual void AfterSave(T instance)
+  {
+    // Default implementation does nothing
+  }
+
+  protected virtual string BeforeSave(T instance, string serialized)
+  {
+    // Default implementation does nothing
+    return serialized;
+  }
 }

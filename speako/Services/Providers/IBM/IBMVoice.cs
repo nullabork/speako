@@ -4,15 +4,16 @@ using speako.Services.Providers;
 
 namespace speako.Services.Providers.IBM
 {
-    public class IBMVoice : IVoice
+  public class IBMVoice : IVoice
+  {
+    public IBMVoice(Voice voice)
     {
-        public IBMVoice(Voice voice)
-        {
-            Name = voice.Name;
-            Language = voice.Language;
-        }
-
-        public string Name { get; }
-        public string Language { get; }
+      Name = voice.Name;
+      Language = voice.Language;
     }
+
+    public string Name { get; }
+    public string Language { get; }
+    public string ConfuredProviderUUID => throw new NotImplementedException();
+  }
 }

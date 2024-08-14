@@ -1,0 +1,107 @@
+﻿<Window x:Class="speako.Services.VoiceSettings.VoiceWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:speako.Services.VoiceSettings"
+        mc:Ignorable="d"
+        Title="VoiceWindow" Height="450" Width="800">
+    <StackPanel>
+        <StackPanel.Resources>
+            <Style TargetType="StackPanel">
+                <Setter Property="Margin" Value="0,0,0,10"/>
+                <Setter Property="MaxWidth" Value="450"/>
+            </Style>
+        </StackPanel.Resources>
+
+        <StackPanel>
+            <Label Content="Custom Voice Name" VerticalAlignment="Top"/>
+            <TextBox x:Name="voiceNameTextBox"/>
+        </StackPanel>
+        <StackPanel>
+            <Label Content="Provider" VerticalAlignment="Top"/>
+            <ComboBox x:Name="providerComboBox" VerticalAlignment="Top" SelectionChanged="providerComboBox_SelectionChanged"/>
+        </StackPanel>
+        <StackPanel>
+            <Label Content="Voice" VerticalAlignment="Top"/>
+            <ComboBox x:Name="voiceComboBox" VerticalAlignment="Top" ItemStringFormat=""/>
+        </StackPanel>
+        <StackPanel>
+            <Label Content="Output Device" VerticalAlignment="Top"/>
+            <ComboBox x:Name="outputDeviceComboBox"  VerticalAlignment="Top" SelectedIndex="0" HorizontalContentAlignment="Stretch" >
+
+               
+                <ComboBox.ItemContainerStyle>
+                    <Style TargetType="ComboBoxItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        <Setter Property="Width" Value="450"/>
+                    </Style>
+                </ComboBox.ItemContainerStyle>
+            </ComboBox>
+        </StackPanel>
+        <StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+
+                <StackPanel Grid.Row="0" Grid.Column="0" >
+                    <StackPanel Orientation="Horizontal">
+                        <Label  Content="Volume" />
+                        <Label x:Name="volumeValueLabel" Content="{Binding Value, ElementName=volumeValueSlider}"/>
+                    </StackPanel>
+                    <Slider Margin="20,0,20,0" Maximum="100" Value="50" Minimum="0" x:Name="volumeValueSlider"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="0" Grid.Column="1">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Speed" />
+                        <Label x:Name="speedValueLabel" Content="{Binding Value, ElementName=speedValueSlider}"/>
+                    </StackPanel>
+                    <Slider Margin="20,0,20,0" Maximum="100" Value="50" Minimum="0" x:Name="speedValueSlider"/>
+                </StackPanel>
+
+            </Grid>
+        </StackPanel>
+
+        <StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+
+                <StackPanel Grid.Row="0" Grid.Column="0">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Pitch" />
+                        <Label x:Name="pitchValueLabel" Content="{Binding Value, ElementName=pitchValueSlider}" />
+                    </StackPanel>
+                    <Slider Margin="20,0,20,0" Maximum="100" Value="50" Minimum="0" x:Name="pitchValueSlider"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="0" Grid.Column="1">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Other" />
+                        <Label x:Name="otherValueLabel" Content="{Binding Value, ElementName=otherValueSlider}" />
+                    </StackPanel>
+                    <Slider Margin="20,0,20,0" Maximum="100" Value="50" Minimum="0" x:Name="otherValueSlider"/>
+                </StackPanel>
+
+            </Grid>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <StackPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Margin" Value="0,10,10,10"/>
+                    <Setter Property="Padding" Value="10,2"/>
+                </Style>
+            </StackPanel.Resources>
+            <Button Content="Save" Click="SaveButton_Click"/>
+            <Button Content="Test" Click="TestButton_Click"/>
+        </StackPanel>
+    </StackPanel>
+</Window>

@@ -7,6 +7,8 @@
 
     public string Language => "asdasd";
 
+    public string ConfuredProviderUUID => throw new NotImplementedException();
+
     public ElevenLabsVoice(string id, string name)
     {
       Id = id;

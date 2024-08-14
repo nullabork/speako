@@ -1,8 +1,9 @@
-﻿
-using Microsoft.Extensions.DependencyInjection;
-using speako.Services.Providers.Google;
-using speako.Services.Speak;
+﻿using Microsoft.Extensions.DependencyInjection;
+
+using speako.Services.VoiceSettings;
+using speako.Settings;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace speako
 {
@@ -11,27 +12,33 @@ namespace speako
   /// </summary>
   public partial class MainWindow : Window
   {
-    //private readonly ISpeakService _speak;
     private readonly IServiceProvider _serviceProvider;
+    private readonly ApplicationSettings _applicationSettings;
 
-    public MainWindow(IServiceProvider serviceProvider)
+    public MainWindow(IServiceProvider serviceProvider, ApplicationSettings applicationSettings)
     {
       InitializeComponent();
       _serviceProvider = serviceProvider;
+      _applicationSettings = applicationSettings;
       //_speak = speak;
+      AddVoices();
     }
 
-    private void MenuItem_Click(object sender, RoutedEventArgs e)
+    private async void AddVoices()
     {
+      CancellationTokenSource cts = new CancellationTokenSource();
 
-    }
-
-    private void googleTTSMenuItem_Click(object sender, RoutedEventArgs e)
-    {
-      var settingsWindow = new SettingsWindow();
-      var GoogleSettingsControl = new GoogleSettingsControl();
-      settingsWindow.settingsScroller.Content = GoogleSettingsControl;
-      settingsWindow.ShowDialog();
+      _applicationSettings.ConfiguredProviders.ForEach(async provider =>
+      {
+        //cancellation token
+        foreach (var item in (await provider.Provider.GetVoicesAsync(cts.Token)))
+        {
+          var cbItem = new ComboBoxItem();
+          cbItem.Content = item.Name;
+          cbItem.DataContext = item;
+          voicesComboBox.Items.Add(cbItem);
+        }
+      });
     }
 
     private async void speakButton_Click(object sender, RoutedEventArgs e)
@@ -45,6 +52,25 @@ namespace speako
     {
       var providersSettingsWindow = _serviceProvider.GetRequiredService<ProvidersSettingsWindow>();
       providersSettingsWindow.ShowDialog();
+
     }
+
+    private void voicesMenuItem_Click(object sender, RoutedEventArgs e)
+    {
+      var voiceSettingsWindow = _serviceProvider.GetRequiredService<VoiceSettingsWindow>();
+      voiceSettingsWindow.ShowDialog();
+    }
+
+    //ComboBoxItem_MouseUp
+    private void voicesComboBoxItem_MouseUp(object sender, RoutedEventArgs e)
+    {
+      //var item = (ComboBoxItem)sender;
+      //var provider = (ITTSProvider)item.DataContext;
+      //var settingsControl = provider.GetSettingsControl();
+      //settingsControl.ShowDialog();
+
+    }
+
+
   }
 }
