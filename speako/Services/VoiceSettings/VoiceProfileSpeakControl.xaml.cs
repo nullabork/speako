@@ -29,7 +29,9 @@ namespace speako.Services.VoiceSettings
 
     private void VoiceContextChanged(object sender, DependencyPropertyChangedEventArgs e)
     {
-      throw new NotImplementedException();
+      
+
+
     }
 
     public VoiceProfile VoiceContext
@@ -53,7 +55,7 @@ namespace speako.Services.VoiceSettings
 
     private void OnPropertyChanged(object? sender, PropertyChangedEventArgs e)
     {
-      throw new NotImplementedException();
+      //throw new NotImplementedException();
     }
   }
 }

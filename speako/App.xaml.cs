@@ -10,6 +10,7 @@ using speako.Services.Speak;
 using speako.Services.ProviderSettings;
 using speako.Services.VoiceSettings;
 using speako.Common;
+using speako.Services.Audio;
 
 namespace speako
 {
@@ -39,13 +40,15 @@ namespace speako
 
       var a = ApplicationSettings.Load();
       services.AddSingleton(a);
+      services.AddSingleton<IAudioService, AudioService>();
+      services.AddSingleton<VoiceQueue>();
 
       services.AddTransient<MainWindow>();
       services.AddTransient<ProvidersSettingsWindow>();
       services.AddTransient<VoiceProfilesListWindow>();
       services.AddTransient<VoiceProfileDetailWindow>();
       services.AddTransient<SpeakService>();
-      services.AddTransient<VoiceProfileSpeakControl>();
+      services.AddTransient<VoiceProfileSpeakControl>();      
 
       services.AddTransient<ITTSProvider, GoogleTTSProvider>();
       services.AddTransient<ITTSProvider, AWSTTSProvider>();

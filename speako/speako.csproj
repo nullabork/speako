@@ -12,6 +12,7 @@
     <None Remove="Assets\loading.gif" />
     <None Remove="Assets\loading2.gif" />
     <None Remove="Assets\loading3.gif" />
+    <None Remove="Services\Audio\NewFile1.txt" />
   </ItemGroup>
 
   <ItemGroup>
@@ -49,6 +50,7 @@
 
   <ItemGroup>
     <Folder Include="Properties\" />
+    <Folder Include="Services\Auth\NewFolder1\" />
   </ItemGroup>
 
   <ItemGroup>

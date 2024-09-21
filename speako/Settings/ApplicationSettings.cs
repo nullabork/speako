@@ -13,7 +13,7 @@ namespace speako.Settings
     public ObservableCollection<IAuthSettings> ConfiguredProviders { get; set; } = new ObservableCollection<IAuthSettings>();
     public ObservableCollection<VoiceProfile> ConfiguredVoices { get; set; } = new ObservableCollection<VoiceProfile>();
 
-    protected override void AfterLoad(ApplicationSettings instance)
+    protected override void AfterLoad()
     {
       ProcessProviders(); // Call ProcessProviders after the object is loaded
     }

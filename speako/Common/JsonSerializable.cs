@@ -4,15 +4,10 @@ using speako.Common;
 
 public abstract class JsonSerializable<T> where T : JsonSerializable<T>, new()
 {
-
-  public bool loaded { get; set; } = false;
-
   public void Save()
   {
     var json = JsonConvert.SerializeObject(this, Formatting.Indented);
-    json = BeforeSave((T)this, json);
     File.WriteAllText(FilePath, json);
-    AfterSave((T)this);
   }
 
   public static string GetFilePath(string filename)
@@ -50,25 +45,12 @@ public abstract class JsonSerializable<T> where T : JsonSerializable<T>, new()
       };
 
       JsonConvert.PopulateObject(json, this, settings);
-      AfterLoad((T)this);
-
-      loaded = true;
+      AfterLoad();
     }
   }
-
-  protected virtual void AfterLoad(T instance)
+  
+  protected virtual void AfterLoad()
   {
     // Default implementation does nothing
-  }
-
-  protected virtual void AfterSave(T instance)
-  {
-    // Default implementation does nothing
-  }
-
-  protected virtual string BeforeSave(T instance, string serialized)
-  {
-    // Default implementation does nothing
-    return serialized;
   }
 }

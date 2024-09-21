@@ -1,7 +1,9 @@
 ﻿using Accord.DirectSound;
+
 using FuzzySharp;
+
 using NAudio.CoreAudioApi;
-using NAudio.Wave;
+
 using System.Collections.Generic;
 
 namespace speako.Common
@@ -35,7 +37,8 @@ namespace speako.Common
       {
         var guid = device.Guid.ToString();
 
-        devices.Add(guid, new AudioDevice {
+        devices.Add(guid, new AudioDevice
+        {
           DeviceName = device.Description,
           DeviceGuid = guid
         });
@@ -45,3 +48,4 @@ namespace speako.Common
     }
   }
 }
+

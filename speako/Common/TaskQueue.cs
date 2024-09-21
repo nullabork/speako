@@ -1,5 +1,7 @@
 ﻿using NAudio.Wave;
+
 using speako.Services.Providers;
+
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -11,43 +13,87 @@ namespace speako.Common
 {
   using System.Collections.Concurrent;
 
-  public class VoiceQueue
+  public class VoiceQueue : IAsyncDisposable
   {
-    private readonly SemaphoreSlim _semaphore = new SemaphoreSlim(1, 1);
-    private readonly ConcurrentQueue<Func<Task>> _queue = new ConcurrentQueue<Func<Task>>();
+    private readonly SemaphoreSlim _enqueueSempaphore = new SemaphoreSlim(1, 1);
+    private readonly SemaphoreSlim _processingSemaphore = new SemaphoreSlim(0, 1);
+    private readonly Queue<Func<CancellationToken, Task>> _queue = new Queue<Func<CancellationToken, Task>>();
+    private readonly Task _processing;
+    private readonly CancellationTokenSource _cancel = new CancellationTokenSource();
 
-    public void Enqueue(Func<Task> voiceTask)
+    public VoiceQueue()
     {
-      _queue.Enqueue(voiceTask);
-      ProcessQueue();
+      _processing = ProcessQueue();
     }
 
-    private async void ProcessQueue()
+    public async ValueTask DisposeAsync()
     {
-      await _semaphore.WaitAsync();
+      _cancel.Cancel();
+      await _processing;
+      _enqueueSempaphore.Dispose();
+      _processingSemaphore.Dispose();
+    }
 
+    public async Task Enqueue(Func<CancellationToken, Task> voiceTask)
+    {
       try
       {
-        while (_queue.TryDequeue(out var task))
-        {
-          try
-          {
-            await task();
-          }
-          catch (Exception ex)
-          {
-            // Log the exception or handle it as needed
-            Console.WriteLine($"An error occurred: {ex.Message}");
-          }
-        }
+        await _enqueueSempaphore.WaitAsync();
+        System.Diagnostics.Debug.WriteLine("Enqueue");
+        _queue.Enqueue(voiceTask);
+        _processingSemaphore.TryRelease();
+      }
+      catch(Exception ex)
+      {
+        System.Diagnostics.Debug.WriteLine(ex.ToString());
       }
       finally
       {
-        _semaphore.Release();
+        _enqueueSempaphore.Release();
+        System.Diagnostics.Debug.WriteLine("Enqueue - Release");
+      }
+    }
+
+    private async Task ProcessQueue()
+    {
+      try
+      {
+        while (!_cancel.Token.IsCancellationRequested)
+        {
+          System.Diagnostics.Debug.WriteLine("Process");
+          if (_queue.Count == 0)
+          {
+            System.Diagnostics.Debug.WriteLine("Process - Wait");
+            await _processingSemaphore.WaitAsync(_cancel.Token);
+          }
+          if (_cancel.Token.IsCancellationRequested) break;
+          if (!_queue.TryDequeue(out var task))
+            continue;
+
+          try
+          {
+            await task(_cancel.Token);
+            System.Diagnostics.Debug.WriteLine("Processed");
+          }
+          catch (Exception ex)
+          {
+            System.Diagnostics.Debug.WriteLine(ex.ToString());
+          }
+        }
+      }
+      catch( Exception ex)
+      {
+        System.Diagnostics.Debug.WriteLine(ex.ToString());
       }
     }
   }
 
-
-
+  public static class SemaphoreSlimEx
+  {
+    public static bool TryRelease(this SemaphoreSlim semaphoreSlim)
+    {
+      try { semaphoreSlim.Release(); } catch (SemaphoreFullException) { return false; }
+      return true;
+    }
+  }
 }

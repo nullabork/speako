@@ -88,8 +88,6 @@ namespace speako.Services.Providers.Google
 
     public async Task<Stream> GetSpeechFromTextAsync(string text, VoiceProfile profile, CancellationToken token)
     {
-
-      // Define the input text to be synthesized
       SynthesisInput input = new SynthesisInput
       {
         Text = text
@@ -102,9 +100,6 @@ namespace speako.Services.Providers.Google
 
       };
 
-      
-
-      // Specify the type of audio file to return
       AudioConfig config = new AudioConfig
       {
         AudioEncoding = AudioEncoding.Mp3,
@@ -114,8 +109,6 @@ namespace speako.Services.Providers.Google
         VolumeGainDb = RangeConverter.ConvertRange<double>(Convert.ToDouble(profile.Volume), 0, 100, -96, 16),
       };
 
-
-      // Perform the Text-to-Speech request
       SynthesizeSpeechResponse response = await _client.SynthesizeSpeechAsync(input, voice, config, token);
 
       var ms = new MemoryStream();
