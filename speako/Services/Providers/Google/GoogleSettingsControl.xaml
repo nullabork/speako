@@ -4,10 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:speako.Services.Providers.Google"
-             mc:Ignorable="d" d:DesignWidth="800"  VerticalAlignment="Top">
-              
+             mc:Ignorable="d"  VerticalAlignment="Top" Width="527" Margin="10,0,10,0">
 
-            <StackPanel Width="500" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,-1,0,0">
+
+    <StackPanel VerticalAlignment="Top" Margin="0,-1,0,0">
         <StackPanel.Resources>
             <Style TargetType="StackPanel">
                 <Setter Property="Margin" Value="0,0,0,10"/>
@@ -16,62 +16,77 @@
                 <Setter Property="Margin" Value="0,10,0,40"/>
             </Style>
         </StackPanel.Resources>
+
         <StackPanel Orientation="Vertical">
-                    <Label Content="Type" Target="{Binding ElementName=typeInput}"/>
-                    <TextBox x:Name="typeInput" Text="{Binding Type, UpdateSourceTrigger=PropertyChanged}" TextChanged="input_TextChanged" />
-                    <TextBlock Text="The type of service account. This field is typically static as 'service_account'." TextWrapping="Wrap" FontSize="10"/>
-                </StackPanel>
+            <Label Content="Name" Target="{Binding ElementName=nameInput}"/>
+            <TextBox x:Name="nameInput" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" TextChanged="input_TextChanged" />
+            <TextBlock Text="The type of service account. This field is typically static as 'service_account'." TextWrapping="Wrap" FontSize="10"/>
+        </StackPanel>
 
-                <StackPanel Orientation="Vertical">
-                    <Label Content="Project ID" Target="{Binding ElementName=projectIdInput}"/>
-                    <TextBox x:Name="projectIdInput" Text="{Binding ProjectId, UpdateSourceTrigger=PropertyChanged}" TextChanged="input_TextChanged"/>
-                </StackPanel>
+        <StackPanel Orientation="Vertical">
+            <Label Content="Type" Target="{Binding ElementName=typeInput}"/>
+            <TextBox x:Name="typeInput" Text="{Binding Type, UpdateSourceTrigger=PropertyChanged}" TextChanged="input_TextChanged" />
+            <TextBlock Text="The type of service account. This field is typically static as 'service_account'." TextWrapping="Wrap" FontSize="10"/>
+        </StackPanel>
 
-                <StackPanel Orientation="Vertical">
-                    <Label Content="Private Key ID" Target="{Binding ElementName=privateKeyIdInput}"/>
-                    <TextBox x:Name="privateKeyIdInput" Text="{Binding PrivateKeyId, UpdateSourceTrigger=PropertyChanged}" TextChanged="input_TextChanged"/>
-                </StackPanel>
+        <StackPanel Orientation="Vertical">
+            <Label Content="Project ID" Target="{Binding ElementName=projectIdInput}"/>
+            <TextBox x:Name="projectIdInput" Text="{Binding ProjectId, UpdateSourceTrigger=PropertyChanged}" TextChanged="input_TextChanged"/>
+        </StackPanel>
 
-                <StackPanel Orientation="Vertical">
-                    <Label Content="Private Key" Target="{Binding ElementName=privateKeyInput}"/>
-                    <TextBox x:Name="privateKeyInput" Text="{Binding PrivateKey, UpdateSourceTrigger=PropertyChanged}" TextChanged="input_TextChanged"/>
-                    <TextBlock Text="Ensure your private key remains confidential." TextWrapping="Wrap" FontSize="10"/>
-                </StackPanel>
+        <StackPanel Orientation="Vertical">
+            <Label Content="Private Key ID" Target="{Binding ElementName=privateKeyIdInput}"/>
+            <TextBox x:Name="privateKeyIdInput" Text="{Binding PrivateKeyId, UpdateSourceTrigger=PropertyChanged}" TextChanged="input_TextChanged"/>
+        </StackPanel>
 
-                <StackPanel Orientation="Vertical">
-                    <Label Content="Client Email" Target="{Binding ElementName=clientEmailInput}"/>
-                    <TextBox x:Name="clientEmailInput" Text="{Binding ClientEmail, UpdateSourceTrigger=PropertyChanged}" TextChanged="input_TextChanged"/>
-                </StackPanel>
+        <StackPanel Orientation="Vertical">
+            <Label Content="Private Key" Target="{Binding ElementName=privateKeyInput}"/>
+            <TextBox x:Name="privateKeyInput" Text="{Binding PrivateKey, UpdateSourceTrigger=PropertyChanged}" TextChanged="input_TextChanged"/>
+            <TextBlock Text="Ensure your private key remains confidential." TextWrapping="Wrap" FontSize="10"/>
+        </StackPanel>
 
-                <StackPanel Orientation="Vertical">
-                    <Label Content="Client ID" Target="{Binding ElementName=clientIdInput}"/>
-                    <TextBox x:Name="clientIdInput" Text="{Binding ClientId, UpdateSourceTrigger=PropertyChanged}" TextChanged="input_TextChanged"/>
-                </StackPanel>
+        <StackPanel Orientation="Vertical">
+            <Label Content="Client Email" Target="{Binding ElementName=clientEmailInput}"/>
+            <TextBox x:Name="clientEmailInput" Text="{Binding ClientEmail, UpdateSourceTrigger=PropertyChanged}" TextChanged="input_TextChanged"/>
+        </StackPanel>
 
-                <StackPanel Orientation="Vertical">
-                    <Label Content="Auth URI" Target="{Binding ElementName=authUriInput}"/>
-                    <TextBox x:Name="authUriInput" Text="{Binding AuthUri, UpdateSourceTrigger=PropertyChanged}" TextChanged="input_TextChanged" />
-                    <TextBlock Text="Authentication URI for OAuth 2.0." TextWrapping="Wrap" FontSize="10"/>
-                </StackPanel>
+        <StackPanel Orientation="Vertical">
+            <Label Content="Client ID" Target="{Binding ElementName=clientIdInput}"/>
+            <TextBox x:Name="clientIdInput" Text="{Binding ClientId, UpdateSourceTrigger=PropertyChanged}" TextChanged="input_TextChanged"/>
+        </StackPanel>
 
-                <StackPanel Orientation="Vertical">
-                    <Label Content="Token URI" Target="{Binding ElementName=tokenUriInput}"/>
-                    <TextBox x:Name="tokenUriInput" Text="{Binding TokenUri, UpdateSourceTrigger=PropertyChanged}" TextChanged="input_TextChanged"/>
-                    <TextBlock Text="URI to obtain OAuth 2.0 tokens." TextWrapping="Wrap" FontSize="10"/>
-                </StackPanel>
+        <StackPanel Orientation="Vertical">
+            <Label Content="Auth URI" Target="{Binding ElementName=authUriInput}"/>
+            <TextBox x:Name="authUriInput" Text="{Binding AuthUri, UpdateSourceTrigger=PropertyChanged}" TextChanged="input_TextChanged" />
+            <TextBlock Text="Authentication URI for OAuth 2.0." TextWrapping="Wrap" FontSize="10"/>
+        </StackPanel>
 
-                <StackPanel Orientation="Vertical">
-                    <Label Content="Auth Provider X509 Cert URL" Target="{Binding ElementName=authProviderX509CertUrlInput}"/>
-                    <TextBox x:Name="authProviderX509CertUrlInput" Text="{Binding AuthProviderX509CertUrl, UpdateSourceTrigger=PropertyChanged}" TextChanged="input_TextChanged"/>
-                    <TextBlock Text="URL to the authentication provider's X509 certification." TextWrapping="Wrap"/>
-                </StackPanel>
+        <StackPanel Orientation="Vertical">
+            <Label Content="Token URI" Target="{Binding ElementName=tokenUriInput}"/>
+            <TextBox x:Name="tokenUriInput" Text="{Binding TokenUri, UpdateSourceTrigger=PropertyChanged}" TextChanged="input_TextChanged"/>
+            <TextBlock Text="URI to obtain OAuth 2.0 tokens." TextWrapping="Wrap" FontSize="10"/>
+        </StackPanel>
 
-                <StackPanel Orientation="Vertical">
-                    <Label Content="Client X509 Cert URL" Target="{Binding ElementName=clientX509CertUrlInput}"/>
-                    <TextBox x:Name="clientX509CertUrlInput" Text="{Binding ClientX509CertUrl, UpdateSourceTrigger=PropertyChanged}" TextChanged="input_TextChanged"/>
-                    <TextBlock Text="URL to the X509 certificate. Ensure it's entered correctly for proper authentication." TextWrapping="Wrap"/>
-                </StackPanel>
-        <Button x:Name="button" Content="Save" Click="button_Click"/>
+        <StackPanel Orientation="Vertical">
+            <Label Content="Auth Provider X509 Cert URL" Target="{Binding ElementName=authProviderX509CertUrlInput}"/>
+            <TextBox x:Name="authProviderX509CertUrlInput" Text="{Binding AuthProviderX509CertUrl, UpdateSourceTrigger=PropertyChanged}" TextChanged="input_TextChanged"/>
+            <TextBlock Text="URL to the authentication provider's X509 certification." TextWrapping="Wrap"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical">
+            <Label Content="Client X509 Cert URL" Target="{Binding ElementName=clientX509CertUrlInput}"/>
+            <TextBox x:Name="clientX509CertUrlInput" Text="{Binding ClientX509CertUrl, UpdateSourceTrigger=PropertyChanged}" TextChanged="input_TextChanged"/>
+            <TextBlock Text="URL to the X509 certificate. Ensure it's entered correctly for proper authentication." TextWrapping="Wrap"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <StackPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Padding" Value="10,2"/>
+                </Style>
+            </StackPanel.Resources>
+            <Button Content="Save" Click="saveButton_Click" Width="50" />
+        </StackPanel>
 
     </StackPanel>
 

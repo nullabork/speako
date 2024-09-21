@@ -1,4 +1,5 @@
 ﻿using Google.Cloud.TextToSpeech.V1;
+using speako.Services.Auth;
 using speako.Settings;
 
 namespace speako.Services.Providers.Google
@@ -7,19 +8,17 @@ namespace speako.Services.Providers.Google
   {
     private Voice v;
 
-    private ConfiguredProvider cp;
+    private IAuthSettings cp;
 
-    public GoogleVoice(Voice v, ConfiguredProvider cp)
+    public GoogleVoice(Voice v)
     {
       this.v = v;
-      this.cp = cp;
+      //this.cp = cp;
     }
 
     public string Name => v.Name;
 
     public string Language => v.LanguageCodes[0];
-
-    public string ConfuredProviderUUID => cp.uuid;
 
     public override string ToString()
     {

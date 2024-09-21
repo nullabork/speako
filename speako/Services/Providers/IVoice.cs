@@ -7,7 +7,5 @@ namespace speako.Services.Providers
     string Name { get;}
 
     string Language { get;}
-
-    string ConfuredProviderUUID { get; }
   }
 }

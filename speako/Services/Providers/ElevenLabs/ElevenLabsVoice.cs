@@ -7,7 +7,7 @@
 
     public string Language => "asdasd";
 
-    public string ConfuredProviderUUID => throw new NotImplementedException();
+    public string ConfuredProviderGUID => throw new NotImplementedException();
 
     public ElevenLabsVoice(string id, string name)
     {

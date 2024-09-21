@@ -9,14 +9,13 @@
     <Grid>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="21"/>
-            <RowDefinition Height="335*"/>
-            <RowDefinition Height="28*"/>
-            <RowDefinition Height="50.04"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Menu x:Name="menu" Grid.RowSpan="3">
 
-            <MenuItem Header="_File">
+        <Menu x:Name="menu" >
+
+            <MenuItem Header="_File" Grid.Row="0">
                 <MenuItem Header="_Open"/>
                 <MenuItem Header="_Save"/>
                 <MenuItem Header="_Exit"/>
@@ -26,25 +25,13 @@
                 <MenuItem Header="_Paste"/>
                 <MenuItem Header="_Cut"/>
             </MenuItem>
-            <MenuItem Header="_Voices" Click="voicesMenuItem_Click" >
-            </MenuItem>
-            <MenuItem Header="_Settings">
-                <MenuItem Header="_Providers" x:Name="providersMenuItem" Click="providersMenuItem_Click" />
-            </MenuItem>
-
-
-
+            <MenuItem Header="_Voices" Click="voicesMenuItem_Click" ></MenuItem>
+            <MenuItem Header="Voice Pr_oviders" x:Name="providersMenuItem" Click="providersMenuItem_Click" />
+            
         </Menu>
-        <ListBox x:Name="messageHistoryOutput" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Row="1"/>
-        <ComboBox x:Name="voicesComboBox" Grid.Row="2">
-            <ComboBox.ItemContainerStyle>
-                <Style TargetType="ComboBoxItem">
-                    <EventSetter Event="MouseUp" Handler="voicesComboBoxItem_MouseUp"/>
-                </Style>
-            </ComboBox.ItemContainerStyle>
-        </ComboBox>
-        <Button x:Name="speakButton" Content="Speak"  Width="40" Grid.Row="3" HorizontalAlignment="Left" Click="speakButton_Click" Margin="773,0,0,0"/>
-        <TextBox x:Name="speakInput" Margin="0,0,40,0" Grid.Row="3" TextWrapping="Wrap" Text="Speako's sly fox jumped quickly by the buzzing hive, vexing wizards with amazing glyphs, tricky japes, and uniquely obscure facts."/>
 
+        <TabControl x:Name="voiceProfileTabs"  TabStripPlacement="Bottom" Grid.Row="1">
+            
+        </TabControl>
     </Grid>
 </Window>

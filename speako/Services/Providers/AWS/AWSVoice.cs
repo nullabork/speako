@@ -16,7 +16,7 @@ namespace speako.Services.Providers.AWS
     public string Name => voice.Name;
     public string Language => voice.LanguageName;
 
-    public string ConfuredProviderUUID => throw new NotImplementedException();
+    public string ConfuredProviderGUID => throw new NotImplementedException();
   }
 }
 

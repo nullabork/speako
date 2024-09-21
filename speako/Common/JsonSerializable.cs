@@ -1,7 +1,12 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using speako.Common;
 
 public abstract class JsonSerializable<T> where T : JsonSerializable<T>, new()
 {
+
+  public bool loaded { get; set; } = false;
+
   public void Save()
   {
     var json = JsonConvert.SerializeObject(this, Formatting.Indented);
@@ -38,8 +43,16 @@ public abstract class JsonSerializable<T> where T : JsonSerializable<T>, new()
     if (File.Exists(FilePath))
     {
       var json = File.ReadAllText(FilePath);
-      JsonConvert.PopulateObject(json, this);
+
+      var settings = new JsonSerializerSettings
+      {
+        Converters = new List<JsonConverter> { new JsonCaster() }
+      };
+
+      JsonConvert.PopulateObject(json, this, settings);
       AfterLoad((T)this);
+
+      loaded = true;
     }
   }
 

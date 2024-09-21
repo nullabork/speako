@@ -1,89 +1,47 @@
-﻿using NAudio.CoreAudioApi;
+﻿using Accord.DirectSound;
+using FuzzySharp;
+using NAudio.CoreAudioApi;
 using NAudio.Wave;
+using System.Collections.Generic;
 
 namespace speako.Common
 {
-  class AudioDevice
+  public class AudioDevice
   {
+    public string DeviceName { get; set; }
+    public string DeviceGuid { get; set; }
 
-    public string ProductName { get; set; }
-    public string ProductGuid { get; set; }
+    public override string ToString() => DeviceName;
+  }
 
-    // Override ToString to display the ProductName in the ListBox
-    public override string ToString()
+  public class AudioDevicesSingleton
+  {
+    private static readonly Lazy<AudioDevicesSingleton> _instance = new Lazy<AudioDevicesSingleton>(() => new AudioDevicesSingleton());
+    public static AudioDevicesSingleton Instance => _instance.Value;
+
+    public Dictionary<string, AudioDevice> AudioDevices { get; private set; }
+
+    private AudioDevicesSingleton()
     {
-      return ProductName;
+      AudioDevices = InitializeDevices();
     }
 
-
-    public static int GetVBCableDeviceNumber()
+    private Dictionary<string, AudioDevice> InitializeDevices()
     {
-      for (int i = 0; i < WaveOut.DeviceCount; i++)
+      var devices = new Dictionary<string, AudioDevice>();
+
+      var found = new AudioDeviceCollection(AudioDeviceCategory.Output).ToList();
+      foreach (var device in found)
       {
-        var capabilities = WaveOut.GetCapabilities(i);
-        if (capabilities.ProductName.Contains("VB-Audio"))
-        {
-          return i;
-        }
-      }
+        var guid = device.Guid.ToString();
 
-      return -1;
-    }
-
-
-
-
-    public static List<AudioDevice> GetAudioDevices()
-    {
-      var devices = new List<AudioDevice>();
-      var enumerator = new MMDeviceEnumerator();
-      var waveOutDevices = enumerator.EnumerateAudioEndPoints(DataFlow.Render, DeviceState.Active);
-
-      // Create a dictionary for fast lookup with lowercase friendly names as keys
-      var deviceLookup = new Dictionary<string, string>();
-
-      foreach (var device in waveOutDevices)
-      {
-        //first 10 characters of the friendly name
-        var key = device.FriendlyName.Substring(0, 30);
-        if (!deviceLookup.ContainsKey(key)) {
-          deviceLookup.Add(key, device.FriendlyName);
-        }
-      }
-
-      for (int i = 0; i < WaveOut.DeviceCount; i++)
-      {
-        var capabilities = WaveOut.GetCapabilities(i);
-        var compareKey = capabilities.ProductName.Substring(0, 30);
-
-        var name = deviceLookup.ContainsKey(compareKey) ? deviceLookup[compareKey] : capabilities.ProductName;
-
-        // Look for a match in the dictionary
-        
-
-        devices.Add(new AudioDevice
-        {
-          ProductName = name,
-          ProductGuid = capabilities.ProductGuid.ToString()
+        devices.Add(guid, new AudioDevice {
+          DeviceName = device.Description,
+          DeviceGuid = guid
         });
       }
 
       return devices;
     }
-
-    public static int GetDeviceNumber(string productGuid)
-    {
-      for (int i = 0; i < WaveOut.DeviceCount; i++)
-      {
-        var capabilities = WaveOut.GetCapabilities(i);
-        if (capabilities.ProductGuid.ToString() == productGuid)
-        {
-          return i;
-        }
-      }
-
-      return -1;
-    }
-
   }
 }

@@ -1,14 +1,28 @@
-﻿using System;
-using System.ComponentModel;
-using System.IO;
+﻿using Accord.Math;
 using Newtonsoft.Json;
-using speako.Settings;
+using Omu.ValueInjecter;
+using speako.Common;
+using speako.Services.Auth;
+using System.ComponentModel;
+
 
 namespace speako.Services.Providers.Google
 {
 
-  public class GoogleAuthSettings : JsonSerializable<GoogleAuthSettings>
-  { 
+  public class GoogleAuthSettings : IAuthSettings, INotifyPropertyChanged
+  {
+
+    public event PropertyChangedEventHandler PropertyChanged;
+
+    public GoogleAuthSettings()
+    {
+      GUID = Guid.NewGuid().ToString();
+      CastType = this.GetType().ToString();
+    }
+
+    [JsonIgnore()]
+    public ITTSProvider Provider { get; set; }
+
 
     [JsonProperty("type")]
     public string? Type { get; set; } = "service_account";
@@ -21,7 +35,7 @@ namespace speako.Services.Providers.Google
     [JsonProperty("private_key_id")]
     public string? PrivateKeyId {
       get { return _privateKey; }
-      set { _privateKey = value.Replace("\\n", "\n"); } 
+      set { _privateKey = value?.Replace("\\n", "\n"); } 
     }
 
     [JsonProperty("private_key")]
@@ -45,12 +59,33 @@ namespace speako.Services.Providers.Google
     [JsonProperty("client_x509_cert_url")]
     public string ClientX509CertUrl { get; set; } = "https://www.googleapis.com/robot/v1/metadata/x509/server%40talk-bork.iam.gserviceaccount.com";
     public string Name { get; set; } = "Google";
+    public string CastType { get; set; }
 
-    protected override string BeforeSave(GoogleAuthSettings googleAuthSettings, string json)
+    public string GUID { get; set; }
+
+    public string DisplayName => Name + (Provider != null ? " - " + Provider.Name : "");
+
+    public IAuthSettings InitProvider()
     {
-      return json.Replace("\\\\n", "\\n");
+      Provider = new GoogleTTSProvider();
+      Provider.LoadSettings(this);
+      return this;
     }
 
+    //this is like... do the fields at least look filled out
+    public bool IsConfigured()
+    {
+      string[] check = ["Type", "ProjectId", "PrivateKeyId", "PrivateKey", "ClientEmail", "ClientId", "AuthUri", "TokenUri", "AuthProviderX509CertUrl", "ClientX509CertUrl"];
+      return ObjectUtils.PropertiesAreNotNull(this, check);
+    }
 
+    public IAuthSettings Duplicate()
+    {
+      var copy = new GoogleAuthSettings();
+      copy.InjectFrom(this);
+      copy.GUID = Guid.NewGuid().ToString();
+      copy.Name = $"Copy - {Name}";
+      return copy;
+    }
   }
 }

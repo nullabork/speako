@@ -9,13 +9,12 @@ namespace speako.Settings
 {
   public interface IConfig
   {
-    string Name { get; set; }
 
     string ProviderName { get; set; }
 
     ITTSProvider Provider { get; set; }
 
 
-    string uuid { get; set; }
+    string GUID { get; set; }
   }
 }

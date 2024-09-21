@@ -1,8 +1,11 @@
 ﻿using System.Net.Http.Headers;
 
 using Newtonsoft.Json.Linq;
+using speako.Services.Auth;
 using speako.Services.Providers.AWS;
 using speako.Services.Providers.Azure;
+using speako.Services.ProviderSettings;
+using speako.Services.VoiceSettings;
 using speako.Settings;
 
 namespace speako.Services.Providers.ElevenLabs
@@ -21,7 +24,7 @@ namespace speako.Services.Providers.ElevenLabs
 
     private static HttpClient createHttpClient()
     {
-      //Load JSON file from config/ElevenLabs.json and key the key api_key
+      //ConfigureVoice JSON file from config/ElevenLabs.json and key the key api_key
       var authFilePath = Path.Combine("config", "ElevenAuth.json");
       var json = JObject.Parse(File.ReadAllText(authFilePath));
       var apiKey = json["api_key"]?.ToString();
@@ -68,14 +71,34 @@ namespace speako.Services.Providers.ElevenLabs
             };
     }
 
-    public void OpenSettings()
+    public IProviderSettingsControl SettingsControl()
     {
-      //throw new NotImplementedException();
+      throw new NotImplementedException();
     }
 
-    public void LoadSettings(ConfiguredProvider cp)
+    public void LoadSettings(IAuthSettings settingsObject)
     {
-      //throw new NotImplementedException();
+      throw new NotImplementedException();
+    }
+
+    public Task<Stream> GetSpeechFromTextAsync(string text, VoiceProfile profile, CancellationToken token)
+    {
+      throw new NotImplementedException();
+    }
+
+    public VoiceProfile DefaultVoiceProfile()
+    {
+      throw new NotImplementedException();
+    }
+
+    public async Task<bool> CanConnectToTTSClient()
+    {
+      throw new NotImplementedException();
+    }
+
+    public object CreateClient(IAuthSettings authSettings)
+    {
+      throw new NotImplementedException();
     }
   }
 

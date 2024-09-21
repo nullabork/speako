@@ -2,12 +2,16 @@
 using speako.Services.Providers;
 using System.Security.RightsManagement;
 using System.Collections.Generic;
+using speako.Services.VoiceSettings;
+using System.Collections.ObjectModel;
+using speako.Services.Auth;
 
 namespace speako.Settings
 {
   public class ApplicationSettings : JsonSerializable<ApplicationSettings>
   {
-    public List<ConfiguredProvider> ConfiguredProviders = new List<ConfiguredProvider>();
+    public ObservableCollection<IAuthSettings> ConfiguredProviders { get; set; } = new ObservableCollection<IAuthSettings>();
+    public ObservableCollection<VoiceProfile> ConfiguredVoices { get; set; } = new ObservableCollection<VoiceProfile>();
 
     protected override void AfterLoad(ApplicationSettings instance)
     {
@@ -18,27 +22,28 @@ namespace speako.Settings
     {
       foreach (var provider in ConfiguredProviders)
       {
-        processProvider(provider);
+        provider.InitProvider();
       }
     }
 
-    private void processProvider(ConfiguredProvider provider)
-    {
-      var providerType = Type.GetType(provider.ProviderName);
-      if (providerType == null)
-      {
-        return;
-      }
+    //private void processProvider(ConfiguredProvider provider)
+    //{
+    //  var providerType = Type.GetType(provider.ProviderName);
+    //  if (providerType == null)
+    //  {
+    //    return;
+    //  }
 
-      var providerInstance = (ITTSProvider)Activator.CreateInstance(providerType);
-      providerInstance.LoadSettings(provider);
-      provider.Provider = providerInstance;
-    }
+    //  var providerInstance = (ITTSProvider)Activator.CreateInstance(providerType);
+    //  providerInstance.LoadSettings(provider);
+    //  provider.Provider = providerInstance;
+    //}
 
-    public void AddConfiguredProvider(ConfiguredProvider provider)
-    {
-      ConfiguredProviders.Add(provider);
-      processProvider(provider);
-    }
+    //public void AddConfiguredProvider(ConfiguredProvider provider)
+    //{
+    //  ConfiguredProviders.Add(provider);
+    //  processProvider(provider);
+    //}
+
   }
 }

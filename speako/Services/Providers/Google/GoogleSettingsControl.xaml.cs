@@ -1,5 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using speako.Common;
+using speako.Services.Auth;
+using speako.Services.ProviderSettings;
+using System.Windows;
 using System.Windows.Controls;
 
 
@@ -8,21 +10,27 @@ namespace speako.Services.Providers.Google
   /// <summary>
   /// Interaction logic for GoogleSettingsControl.xaml
   /// </summary>
-  public partial class GoogleSettingsControl : UserControl
+  public partial class GoogleSettingsControl : UserControl, IProviderSettingsControl
   {
-
-    private GoogleAuthSettings _settings;
+    public event EventHandler<IAuthSettings> Saved;
+    private IAuthSettings _originalAuthSettings;
 
     public GoogleSettingsControl()
     {
       InitializeComponent();
+      DataContext = new GoogleAuthSettings();
     }
 
     //set data context
-    public void SetDataContext(GoogleAuthSettings settings)
+    public void SetAuthSettings(IAuthSettings settings)
     {
-      _settings = settings;
-      this.DataContext = settings;
+      _originalAuthSettings = settings;
+      this.DataContext = ObjectUtils.Clone(settings);
+    }
+
+    public IAuthSettings GetAuthSettings()
+    {
+      return (IAuthSettings)DataContext;
     }
 
     private void input_TextChanged(object sender, TextChangedEventArgs e)
@@ -30,9 +38,20 @@ namespace speako.Services.Providers.Google
       
     }
 
-    private void button_Click(object sender, System.Windows.RoutedEventArgs e)
+    public bool SaveOnClosing()
     {
-      _settings.Save();
+      if (!Compare.AreObjectsEqual((GoogleAuthSettings)this.DataContext, (GoogleAuthSettings)_originalAuthSettings))
+      {
+        MessageBoxResult result = MessageBox.Show($"Do you want to save your changes?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
+        return result == MessageBoxResult.Yes;
+      }
+      return false;
+    }
+
+    private void saveButton_Click(object sender, RoutedEventArgs e)
+    {
+      var settings = (IAuthSettings)this.DataContext;
+      Saved.Invoke(this, settings);
     }
   }
 }

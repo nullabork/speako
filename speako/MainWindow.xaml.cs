@@ -4,6 +4,7 @@ using speako.Services.VoiceSettings;
 using speako.Settings;
 using System.Windows;
 using System.Windows.Controls;
+using speako.Services.ProviderSettings;
 
 namespace speako
 {
@@ -20,57 +21,35 @@ namespace speako
       InitializeComponent();
       _serviceProvider = serviceProvider;
       _applicationSettings = applicationSettings;
-      //_speak = speak;
-      AddVoices();
+      CreateVoiceTabs();
     }
 
-    private async void AddVoices()
+    public void CreateVoiceTabs()
     {
-      CancellationTokenSource cts = new CancellationTokenSource();
-
-      _applicationSettings.ConfiguredProviders.ForEach(async provider =>
+      var profiles = _applicationSettings.ConfiguredVoices.ToList();
+      profiles.ForEach(p =>
       {
-        //cancellation token
-        foreach (var item in (await provider.Provider.GetVoicesAsync(cts.Token)))
-        {
-          var cbItem = new ComboBoxItem();
-          cbItem.Content = item.Name;
-          cbItem.DataContext = item;
-          voicesComboBox.Items.Add(cbItem);
-        }
-      });
-    }
+        var content = _serviceProvider.GetRequiredService<VoiceProfileSpeakControl>();
+        content.VoiceContext = p;
 
-    private async void speakButton_Click(object sender, RoutedEventArgs e)
-    {
-      //print line
-      System.Diagnostics.Debug.WriteLine("stream:ads asd asd assd asd asd asd asd asd sd  ");
-      //await _speak.SpeakText(speakInput.Text);
+        voiceProfileTabs.Items.Add(new TabItem
+        {
+          Header = p.Name,
+          Content = content,
+        });
+      });
     }
 
     private void providersMenuItem_Click(object sender, RoutedEventArgs e)
     {
-      var providersSettingsWindow = _serviceProvider.GetRequiredService<ProvidersSettingsWindow>();
-      providersSettingsWindow.ShowDialog();
-
+      var window = _serviceProvider.GetRequiredService<ProvidersSettingsWindow>();
+      window.ShowDialog();
     }
 
     private void voicesMenuItem_Click(object sender, RoutedEventArgs e)
     {
-      var voiceSettingsWindow = _serviceProvider.GetRequiredService<VoiceSettingsWindow>();
-      voiceSettingsWindow.ShowDialog();
+      var window = _serviceProvider.GetRequiredService<VoiceProfilesListWindow>();
+      window.ShowDialog();
     }
-
-    //ComboBoxItem_MouseUp
-    private void voicesComboBoxItem_MouseUp(object sender, RoutedEventArgs e)
-    {
-      //var item = (ComboBoxItem)sender;
-      //var provider = (ITTSProvider)item.DataContext;
-      //var settingsControl = provider.GetSettingsControl();
-      //settingsControl.ShowDialog();
-
-    }
-
-
   }
 }
