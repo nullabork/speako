@@ -27,7 +27,7 @@
 
         <StackPanel>
             <Label Content="Voice" VerticalAlignment="Top"/>
-            <ComboBox x:Name="voiceComboBox"  VerticalAlignment="Top"/>
+            <ComboBox x:Name="voiceComboBox" SelectedItem="{Binding VoiceID, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
         </StackPanel>
 
         <StackPanel>
@@ -116,7 +116,7 @@
                 </Grid.ColumnDefinitions>
 
                 <!-- TextBox spans first column -->
-                <TextBox x:Name="ttsTestSentence" Grid.Column="0" VerticalAlignment="Stretch"  Text="{Binding TTSTestSentence}"  HorizontalAlignment="Stretch"/>
+                <TextBox x:Name="ttsTestSentence" Grid.Column="0" VerticalAlignment="Stretch"  Text="{Binding TTSTestSentence, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Stretch"/>
 
                 <!-- Button in second column -->
                 <Button Content="Test" 
@@ -132,14 +132,11 @@
             <StackPanel.Resources>
                 <Style TargetType="Button">
                     <Setter Property="Padding" Value="10,2"/>
+                    <Setter Property="Margin" Value="10,0,0,0"/>
                 </Style>
             </StackPanel.Resources>
-            <Button x:Name="saveButton" Click="SaveButton_Click" Height="22"  Width="50">
-                Save
-            </Button>
-
-
-
+            <Button x:Name="saveButton" Content="Save" Click="saveButton_Click" Width="50" />
+            <Button x:Name="cancelButton" Content="Cancel" Click="cancelButton_Click" Width="70" />
         </StackPanel>
     </StackPanel>
 </Window>

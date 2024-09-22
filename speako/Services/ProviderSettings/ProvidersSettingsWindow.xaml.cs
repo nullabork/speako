@@ -52,6 +52,11 @@ namespace speako.Services.ProviderSettings
         settingsWindow.Close();
       };
 
+      control.Cancel += (sender, e) =>
+      {
+        settingsWindow.Close();
+      };
+
       settingsWindow.ShowDialog();
 
     }
@@ -79,6 +84,11 @@ namespace speako.Services.ProviderSettings
       {
         authSettings.InjectFrom(control.GetAuthSettings());
         _applicationSettings.Save();
+      };
+
+      control.Cancel += (sender, e) =>
+      {
+        settingsWindow.Close();
       };
 
       settingsWindow.ShowDialog();

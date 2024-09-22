@@ -83,9 +83,11 @@
             <StackPanel.Resources>
                 <Style TargetType="Button">
                     <Setter Property="Padding" Value="10,2"/>
+                    <Setter Property="Margin" Value="10,0,0,0"/>
                 </Style>
             </StackPanel.Resources>
-            <Button Content="Save" Click="saveButton_Click" Width="50" />
+            <Button x:Name="saveButton" Content="Save" Click="saveButton_Click" Width="50" />
+            <Button x:Name="cancelButton" Content="Cancel" Click="cancelButton_Click" Width="70" />
         </StackPanel>
 
     </StackPanel>

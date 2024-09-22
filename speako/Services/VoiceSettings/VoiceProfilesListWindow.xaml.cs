@@ -29,10 +29,11 @@ namespace speako.Services.VoiceSettings
       voicesListBox.ItemsSource = _applicationSettings.ConfiguredVoices;
     }
 
-    private async void AddVoiceButton_Click(object sender, RoutedEventArgs e)
+    private async void AddVoiceButton_Click(object sender, RoutedEventArgs ev)
     {
       var window = _serviceProvider.GetRequiredService<VoiceProfileDetailWindow>();
-      window.ConfigureVoice(null);
+      var voice = new VoiceProfile();
+      window.ConfigureVoice(voice);
       window.Saved += (sender, e) =>
       {
         _applicationSettings.ConfiguredVoices.Add(e);

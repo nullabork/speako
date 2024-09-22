@@ -53,16 +53,12 @@ namespace speako.Services.VoiceSettings
     public VoiceProfileDetailWindow(ApplicationSettings applicationSettings, SpeakService speak, AudioDevicesService devices)
     {
       InitializeComponent();
+
       _applicationSettings = applicationSettings;
       _speakService = speak;
       _audioDevicesService = devices;
       outputDeviceComboBox.ItemsSource = devices.AudioDevices.Values;
       providerComboBox.ItemsSource = _applicationSettings.ConfiguredProviders;
-
-      //this.KeyDown += (object sender, KeyEventArgs en) => { SaveButtonState(); };
-      //this.MouseDown += (object sender, MouseButtonEventArgs e) => { SaveButtonState(); };
-
-      
 
       LoadProviderVoicesAsync(null);
     }
@@ -72,16 +68,6 @@ namespace speako.Services.VoiceSettings
       var isEqual = Compare.AreObjectsEqual(VoiceContext, _originalVoiceProfile);
 
       saveButton.IsEnabled = !isEqual;
-    }
-
-    private void Window_MouseDown(MouseButtonEventArgs args)
-    {
-      throw new NotImplementedException();
-    }
-
-    private void Window_KeyDown(object sender, KeyEventArgs e)
-    {
-      throw new NotImplementedException();
     }
 
     private async Task LoadProviderVoicesAsync(string? selectedVoiceID)
@@ -124,13 +110,12 @@ namespace speako.Services.VoiceSettings
       VoiceContext.DeviceName = configured.DeviceName;
     }
 
-    private void SaveButton_Click(object sender, RoutedEventArgs e)
+    private void saveButton_Click(object sender, RoutedEventArgs e)
     {
       if(Saved != null) {
         _originalVoiceProfile.InjectFrom(VoiceContext);
         Saved.Invoke(this, VoiceContext);
         SaveButtonState();
-        //this.Close();
       }
     }
     
@@ -160,9 +145,12 @@ namespace speako.Services.VoiceSettings
     private async void providerComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
       await LoadProviderVoicesAsync(VoiceContext.VoiceID);
+      ResetPitch();
+      ResetSpeed();
+      ResetVolume();
     }
 
-    private void resetPitch_MouseDown(object sender, MouseButtonEventArgs e)
+    private void ResetPitch()
     {
       var settings = (IAuthSettings)providerComboBox.SelectedItem;
       var profile = settings?.Provider?.DefaultVoiceProfile();
@@ -172,7 +160,7 @@ namespace speako.Services.VoiceSettings
       }
     }
 
-    private void resetSpeed_MouseDown(object sender, MouseButtonEventArgs e)
+    private void ResetSpeed()
     {
       var settings = (IAuthSettings)providerComboBox.SelectedItem;
       var profile = settings?.Provider?.DefaultVoiceProfile();
@@ -182,7 +170,7 @@ namespace speako.Services.VoiceSettings
       }
     }
 
-    private void resetVolume_MouseDown(object sender, MouseButtonEventArgs e)
+    private void ResetVolume()
     {
       var settings = (IAuthSettings)providerComboBox.SelectedItem;
       var profile = settings?.Provider?.DefaultVoiceProfile();
@@ -190,6 +178,21 @@ namespace speako.Services.VoiceSettings
       {
         volumeValueSlider.Value = profile.Volume;
       }
+    }
+
+    private void resetPitch_MouseDown(object sender, MouseButtonEventArgs e)
+    {
+      ResetPitch();
+    }
+
+    private void resetSpeed_MouseDown(object sender, MouseButtonEventArgs e)
+    {
+      ResetSpeed();
+    }
+
+    private void resetVolume_MouseDown(object sender, MouseButtonEventArgs e)
+    {
+      ResetVolume();
     }
 
     public void Dispose()
@@ -200,6 +203,11 @@ namespace speako.Services.VoiceSettings
     private void Window_Closed(object sender, EventArgs e)
     {
       Dispose();
+    }
+
+    private void cancelButton_Click(object sender, RoutedEventArgs e)
+    {
+      Close();
     }
   }
 }

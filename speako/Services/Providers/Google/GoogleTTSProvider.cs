@@ -6,10 +6,13 @@ using Newtonsoft.Json;
 using speako.Services.Auth;
 using speako.Common;
 using speako.Services.VoiceSettings;
+using Amazon;
+using Google.Protobuf.WellKnownTypes;
 
 
 namespace speako.Services.Providers.Google
 {
+
   public class GoogleTTSProvider : ITTSProvider
   {
 
@@ -18,7 +21,11 @@ namespace speako.Services.Providers.Google
     public string Name => "Google";
     private GoogleAuthSettings _settings;
     private TextToSpeechClient _client;
-    private List<IVoice> _voiceCache;
+    private static List<IVoice> _voiceCache;
+
+    private readonly ProviderAttribute _pitchAttr = new ProviderAttribute { Default = 0, Min = -20, Max = 20 };
+    private readonly ProviderAttribute _volumeAttr = new ProviderAttribute { Default = 16, Min = -96, Max = 16 };
+    private readonly ProviderAttribute _speedAttr = new ProviderAttribute { Default = 1.0, Min = 0.25, Max = 4.0 };
 
     public override string ToString()
     {
@@ -81,9 +88,9 @@ namespace speako.Services.Providers.Google
     {
       return new VoiceProfile
       {
-        Pitch = RangeConverter.ConvertRange<int>(0, -20, 20, 0, 100),
-        Volume = RangeConverter.ConvertRange<int>(16, -96, 16, 0, 100),
-        Speed = (int)RangeConverter.ConvertRange<double>(1.0, 0.25, 4, 0, 100)
+        Pitch = _pitchAttr.GetDefault(),
+        Volume = _volumeAttr.GetDefault(),
+        Speed = _speedAttr.GetDefault(),
       };
     }
 
@@ -105,9 +112,9 @@ namespace speako.Services.Providers.Google
       {
         AudioEncoding = AudioEncoding.Mp3,
         SampleRateHertz = 44100,
-        Pitch = RangeConverter.ConvertRange<double>(Convert.ToDouble(profile.Pitch), 0,100, -20,20),
-        SpeakingRate = RangeConverter.ConvertRange<double>(Convert.ToDouble(profile.Speed), 0, 100, 0.25, 4),
-        VolumeGainDb = RangeConverter.ConvertRange<double>(Convert.ToDouble(profile.Volume), 0, 100, -96, 16),
+        Pitch = _pitchAttr.GetValue(profile.Pitch),
+        SpeakingRate = _speedAttr.GetValue(profile.Speed),
+        VolumeGainDb = _volumeAttr.GetValue(profile.Volume),
       };
 
       SynthesizeSpeechResponse response = await _client.SynthesizeSpeechAsync(input, voice, config, token);
@@ -121,7 +128,7 @@ namespace speako.Services.Providers.Google
 
     public async Task<IEnumerable<IVoice>> GetVoicesAsync(CancellationToken token)
     {
-      if(_client == null) return new List<IVoice> { };
+      if (_client == null) return new List<IVoice> { };
 
       if (_voiceCache != null && _voiceCache.Count() > 0)
       {

@@ -11,6 +11,7 @@ namespace speako.Services.ProviderSettings
   public interface IProviderSettingsControl
   {
     public event EventHandler<IAuthSettings> Saved;
+    public event EventHandler<IAuthSettings> Cancel;
 
     public void SetAuthSettings(IAuthSettings settings);
     public IAuthSettings GetAuthSettings();

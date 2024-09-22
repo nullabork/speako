@@ -1,6 +1,7 @@
 ﻿using speako.Common;
 using speako.Services.Auth;
 using speako.Services.ProviderSettings;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -13,6 +14,8 @@ namespace speako.Services.Providers.Google
   public partial class GoogleSettingsControl : UserControl, IProviderSettingsControl
   {
     public event EventHandler<IAuthSettings> Saved;
+    public event EventHandler<IAuthSettings> Cancel;
+
     private IAuthSettings _originalAuthSettings;
 
     public GoogleSettingsControl()
@@ -25,7 +28,21 @@ namespace speako.Services.Providers.Google
     public void SetAuthSettings(IAuthSettings settings)
     {
       _originalAuthSettings = settings;
-      this.DataContext = ObjectUtils.Clone(settings);
+      var cloned = ObjectUtils.Clone(settings);
+      cloned.PropertyChanged += OnPropertyChanged;
+      this.DataContext = cloned;
+      SaveButtonState();
+    }
+
+    private void OnPropertyChanged(object? sender, PropertyChangedEventArgs e)
+    {
+      SaveButtonState();
+    }
+
+    private void SaveButtonState()
+    {
+      var isEqual = Compare.AreObjectsEqual((GoogleAuthSettings)this.DataContext, (GoogleAuthSettings)_originalAuthSettings);
+      saveButton.IsEnabled = !isEqual;
     }
 
     public IAuthSettings GetAuthSettings()
@@ -52,6 +69,13 @@ namespace speako.Services.Providers.Google
     {
       var settings = (IAuthSettings)this.DataContext;
       Saved.Invoke(this, settings);
+      SaveButtonState();
+    }
+
+    private void cancelButton_Click(object sender, RoutedEventArgs e)
+    {
+      var settings = (IAuthSettings)this.DataContext;
+      Cancel.Invoke(this, settings);
     }
   }
 }

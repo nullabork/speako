@@ -1,4 +1,5 @@
 ﻿using speako.Services.Providers;
+using System.ComponentModel;
 
 namespace speako.Services.Auth
 {
@@ -17,6 +18,8 @@ namespace speako.Services.Auth
     public string DisplayName { get; }
 
     public IAuthSettings Duplicate();
+
+    public event PropertyChangedEventHandler PropertyChanged;
 
     //public string DisplayName { get => return Name; }
 
