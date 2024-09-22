@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:speako.Services.VoiceSettings" xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
         mc:Ignorable="d"
-        Title="VoiceWindow" Height="533" Width="490" Closing="Window_Closing" ResizeMode="NoResize">
+        Title="VoiceWindow" Height="533" Width="490" Closing="Window_Closing" ResizeMode="NoResize" Closed="Window_Closed">
     <StackPanel>
 
         <StackPanel.Resources>

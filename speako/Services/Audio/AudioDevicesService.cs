@@ -1,29 +1,12 @@
 ﻿using Accord.DirectSound;
 
-using FuzzySharp;
-
-using NAudio.CoreAudioApi;
-
-using System.Collections.Generic;
-
-namespace speako.Common
+namespace speako.Services.Audio
 {
-  public class AudioDevice
+  public class AudioDevicesService
   {
-    public string DeviceName { get; set; }
-    public string DeviceGuid { get; set; }
-
-    public override string ToString() => DeviceName;
-  }
-
-  public class AudioDevicesSingleton
-  {
-    private static readonly Lazy<AudioDevicesSingleton> _instance = new Lazy<AudioDevicesSingleton>(() => new AudioDevicesSingleton());
-    public static AudioDevicesSingleton Instance => _instance.Value;
-
     public Dictionary<string, AudioDevice> AudioDevices { get; private set; }
 
-    private AudioDevicesSingleton()
+    public AudioDevicesService()
     {
       AudioDevices = InitializeDevices();
     }

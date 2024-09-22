@@ -4,7 +4,7 @@ namespace speako.Services.Audio
 {
   public interface IAudioService
   {
-    Device GetDirectSoundOut(Guid deviceId);
+    DeviceHandler GetDirectSoundOut(Guid deviceId);
   }
 }
 

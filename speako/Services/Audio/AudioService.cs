@@ -6,21 +6,21 @@ namespace speako.Services.Audio
 {
   public class AudioService : IAudioService
   {
-    private readonly ConcurrentDictionary<Guid, Device> _devices = new ConcurrentDictionary<Guid, Device>();
+    private readonly ConcurrentDictionary<Guid, DeviceHandler> _devices = new ConcurrentDictionary<Guid, DeviceHandler>();
 
-    public Device GetDirectSoundOut(Guid deviceId)
+    public DeviceHandler GetDirectSoundOut(Guid deviceId)
       => _devices.GetOrAdd(deviceId, (id) => BuildDirectSoundOut(id));
 
-    private Device BuildDirectSoundOut(Guid id)
+    private DeviceHandler BuildDirectSoundOut(Guid id)
     {
-      var device = new Device();
+      var device = new DeviceHandler();
       device.DirectSound = new DirectSoundOut(id);
       device.DirectSound.PlaybackStopped += (sender, e) => device.CompletionSource.SetResult(true);
       return device;
     }
   }
 
-  public class Device
+  public class DeviceHandler
   {
     public DirectSoundOut? DirectSound { get; set; }
     public TaskCompletionSource<bool> CompletionSource { get; set; } = new TaskCompletionSource<bool>();

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using speako.Services.Auth;
 using System.ComponentModel;
 using Omu.ValueInjecter;
+using speako.Services.Audio;
 
 namespace speako.Services.VoiceSettings
 {
@@ -18,12 +19,13 @@ namespace speako.Services.VoiceSettings
   /// <summary>
   /// Interaction logic for VoiceWindow.xaml
   /// </summary>
-  public partial class VoiceProfileDetailWindow : Window
+  public partial class VoiceProfileDetailWindow : Window, IDisposable
   {
     private readonly ApplicationSettings _applicationSettings;
     private readonly SpeakService _speakService;
     public event EventHandler<VoiceProfile> Saved;
     private VoiceProfile _originalVoiceProfile;
+    private readonly AudioDevicesService _audioDevicesService;
 
     public VoiceProfile VoiceContext
     {
@@ -48,13 +50,13 @@ namespace speako.Services.VoiceSettings
       SaveButtonState();
     }
 
-    public VoiceProfileDetailWindow(ApplicationSettings applicationSettings, SpeakService speak)
+    public VoiceProfileDetailWindow(ApplicationSettings applicationSettings, SpeakService speak, AudioDevicesService devices)
     {
       InitializeComponent();
       _applicationSettings = applicationSettings;
       _speakService = speak;
-
-      outputDeviceComboBox.ItemsSource = AudioDevicesSingleton.Instance.AudioDevices.Values;
+      _audioDevicesService = devices;
+      outputDeviceComboBox.ItemsSource = devices.AudioDevices.Values;
       providerComboBox.ItemsSource = _applicationSettings.ConfiguredProviders;
 
       //this.KeyDown += (object sender, KeyEventArgs en) => { SaveButtonState(); };
@@ -188,6 +190,16 @@ namespace speako.Services.VoiceSettings
       {
         volumeValueSlider.Value = profile.Volume;
       }
+    }
+
+    public void Dispose()
+    {
+      Saved = null;
+    }
+
+    private void Window_Closed(object sender, EventArgs e)
+    {
+      Dispose();
     }
   }
 }

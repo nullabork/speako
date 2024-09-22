@@ -31,7 +31,6 @@ namespace speako
       ServiceProvider = serviceCollection.BuildServiceProvider();
 
       var mainWindow = ServiceProvider.GetRequiredService<MainWindow>();
-      var singleton = AudioDevicesSingleton.Instance;
       mainWindow.Show();
     }
 
@@ -42,6 +41,7 @@ namespace speako
       services.AddSingleton(a);
       services.AddSingleton<IAudioService, AudioService>();
       services.AddSingleton<VoiceQueue>();
+      services.AddSingleton<AudioDevicesService>();
 
       services.AddTransient<MainWindow>();
       services.AddTransient<ProvidersSettingsWindow>();
@@ -49,6 +49,7 @@ namespace speako
       services.AddTransient<VoiceProfileDetailWindow>();
       services.AddTransient<SpeakService>();
       services.AddTransient<VoiceProfileSpeakControl>();      
+
 
       services.AddTransient<ITTSProvider, GoogleTTSProvider>();
       services.AddTransient<ITTSProvider, AWSTTSProvider>();

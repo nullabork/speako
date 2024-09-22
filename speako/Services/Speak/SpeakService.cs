@@ -3,11 +3,7 @@ using NAudio.Wave;
 using speako.Common;
 using speako.Services.Audio;
 using speako.Services.Providers;
-using speako.Services.Providers.Google;
 using speako.Services.VoiceSettings;
-using System.Diagnostics;
-using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace speako.Services.Speak
 {
@@ -35,19 +31,7 @@ namespace speako.Services.Speak
       var webTask = Task.Run(async () =>
       {
         ms = await ttsProvider.GetSpeechFromTextAsync(text, profile, default);
-        if (ms.Position != 0)
-          throw new SpeakoException("Stream must start at postion 0");
-
-        //using var outfile = File.Open($"test{DateTime.Now:yyyyMMddnnmmss}.mp3", FileMode.CreateNew);
-        //await ms.CopyToAsync(outfile);
-
-        ms.Position = 0;
-        
-        var wave = new Mp3FileReader(ms);
-
-        //var a = new StreamingAudioTrimmerWaveProvider(wave);
-
-        return wave;
+        return new Mp3FileReader(ms);
       });
 
       await _voiceQueue.Enqueue(async (token) =>
