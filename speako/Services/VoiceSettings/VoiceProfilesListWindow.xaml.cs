@@ -32,7 +32,7 @@ namespace speako.Services.VoiceSettings
     private async void AddVoiceButton_Click(object sender, RoutedEventArgs e)
     {
       var window = _serviceProvider.GetRequiredService<VoiceProfileDetailWindow>();
-      await window.ConfigureVoice(null);
+      window.ConfigureVoice(null);
       window.Saved += (sender, e) =>
       {
         _applicationSettings.ConfiguredVoices.Add(e);
@@ -45,7 +45,7 @@ namespace speako.Services.VoiceSettings
     {
       var window = _serviceProvider.GetRequiredService<VoiceProfileDetailWindow>();
       //load the profile into the window
-      await window.ConfigureVoice(profile);
+      window.ConfigureVoice(profile);
       //kep track of profiles index
       var pIndex = _applicationSettings.ConfiguredVoices.IndexOf(profile);
       //wait for window to save

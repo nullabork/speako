@@ -100,7 +100,7 @@ namespace speako.Services.VoiceSettings
       });      
     }
 
-    public async Task ConfigureVoice(VoiceProfile? voice)
+    public void ConfigureVoice(VoiceProfile? voice)
     {
       _originalVoiceProfile = voice;
       VoiceContext = ObjectUtils.Clone(voice);
@@ -114,7 +114,7 @@ namespace speako.Services.VoiceSettings
 
       if (!string.IsNullOrEmpty(VoiceContext.VoiceID))
       {
-        await LoadProviderVoicesAsync(VoiceContext.VoiceID);
+        LoadProviderVoicesAsync(VoiceContext.VoiceID);
       }
     }
 

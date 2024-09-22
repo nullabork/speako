@@ -18,6 +18,7 @@ namespace speako.Services.Providers.Google
     public string Name => "Google";
     private GoogleAuthSettings _settings;
     private TextToSpeechClient _client;
+    private List<IVoice> _voiceCache;
 
     public override string ToString()
     {
@@ -120,12 +121,19 @@ namespace speako.Services.Providers.Google
 
     public async Task<IEnumerable<IVoice>> GetVoicesAsync(CancellationToken token)
     {
-      if(_client == null) return Enumerable.Empty<IVoice>();
+      if(_client == null) return new List<IVoice> { };
+
+      if (_voiceCache != null && _voiceCache.Count() > 0)
+      {
+        return _voiceCache;
+      }
 
       var request = new ListVoicesRequest();
+      var resp = await _client.ListVoicesAsync(request, token);
 
-      var voices = await _client.ListVoicesAsync(request, token);
-      return voices.Voices.Select(v => new GoogleVoice(v));
+      _voiceCache = resp.Voices.Select(v => new GoogleVoice(v)).ToList<IVoice>();
+
+      return _voiceCache;
     }
   }
 }

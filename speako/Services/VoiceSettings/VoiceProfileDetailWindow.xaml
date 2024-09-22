@@ -27,7 +27,7 @@
 
         <StackPanel>
             <Label Content="Voice" VerticalAlignment="Top"/>
-            <ComboBox x:Name="voiceComboBox" SelectedItem="{Binding VoiceID, UpdateSourceTrigger=PropertyChanged}"  SelectedValue="{Binding VoiceID}" VerticalAlignment="Top"/>
+            <ComboBox x:Name="voiceComboBox"  VerticalAlignment="Top"/>
         </StackPanel>
 
         <StackPanel>
