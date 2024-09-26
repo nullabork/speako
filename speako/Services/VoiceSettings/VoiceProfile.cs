@@ -1,7 +1,9 @@
 ﻿using Newtonsoft.Json;
 using speako.Common;
+using speako.Services.Audio;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -25,6 +27,8 @@ namespace speako.Services.VoiceSettings
     public string VoiceID { get; set; }
 
     public string AudioDeviceGUID { get; set; }
+
+    public ObservableCollection<AudioDevice> AudioDevices { get; set; } = new ObservableCollection<AudioDevice>();
 
     public int Volume { get; set; }
 

@@ -20,11 +20,5 @@ namespace speako.Services.Auth
     public IAuthSettings Duplicate();
 
     public event PropertyChangedEventHandler PropertyChanged;
-
-    //public string DisplayName { get => return Name; }
-
-    //      return $"{Name}{(Provider != null ? " - " + Provider.Name : "")}";
-    //}
-
   }
 }

@@ -12,6 +12,8 @@ using speako.Services.Auth;
 using System.ComponentModel;
 using Omu.ValueInjecter;
 using speako.Services.Audio;
+using Google.Protobuf.WellKnownTypes;
+using System.Collections.ObjectModel;
 
 namespace speako.Services.VoiceSettings
 {
@@ -25,25 +27,27 @@ namespace speako.Services.VoiceSettings
     private readonly SpeakService _speakService;
     public event EventHandler<VoiceProfile> Saved;
     private VoiceProfile _originalVoiceProfile;
+    private VoiceProfile _workingVoiceProfile;
     private readonly AudioDevicesService _audioDevicesService;
 
-    public VoiceProfile VoiceContext
-    {
-      set
-      {
-        DataContext = value;
-        value.PropertyChanged += OnPropertyChanged;
-      }
-      get {
+    //TODO remove this its stupid
+    //public VoiceProfile VoiceContext
+    //{
+    //  set
+    //  {
+    //    DataContext = value;
+    //    value.PropertyChanged += OnPropertyChanged;
+    //  }
+    //  get {
 
-        if (DataContext == null)
-        {
-          DataContext = new VoiceProfile();
-        }
+    //    if (DataContext == null)
+    //    {
+    //      DataContext = new VoiceProfile();
+    //    }
 
-        return (VoiceProfile)DataContext;
-      }
-    }
+    //    return (VoiceProfile)DataContext;
+    //  }
+    //}
 
     private void OnPropertyChanged(object? sender, PropertyChangedEventArgs e)
     {
@@ -65,7 +69,7 @@ namespace speako.Services.VoiceSettings
 
     private void SaveButtonState()
     {
-      var isEqual = Compare.AreObjectsEqual(VoiceContext, _originalVoiceProfile);
+      var isEqual = Compare.ObjectsPropertiesEqual(_workingVoiceProfile, _originalVoiceProfile);
 
       saveButton.IsEnabled = !isEqual;
     }
@@ -76,53 +80,65 @@ namespace speako.Services.VoiceSettings
 
       if (configured == null) return;
 
-      if(configured?.Provider == null) return;
-      
+      if (configured?.Provider == null) return;
+
       var voices = await configured.Provider.GetVoicesAsync(default);
       voiceComboBox.ItemsSource = voices;
       voiceComboBox.SelectedIndex = voices.ToList().FindIndex(item =>
       {
         return item.Name == selectedVoiceID;
-      });      
+      });
     }
 
     public void ConfigureVoice(VoiceProfile? voice)
     {
       _originalVoiceProfile = voice;
-      VoiceContext = ObjectUtils.Clone(voice);
+      _workingVoiceProfile = ObjectUtils.Clone(voice);
+      _workingVoiceProfile.AudioDevices = new ObservableCollection<AudioDevice>(_originalVoiceProfile.AudioDevices);
+      _workingVoiceProfile.PropertyChanged += OnPropertyChanged;
 
-      this.Title = string.IsNullOrEmpty(VoiceContext?.Name) ? "New Voice" : $"Edit {VoiceContext.Name}";
+      DataContext = _workingVoiceProfile;
 
-      if (!string.IsNullOrEmpty(VoiceContext.ConfiguredProviderGUID))
+      this.Title = string.IsNullOrEmpty(_workingVoiceProfile?.Name) ? "New Voice" : $"Edit {_workingVoiceProfile.Name}";
+
+      if (!string.IsNullOrEmpty(_workingVoiceProfile.ConfiguredProviderGUID))
       {
-        providerComboBox.SelectedValue = VoiceContext.ConfiguredProviderGUID;
+        providerComboBox.SelectedValue = _workingVoiceProfile.ConfiguredProviderGUID;
       }
 
-      if (!string.IsNullOrEmpty(VoiceContext.VoiceID))
+      //TODO this is dumb also, change it ....
+      if (!string.IsNullOrEmpty(_workingVoiceProfile.VoiceID))
       {
-        LoadProviderVoicesAsync(VoiceContext.VoiceID);
+        //well i actually 
+        LoadProviderVoicesAsync(_workingVoiceProfile.VoiceID);
       }
     }
 
     private void outputDeviceComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-      var configured = (AudioDevice) e.AddedItems[0];
-      VoiceContext.DeviceName = configured.DeviceName;
+      var configured = (AudioDevice)e.AddedItems[0];
+      _workingVoiceProfile.DeviceName = configured.DeviceName;
     }
 
     private void saveButton_Click(object sender, RoutedEventArgs e)
     {
-      if(Saved != null) {
-        _originalVoiceProfile.InjectFrom(VoiceContext);
-        Saved.Invoke(this, VoiceContext);
+      if (Saved != null)
+      {
+        _originalVoiceProfile = _workingVoiceProfile;
+        _workingVoiceProfile = ObjectUtils.Clone(_workingVoiceProfile);
+        _workingVoiceProfile.AudioDevices = new ObservableCollection<AudioDevice>(_originalVoiceProfile.AudioDevices);
+
+        DataContext = _workingVoiceProfile;
+
+        Saved.Invoke(this, _workingVoiceProfile);
         SaveButtonState();
       }
     }
-    
+
     private async void TestButton_Click(object sender, RoutedEventArgs e)
     {
       var settings = (IAuthSettings)providerComboBox.SelectedItem;
-      await _speakService.SpeakText(settings.Provider, VoiceContext, ttsTestSentence.Text);
+      await _speakService.SpeakText(settings.Provider, _workingVoiceProfile, ttsTestSentence.Text);
     }
 
     private void volumeValueSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -132,19 +148,19 @@ namespace speako.Services.VoiceSettings
 
     private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
     {
-      if (!Compare.AreObjectsEqual(VoiceContext, _originalVoiceProfile))
+      if (!Compare.ObjectsPropertiesEqual(_workingVoiceProfile, _originalVoiceProfile))
       {
         MessageBoxResult result = MessageBox.Show($"Do you want to save your changes?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
         if (result == MessageBoxResult.Yes)
         {
-          Saved.Invoke(this, VoiceContext);
+          Saved.Invoke(this, _workingVoiceProfile);
         }
       }
     }
 
     private async void providerComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-      await LoadProviderVoicesAsync(VoiceContext.VoiceID);
+      await LoadProviderVoicesAsync(_workingVoiceProfile.VoiceID);
       ResetPitch();
       ResetSpeed();
       ResetVolume();
@@ -208,6 +224,26 @@ namespace speako.Services.VoiceSettings
     private void cancelButton_Click(object sender, RoutedEventArgs e)
     {
       Close();
+    }
+
+    private void addDeviceButton_click(object sender, RoutedEventArgs e)
+    {
+      var device = (AudioDevice)outputDeviceComboBox.SelectedItem;
+      if (device != null)
+      {
+        _workingVoiceProfile.AudioDevices.Add(device);
+        SaveButtonState();
+      }
+    }
+
+    private void delDeviceButton_click(object sender, RoutedEventArgs e)
+    {
+      var device = (AudioDevice)selectedDevices.SelectedItem;
+      if (device != null)
+      {
+        _workingVoiceProfile.AudioDevices.Remove(device);
+        SaveButtonState();
+      }
     }
   }
 }

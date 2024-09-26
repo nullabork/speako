@@ -1,0 +1,61 @@
+﻿<Window x:Class="speako.Settings.PreferencesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:speako.Settings"
+        mc:Ignorable="d"
+        Title="PreferencesWindow" Height="441" Width="519">
+    <StackPanel>
+
+        <StackPanel.Resources>
+            <Style TargetType="StackPanel">
+                <Setter Property="Margin" Value="0,0,0,10"/>
+                <Setter Property="MaxWidth" Value="450"/>
+            </Style>
+        </StackPanel.Resources>
+
+        <StackPanel>
+            <Label Content="Preferences" VerticalAlignment="Top"/>
+        </StackPanel>
+
+        <StackPanel>
+            <Label Content="Output Device" VerticalAlignment="Top"/>
+            <ComboBox x:Name="outputDeviceComboBox"  SelectedItem="{Binding AudioDeviceGUID, UpdateSourceTrigger=PropertyChanged}" SelectedValue="{Binding AudioDeviceGUID}" SelectedValuePath="DeviceGuid" VerticalAlignment="Top"  HorizontalContentAlignment="Stretch" SelectionChanged="outputDeviceComboBox_SelectionChanged" >
+                <ComboBox.ItemContainerStyle>
+                    <Style TargetType="ComboBoxItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        <Setter Property="Width" Value="450"/>
+                    </Style>
+                </ComboBox.ItemContainerStyle>
+            </ComboBox>
+        </StackPanel>
+
+        <StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <!-- Fills remaining space -->
+                    <ColumnDefinition Width="Auto" />
+                    <!-- Adjusts to the size of the button -->
+                </Grid.ColumnDefinitions>
+
+                <!-- TextBox spans first column -->
+
+                <!-- Button in second column -->
+            </Grid>
+        </StackPanel>
+
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <StackPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Padding" Value="10,2"/>
+                    <Setter Property="Margin" Value="10,0,0,0"/>
+                </Style>
+            </StackPanel.Resources>
+            <Button x:Name="saveButton" Content="Save" Click="saveButton_Click" Width="50" />
+            <Button x:Name="cancelButton" Content="Cancel" Click="cancelButton_Click" Width="70" />
+        </StackPanel>
+    </StackPanel>
+</Window>

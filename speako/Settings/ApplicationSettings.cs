@@ -25,25 +25,5 @@ namespace speako.Settings
         provider.InitProvider();
       }
     }
-
-    //private void processProvider(ConfiguredProvider provider)
-    //{
-    //  var providerType = Type.GetType(provider.ProviderName);
-    //  if (providerType == null)
-    //  {
-    //    return;
-    //  }
-
-    //  var providerInstance = (ITTSProvider)Activator.CreateInstance(providerType);
-    //  providerInstance.LoadSettings(provider);
-    //  provider.Provider = providerInstance;
-    //}
-
-    //public void AddConfiguredProvider(ConfiguredProvider provider)
-    //{
-    //  ConfiguredProviders.Add(provider);
-    //  processProvider(provider);
-    //}
-
   }
 }

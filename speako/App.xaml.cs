@@ -38,7 +38,9 @@ namespace speako
     {
 
       var a = ApplicationSettings.Load();
+      var p = Preferences.Load();
       services.AddSingleton(a);
+      services.AddSingleton(p);
       services.AddSingleton<IAudioService, AudioService>();
       services.AddSingleton<VoiceQueue>();
       services.AddSingleton<AudioDevicesService>();
@@ -48,7 +50,8 @@ namespace speako
       services.AddTransient<VoiceProfilesListWindow>();
       services.AddTransient<VoiceProfileDetailWindow>();
       services.AddTransient<SpeakService>();
-      services.AddTransient<VoiceProfileSpeakControl>();      
+      services.AddTransient<VoiceProfileSpeakControl>();
+      services.AddTransient<PreferencesWindow>();
 
 
       services.AddTransient<ITTSProvider, GoogleTTSProvider>();

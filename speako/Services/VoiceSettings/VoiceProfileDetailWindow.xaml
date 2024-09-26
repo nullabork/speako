@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:speako.Services.VoiceSettings" xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
         mc:Ignorable="d"
-        Title="VoiceWindow" Height="533" Width="490" Closing="Window_Closing" ResizeMode="NoResize" Closed="Window_Closed">
+        Title="VoiceWindow" Height="603" Width="490" Closing="Window_Closing" ResizeMode="NoResize" Closed="Window_Closed">
     <StackPanel>
 
         <StackPanel.Resources>
@@ -31,15 +31,30 @@
         </StackPanel>
 
         <StackPanel>
-            <Label Content="Output Device" VerticalAlignment="Top"/>
-            <ComboBox x:Name="outputDeviceComboBox"  SelectedItem="{Binding AudioDeviceGUID, UpdateSourceTrigger=PropertyChanged}" SelectedValue="{Binding AudioDeviceGUID}" SelectedValuePath="DeviceGuid" VerticalAlignment="Top"  HorizontalContentAlignment="Stretch" SelectionChanged="outputDeviceComboBox_SelectionChanged" >
-                <ComboBox.ItemContainerStyle>
-                    <Style TargetType="ComboBoxItem">
-                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-                        <Setter Property="Width" Value="450"/>
-                    </Style>
-                </ComboBox.ItemContainerStyle>
-            </ComboBox>
+            <Label Content="Output Devices" VerticalAlignment="Top"/>
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <!-- <ComboBox x:Name="outputDeviceComboBox" Grid.Column="0"  SelectedItem="{Binding AudioDeviceGUID, UpdateSourceTrigger=PropertyChanged}" SelectedValue="{Binding AudioDeviceGUID}" SelectedValuePath="DeviceGuid" VerticalAlignment="Top"  HorizontalContentAlignment="Stretch" SelectionChanged="outputDeviceComboBox_SelectionChanged">-->
+                <ComboBox x:Name="outputDeviceComboBox" Grid.Column="0" HorizontalContentAlignment="Stretch" VerticalAlignment="Top"></ComboBox>
+                <StackPanel Orientation="Horizontal" Grid.Column="1" Margin="0,0,0,0" >
+                    <StackPanel.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Padding" Value="10,2"/>
+                            <Setter Property="Margin" Value="10,0,0,0"/>
+                        </Style>
+                    </StackPanel.Resources>
+                    <Button Content="Add" x:Name="addDevice" VerticalAlignment="Top" Click="addDeviceButton_click" />
+                    <Button Content="Delete" x:Name="delDevice" VerticalAlignment="Top" Click="delDeviceButton_click" />
+                </StackPanel>
+
+
+            </Grid>
+            <ListBox x:Name="selectedDevices" Height="60" Background="White" DisplayMemberPath="DeviceName" ItemsSource="{Binding AudioDevices, UpdateSourceTrigger=PropertyChanged}">
+
+            </ListBox>
         </StackPanel>
 
         <StackPanel>
@@ -88,9 +103,9 @@
                     </StackPanel>
                     <Slider Margin="20,0,0,0" Maximum="100" Value="{Binding Pitch, UpdateSourceTrigger=PropertyChanged}" Minimum="0" x:Name="pitchValueSlider"/>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                      
+
                         <TextBlock TextDecorations="Underline" Text="Reset Pitch"  x:Name="resetPitch" Foreground="#FF0452B3" FontSize="11" Cursor="Hand" MouseDown="resetPitch_MouseDown" Margin="0,0,10,0" />
-                            
+
                     </StackPanel>
                 </StackPanel>
 

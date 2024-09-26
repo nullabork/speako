@@ -20,11 +20,7 @@
                 <MenuItem Header="_Save"/>
                 <MenuItem Header="_Exit"/>
             </MenuItem>
-            <MenuItem Header="_Edit">
-                <MenuItem Header="_Copy"/>
-                <MenuItem Header="_Paste"/>
-                <MenuItem Header="_Cut"/>
-            </MenuItem>
+            <MenuItem Header="_Preferences" Click="preferencesMenuItem_Click"></MenuItem>
             <MenuItem Header="_Voices" Click="voicesMenuItem_Click" ></MenuItem>
             <MenuItem Header="Voice Pr_oviders" x:Name="providersMenuItem" Click="providersMenuItem_Click" />
             

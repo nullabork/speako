@@ -41,7 +41,7 @@ namespace speako.Services.Providers.Google
 
     private void SaveButtonState()
     {
-      var isEqual = Compare.AreObjectsEqual((GoogleAuthSettings)this.DataContext, (GoogleAuthSettings)_originalAuthSettings);
+      var isEqual = Compare.ObjectsPropertiesEqual((GoogleAuthSettings)this.DataContext, (GoogleAuthSettings)_originalAuthSettings);
       saveButton.IsEnabled = !isEqual;
     }
 
@@ -57,7 +57,7 @@ namespace speako.Services.Providers.Google
 
     public bool SaveOnClosing()
     {
-      if (!Compare.AreObjectsEqual((GoogleAuthSettings)this.DataContext, (GoogleAuthSettings)_originalAuthSettings))
+      if (!Compare.ObjectsPropertiesEqual((GoogleAuthSettings)this.DataContext, (GoogleAuthSettings)_originalAuthSettings))
       {
         MessageBoxResult result = MessageBox.Show($"Do you want to save your changes?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
         return result == MessageBoxResult.Yes;

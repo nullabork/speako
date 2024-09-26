@@ -5,13 +5,13 @@ using System.Security.RightsManagement;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace speako.Settings
+namespace speako.Services.Speak
 {
   public class TextMessage
   {
     //public TextMessage()
     //{
-      
+
     //}
     //public string VoiceProfileName { get; set; }
 
@@ -19,6 +19,6 @@ namespace speako.Settings
 
     ////public string 
 
-    //public string CastType => GetType().ToString();
+    //public string CastType => GetType().ToString(); 
   }
 }

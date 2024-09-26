@@ -1,27 +1,25 @@
-﻿using System.Reflection;
+﻿using Newtonsoft.Json;
 
 namespace speako.Common
 {
   class Compare
   {
-    public static bool AreObjectsEqual<T>(T obj1, T obj2)
+    public static bool ObjectsPropertiesEqual<T>(T obj1, T obj2)
     {
-      if (obj1 == null || obj2 == null)
-        return object.Equals(obj1, obj2);
-
-      if (obj1.GetType() != obj2.GetType())
-        return false;
-
-      var properties = typeof(T).GetProperties(BindingFlags.Instance | BindingFlags.Public);
-      foreach (var prop in properties)
+      var settings = new JsonSerializerSettings
       {
-        var val1 = prop.GetValue(obj1);
-        var val2 = prop.GetValue(obj2);
-        if (!object.Equals(val1, val2))
-          return false;
-      } 
+        Formatting = Formatting.None,
+        NullValueHandling = NullValueHandling.Ignore,
+        ContractResolver = new Newtonsoft.Json.Serialization.DefaultContractResolver
+        {
+          NamingStrategy = new Newtonsoft.Json.Serialization.CamelCaseNamingStrategy()
+        }
+      };
 
-      return true;
+      string json1 = JsonConvert.SerializeObject(obj1, settings);
+      string json2 = JsonConvert.SerializeObject(obj2, settings);
+
+      return json1 == json2;
     }
 
   }

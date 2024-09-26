@@ -51,5 +51,11 @@ namespace speako
       var window = _serviceProvider.GetRequiredService<VoiceProfilesListWindow>();
       window.ShowDialog();
     }
+
+    private void preferencesMenuItem_Click(object sender, RoutedEventArgs e)
+    {
+      var window = _serviceProvider.GetRequiredService<PreferencesWindow>();
+      window.ShowDialog();
+    }
   }
 }

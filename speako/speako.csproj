@@ -51,6 +51,8 @@
   <ItemGroup>
     <Folder Include="Properties\" />
     <Folder Include="Services\Auth\NewFolder1\" />
+    <Folder Include="Services\Message\" />
+    <Folder Include="Services\VoiceSettings\NewFolder\" />
   </ItemGroup>
 
   <ItemGroup>
