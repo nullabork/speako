@@ -1,10 +1,10 @@
-﻿using Accord.DirectSound;
-using Amazon;
-using NAudio.Wave;
+﻿using NAudio.Wave;
 using speako.Common;
 using speako.Services.Audio;
+using speako.Services.PostProcessors;
+using speako.Services.PreProcessors;
 using speako.Services.Providers;
-using speako.Services.VoiceSettings;
+using speako.Services.VoiceProfiles;
 using speako.Settings;
 
 namespace speako.Services.Speak
@@ -15,98 +15,139 @@ namespace speako.Services.Speak
     private readonly VoiceQueue _voiceQueue;
     private readonly IAudioService _audio;
     private readonly Preferences _preferences;
+    private readonly ApplicationSettings _applicationSettings;
 
-    public SpeakService(IEnumerable<ITTSProvider> providers, VoiceQueue queue, IAudioService audio, Preferences preferences)
+    public SpeakService(IEnumerable<ITTSProvider> providers, VoiceQueue queue, ApplicationSettings appSettings, IAudioService audio, Preferences preferences)
     {
       _providers = providers;
       _voiceQueue = queue;
       _audio = audio;
       _preferences = preferences;
+      _applicationSettings = appSettings;
+    }
+    private ITTSProvider GetTTSProvider(VoiceProfile profile)
+    {
+      return _applicationSettings?.ProviderSettingsLookup?
+          .GetValueOrDefault(profile.ConfiguredProviderGUID)?
+          .GetProvider();
     }
 
+    private IEnumerable<IPreProcessor> GetPreProcessors(VoiceProfile profile)
+    {
+      return profile.PreProcessors
+          .Select(pp => _applicationSettings?.PreProcessorLookup
+              .GetValueOrDefault(pp.ProcessorGuid)?
+              .GetPreProcessor())
+          .Where(pp => pp != null);
+    }
+
+    private PostProcessors GetPostProcessors(VoiceProfile profile)
+    {
+      var postProcessorInfos = profile.PostProcessors
+          .Select(ppi => _applicationSettings?.PostProcessorLookup
+              .GetValueOrDefault(ppi.ProcessorGuid))
+          .Where(ppi => ppi != null);
+
+      var syncProcessors = postProcessorInfos
+          .Where(ppi => !ppi.ProcessAfter)
+          .Select(ppi => ppi.GetPostProcessor())
+          .ToList();
+
+      var asyncProcessors = postProcessorInfos
+          .Where(ppi => ppi.ProcessAfter)
+          .Select(ppi => ppi.GetPostProcessor())
+          .ToList();
+
+      return new PostProcessors
+      {
+        SyncProcessors = syncProcessors,
+        AsyncProcessors = asyncProcessors
+      };
+    }
+    private IEnumerable<DeviceHandler> GetDeviceHandlers(VoiceProfile profile)
+    {
+      return profile.AudioDevices
+          .Select(ad => _audio.GetDirectSoundOut(new Guid(ad.DeviceGuid)));
+
+    }
     public ValueTask DisposeAsync() => _voiceQueue.DisposeAsync();
 
-    public async Task SpeakText(ITTSProvider ttsProvider, VoiceProfile profile, string text)
+    public async Task SpeakText(string message, VoiceProfile profile)
     {
-      var deviceId = new Guid(profile.AudioDeviceGUID);
-      var waveOut = _audio.GetDirectSoundOut(deviceId);
+      var pText = new PText
+      {
+        voice = message,
+        message = message,
+      };
 
-      var deviceId2 = new Guid(_preferences.AudioDeviceGUID);
-      var waveOut2 = _audio.GetDirectSoundOut(deviceId2);
+      var ttsProvider = GetTTSProvider(profile);
+      if (ttsProvider == null)
+        return;
 
-      //using var stream = await ttsProvider.GetSpeechFromTextAsync(text, profile, default);
-      ////get device with accord
-      //var devices = new AudioDeviceCollection(AudioDeviceCategory.Output).ToList();
-      //int selectedIndex = 1;
-      //var selectedDevice = devices[selectedIndex];
+      var preProcessors = GetPreProcessors(profile);
+      var postProcessors = GetPostProcessors(profile);
+      var deviceHandlers = GetDeviceHandlers(profile);
 
-
-      //if (stream.CanSeek)
-      //{
-      //  stream.Position = 0;
-      //}
-
-      ////convert from mp3 to waveStream
-      //MemoryStream copy = new MemoryStream();
-      //stream.CopyTo(copy);
-      //if (stream.CanSeek)
-      //{
-      //  copy.Position = 0;
-      //  //stream.Position = 0;
-      //}
-
-
-      //using var mp3Reader = new Mp3FileReader(stream);
-
-      //using var mp3Reader2 = new Mp3FileReader(copy);
-
-      ////select device via NAudio guid and setup with stream rather
-      //var waveOut = new DirectSoundOut(deviceId);
-      //var waveOut2 = new DirectSoundOut(deviceId2);
-      //waveOut.Init(mp3Reader);
-      //waveOut2.Init(mp3Reader2);
-      ////need to await the end of the audio playing
-      //TaskCompletionSource<bool> playbackCompleted = new TaskCompletionSource<bool>();
-      //waveOut.PlaybackStopped += (sender, e) => playbackCompleted.SetResult(true);
-
-      //waveOut.Play();
-      //waveOut2.Play();
-
-
+      foreach (var processor in preProcessors)
+      {
+        if (processor == null) continue;
+        pText = await processor.Process(profile, ObjectUtils.Clone(pText));
+      }
 
       var webTask = Task.Run(async () =>
       {
-        return await ttsProvider.GetSpeechFromTextAsync(text, profile, default);
+        return await ttsProvider.GetSpeechFromTextAsync(pText.voice, profile, default);
       });
 
       await _voiceQueue.Enqueue(async (token) =>
       {
-        //Wait for the webrequest to complete
-        var stream1 = await webTask;
-        MemoryStream stream2 = new MemoryStream();
+        var mainStream = await webTask;
+        var streams = new List<Stream>([mainStream]);
 
-        stream1.Position = 0;
-        stream1.CopyTo(stream2);
-        stream1.Position = 0;
-        stream2.Position = 0;
+        for (var i = 0; i < deviceHandlers.Count(); i++)
+        {
+          var waveOut = deviceHandlers.ElementAt(i);
 
-        var wave1 = new Mp3FileReader(stream1);
-        var wave2 = new Mp3FileReader(stream2);
+          //blank stream to copy main stream to for the device playing as we may need multiple copies and cant play from the mainStream
+          var deviceStream = new MemoryStream();
 
-        //convert from mp3 to waveStream
-        waveOut.CompletionSource = new TaskCompletionSource<bool>();
+          //Add stream to known streams so we can clean up after
+          streams.Add(deviceStream);
+          //set main stream to 0 so we can copy to device stream
+          mainStream.Position = 0;
+          //do the copy
+          mainStream.CopyTo(deviceStream);
+          //make sure the copy is at position 0
+          deviceStream.Position = 0;
 
-        waveOut.DirectSound?.Init(wave1);
-        waveOut.DirectSound?.Play();
+          //TODO make sure we can handle different stream forms
+          var wave1 = new Mp3FileReader(deviceStream);
 
-        waveOut2.DirectSound?.Init(wave2);
-        waveOut2.DirectSound?.Play();
+          
+          waveOut.CompletionSource = new TaskCompletionSource<bool>();
+          waveOut.DirectSound?.Init(wave1);
+          waveOut.DirectSound?.Play();
+        }
 
-        await waveOut.CompletionSource.Task;
-        stream1.Dispose();
-        stream2.Dispose();
+        postProcessors.SyncProcessors.ForEach(pp => pp.Process(profile, pText));
+
+        await Task.WhenAll(deviceHandlers.Select(dh => dh.CompletionSource.Task));
+        await Task.WhenAll(postProcessors.AsyncProcessors.Select(pp => pp.Process(profile, pText)));
+
+        streams.ForEach(stream => stream.Dispose());
+
+        deviceHandlers.ToList().ForEach(dh =>
+        {
+          dh.DirectSound?.Stop();
+          dh.DirectSound?.Dispose();
+        });
       });
     }
 
+    private class PostProcessors
+    {
+      public List<IPostProcessor> SyncProcessors { get; set; }
+      public List<IPostProcessor> AsyncProcessors { get; set; }
+    }
   }
 }

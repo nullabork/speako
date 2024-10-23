@@ -5,7 +5,7 @@ using speako.Services.Providers;
 using speako.Services.Providers.AWS;
 using speako.Services.Providers.Google;
 using speako.Services.ProviderSettings;
-using speako.Services.VoiceSettings;
+using speako.Services.VoiceProfiles;
 using speako.Settings;
 
 namespace speako.Services.Providers.IBM
@@ -72,12 +72,12 @@ namespace speako.Services.Providers.IBM
       throw new NotImplementedException();
     }
 
-    public Task<Stream> GetSpeechFromTextAsync(string text, VoiceProfile profile, CancellationToken token)
+    public Task<Stream> GetSpeechFromTextAsync(string text, VoiceProfiles.VoiceProfile profile, CancellationToken token)
     {
       throw new NotImplementedException();
     }
 
-    public VoiceProfile DefaultVoiceProfile()
+    public VoiceProfiles.VoiceProfile DefaultVoiceProfile()
     {
       throw new NotImplementedException();
     }
@@ -88,6 +88,11 @@ namespace speako.Services.Providers.IBM
     }
 
     public object CreateClient(IAuthSettings authSettings)
+    {
+      throw new NotImplementedException();
+    }
+
+    public Task<bool> Configure(IAuthSettings settingsObject)
     {
       throw new NotImplementedException();
     }

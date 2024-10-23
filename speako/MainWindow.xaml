@@ -5,29 +5,102 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:speako"
         mc:Ignorable="d"
+        Style="{StaticResource CustomWindowStyle}"
         Title="MainWindow" Height="450" Width="813">
     <Grid>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*" />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="50" />
+            
         </Grid.RowDefinitions>
 
-        <Menu x:Name="menu" >
-
-            <MenuItem Header="_File" Grid.Row="0">
-                <MenuItem Header="_Open"/>
-                <MenuItem Header="_Save"/>
-                <MenuItem Header="_Exit"/>
+        <Menu x:Name="menu" Grid.Row="0" HorizontalAlignment="Right">
+            <MenuItem Header="_Settings"   Padding="5,4,5,8">
+                <MenuItem Header="_Preferences" Click="preferencesMenuItem_Click"></MenuItem>
+                <MenuItem Header="_Voices" Click="voicesMenuItem_Click" ></MenuItem>
+                <MenuItem Header="Voice Pr_oviders" x:Name="providersMenuItem" Click="providersMenuItem_Click" />
+                <MenuItem Header="P_re Processors" x:Name="preProcessorsMenuItem" Click="preProcessorsMenuItem_Click" />
+                <MenuItem Header="Po_st Processors" x:Name="postProcessorsMenuItem" Click="postProcessorsMenuItem_Click" />
             </MenuItem>
-            <MenuItem Header="_Preferences" Click="preferencesMenuItem_Click"></MenuItem>
-            <MenuItem Header="_Voices" Click="voicesMenuItem_Click" ></MenuItem>
-            <MenuItem Header="Voice Pr_oviders" x:Name="providersMenuItem" Click="providersMenuItem_Click" />
-            
         </Menu>
 
-        <TabControl x:Name="voiceProfileTabs"  TabStripPlacement="Bottom" Grid.Row="1">
+        <ScrollViewer x:Name="messageList"  Grid.Row="1" Margin="0,10,0,10">
+            <StackPanel>
+                <Border Style="{StaticResource PillButton}" CornerRadius="13.48" BorderThickness="0"  HorizontalAlignment="Center" Padding="5,2,5,5" Margin="0,0,0,15" >
+                    <Button x:Name="loadMoreButton" Content="Load More"  HorizontalAlignment="Center" VerticalAlignment="Center" Click="loadMoreButton_Click" />
+                </Border>
+                <ItemsControl  ItemsSource="{Binding MessageSessions}" d:ItemsSource="{d:SampleData ItemCount=1}" >
+                    <!-- I want the Copy Session context to come from here-->
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <ContentControl Style="{StaticResource Bordered}">
+                                <StackPanel>
+                                    <TextBlock  Text="{Binding DateTime}" d:Text="8/10/2024 12:02:09 am"/>
+                                    <ItemsControl ItemsSource="{Binding Messages}" >
+
+
+
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <!-- Display the Message of the TextMessage -->
+                                                <Grid ToolTip="{Binding DateTime}" Margin="0,5"
+                                                  Tag="{Binding DataContext, RelativeSource={RelativeSource AncestorType=StackPanel}}">
+
+                                                    <Grid.ContextMenu>
+                                                        <ContextMenu>
+                                                            <MenuItem Header="Copy" Click="copyMenuItem_Click" />
+                                                            <MenuItem Header="Copy Session" DataContext="{Binding PlacementTarget.Tag, RelativeSource={RelativeSource AncestorType=ContextMenu}}" Click="copySessionMenuItem_Click" />
+                                                            <MenuItem Header="Copy Message" Click="copyMessageMenuItem_Click" />
+                                                            <MenuItem Header="Resend" Click="resendMenuItem_Click" />
+                                                        </ContextMenu>
+                                                    </Grid.ContextMenu>
+
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <!-- For the name and separator -->
+                                                        <ColumnDefinition Width="*" />
+                                                        <!-- For the message to take up remaining space -->
+                                                    </Grid.ColumnDefinitions>
+                                                    <StackPanel Orientation="Horizontal" Grid.Column="0" ToolTip="{Binding DateTime}">
+                                                        <TextBlock  Text="{Binding VoiceProfileName}" d:Text="Billy bob"/>
+                                                        <TextBlock Text=" : " />
+                                                    </StackPanel>
+                                                    <TextBlock Grid.Column="1" TextWrapping="Wrap" Text="{Binding Message}" d:Text="The tricky tongues of tiny turtles twist tirelessly, tasting tangy tangerines and tiptoeing through towering tulips, while twisting tales of twisty tongues tickling tall trees in tropical territories" />
+                                                </Grid>
+
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+                            </ContentControl>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </ScrollViewer>
+
+        <ComboBox Grid.Row="2"
+                  x:Name="voiceProfileComboBox"                 
+                IsEditable="True" 
+                IsReadOnly="True"
+                  HorizontalContentAlignment="Right"
+                ItemsSource="{Binding ConfiguredVoices}"
+                  DisplayMemberPath="Name"
+                Text="Select Voice Profile" Margin="0,0,0,5" >
             
-        </TabControl>
+        </ComboBox>
+
+            <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="50" />
+            </Grid.ColumnDefinitions>
+
+            <TextBox x:Name="messageTextBlock" Grid.Column="0" AcceptsReturn="True" PreviewKeyDown="messageTextBlock_PreviewKeyDown" Margin="0,0,5,0" />          
+            <Button x:Name="messageButton" Grid.Column="1" Content="Send" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Click="messageButton_Click" />
+        </Grid>         
     </Grid>
 </Window>

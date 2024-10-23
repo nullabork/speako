@@ -1,4 +1,5 @@
-﻿using speako.Services.Auth;
+﻿using speako.Services.Speak;
+using speako.Services.VoiceProfiles;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,9 @@ namespace speako.Services.PostProcessors
 {
   public interface IPostProcessor
   {
-    public Task Process(string input);
+    public Task<PText> Process(VoiceProfile vp, PText pText);
 
-    public Task Configure(IPostProcessorSettings settings);
+    public Task<bool> Configure(IPostProcessorSettings settings);
 
   }
 }

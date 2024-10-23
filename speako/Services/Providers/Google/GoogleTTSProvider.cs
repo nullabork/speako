@@ -1,23 +1,16 @@
 ﻿using Google.Cloud.TextToSpeech.V1;
-using speako.Services.ProviderSettings;
 using speako.Settings;
 using Google.Apis.Auth.OAuth2;
 using Newtonsoft.Json;
 using speako.Services.Auth;
 using speako.Common;
-using speako.Services.VoiceSettings;
-using Amazon;
-using Google.Protobuf.WellKnownTypes;
-
+using speako.Services.VoiceProfiles;
 
 namespace speako.Services.Providers.Google
 {
 
   public class GoogleTTSProvider : ITTSProvider
   {
-
-    private ConfiguredProvider _config;
-
     public string Name => "Google";
     private GoogleAuthSettings _settings;
     private TextToSpeechClient _client;
@@ -32,10 +25,15 @@ namespace speako.Services.Providers.Google
       return Name;
     }
 
-    public void LoadSettings(IAuthSettings providerSettings)
+    public async Task<bool> Configure(IAuthSettings providerSettings)
     {
+      var task = new TaskCompletionSource<bool>();
+
       _settings = (GoogleAuthSettings)providerSettings;
       _client = (TextToSpeechClient)CreateClient(_settings);
+      task.SetResult(true);
+
+      return await task.Task;
     }
 
     public object CreateClient(IAuthSettings providerSettings)
@@ -78,15 +76,9 @@ namespace speako.Services.Providers.Google
       return true;
     }
 
-
-    public IProviderSettingsControl SettingsControl()
+    public VoiceProfiles.VoiceProfile DefaultVoiceProfile()
     {
-      return new GoogleSettingsControl();
-    }
-
-    public VoiceProfile DefaultVoiceProfile()
-    {
-      return new VoiceProfile
+      return new VoiceProfiles.VoiceProfile
       {
         Pitch = _pitchAttr.GetDefault(),
         Volume = _volumeAttr.GetDefault(),
@@ -94,7 +86,7 @@ namespace speako.Services.Providers.Google
       };
     }
 
-    public async Task<Stream> GetSpeechFromTextAsync(string text, VoiceProfile profile, CancellationToken token)
+    public async Task<Stream> GetSpeechFromTextAsync(string text, VoiceProfiles.VoiceProfile profile, CancellationToken token)
     {
       SynthesisInput input = new SynthesisInput
       {

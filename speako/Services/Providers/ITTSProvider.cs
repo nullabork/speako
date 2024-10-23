@@ -1,7 +1,7 @@
 ﻿using speako.Common;
 using speako.Services.Auth;
 using speako.Services.ProviderSettings;
-using speako.Services.VoiceSettings;
+using speako.Services.VoiceProfiles;
 using speako.Settings;
 
 namespace speako.Services.Providers
@@ -12,14 +12,12 @@ namespace speako.Services.Providers
 
         string ToString();
 
-        public IProviderSettingsControl SettingsControl();
+        Task<bool> Configure(IAuthSettings settingsObject);
 
-        void LoadSettings(IAuthSettings settingsObject);
-
-        Task<Stream> GetSpeechFromTextAsync(string text, VoiceProfile profile, CancellationToken token);
+        Task<Stream> GetSpeechFromTextAsync(string text, VoiceProfiles.VoiceProfile profile, CancellationToken token);
         Task<IEnumerable<IVoice>> GetVoicesAsync(CancellationToken token);
 
-        public VoiceProfile DefaultVoiceProfile();
+        public VoiceProfiles.VoiceProfile DefaultVoiceProfile();
 
         public Task<bool> CanConnectToTTSClient();
 

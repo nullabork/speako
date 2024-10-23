@@ -3,8 +3,8 @@ using Newtonsoft.Json;
 using Omu.ValueInjecter;
 using speako.Common;
 using speako.Services.Auth;
+using speako.Services.PostProcessors.Discord;
 using System.ComponentModel;
-
 
 namespace speako.Services.Providers.Google
 {
@@ -12,7 +12,15 @@ namespace speako.Services.Providers.Google
   public class GoogleAuthSettings : IAuthSettings, INotifyPropertyChanged
   {
 
+    public string DisplayName => "Google TTS";
+
+
     public event PropertyChangedEventHandler PropertyChanged;
+
+    public IProviderSettingsControl SettingsControl()
+    {
+      return new GoogleSettingsControl();
+    }
 
     public GoogleAuthSettings()
     {
@@ -63,13 +71,10 @@ namespace speako.Services.Providers.Google
 
     public string GUID { get; set; }
 
-    public string DisplayName => Name + (Provider != null ? " - " + Provider.Name : "");
-
-    public IAuthSettings InitProvider()
+    public void Init()
     {
-      Provider = new GoogleTTSProvider();
-      Provider.LoadSettings(this);
-      return this;
+      _provider = new GoogleTTSProvider();
+      _provider.Configure(this);
     }
 
     //this is like... do the fields at least look filled out
@@ -79,13 +84,16 @@ namespace speako.Services.Providers.Google
       return ObjectUtils.PropertiesAreNotNull(this, check);
     }
 
-    public IAuthSettings Duplicate()
+    ITTSProvider _provider { get; set; }
+
+    public ITTSProvider GetProvider()
     {
-      var copy = new GoogleAuthSettings();
-      copy.InjectFrom(this);
-      copy.GUID = Guid.NewGuid().ToString();
-      copy.Name = $"Copy - {Name}";
-      return copy;
+      if (_provider == null)
+      {
+        _provider = new GoogleTTSProvider();
+      }
+
+      return _provider;
     }
   }
 }

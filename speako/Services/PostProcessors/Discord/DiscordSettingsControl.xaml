@@ -1,0 +1,110 @@
+﻿<UserControl x:Class="speako.Services.PostProcessors.Discord.DiscordSettingsControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:speako.Services.PostProcessors.Discord"
+             mc:Ignorable="d" 
+             VerticalAlignment="Top" Width="527" Margin="10,0,10,0">
+
+
+    <StackPanel VerticalAlignment="Top" Margin="0,-1,0,0">
+
+        <ContentControl Style="{StaticResource Bordered}">
+            <StackPanel Orientation="Vertical" >
+
+                <Label Content="Name" Target="{Binding ElementName=nameInput}"/>
+
+                <TextBox x:Name="nameInput" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"  />
+                <TextBlock Text="The Name of this Processor instance used to identify in a Voice Profile" TextWrapping="Wrap" FontSize="10"/>
+
+            </StackPanel>
+        </ContentControl>
+        <ContentControl Style="{StaticResource Bordered}">
+            <StackPanel Orientation="Vertical">
+
+                <Label Content="Bot Token" Target="{Binding ElementName=botToken}"/>
+
+                <TextBox x:Name="botTokenInput" Text="{Binding BotToken, UpdateSourceTrigger=PropertyChanged}" TextChanged="botToken_TextChanged" />
+                <TextBlock TextWrapping="Wrap" FontSize="10">
+                Create a Discord bot in the Developer Portal, enable the <Bold>Guilds Intent</Bold> to fetch guild channels, and copy its token. Then, paste the token into your program to allow the bot to send messages to channels and access guild channel information.
+                </TextBlock>
+            </StackPanel>
+        </ContentControl>
+        
+        <ContentControl Style="{StaticResource Bordered}">
+            <StackPanel>
+                <StackPanel Style="{StaticResource CheckBoxGroup}">
+                    <CheckBox VerticalAlignment="Center" x:Name="processAfter" IsChecked="{Binding ProcessAfter, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Label Content="Process after TTS has stopped" VerticalAlignment="Top"/>
+                </StackPanel>
+                <TextBlock Text="Wait for audio to stop before sending messages to these channels" Style="{StaticResource Description}"/>
+            </StackPanel>
+        </ContentControl>
+        
+        <ContentControl Style="{StaticResource Bordered}">
+            <StackPanel IsEnabled="False" x:Name="selectChannels">
+                <Label Content="Discord Channels" VerticalAlignment="Top" Foreground="Black"/>
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid  Grid.Column="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <ComboBox 
+                        x:Name="guildComboBox" 
+                        IsEditable="True" 
+                        IsReadOnly="True" 
+                        Text="Select Guild" 
+                        DisplayMemberPath="Name" 
+                        Grid.Column="0" 
+                        HorizontalContentAlignment="Stretch" 
+                        VerticalAlignment="Top" 
+                        SelectionChanged="guildComboBox_SelectionChanged" >
+
+                        </ComboBox>
+                        <ComboBox 
+                        x:Name="channelsComboBox" 
+                        IsEditable="True" 
+                        IsReadOnly="True" 
+                        Text="Select Channel" 
+                        DisplayMemberPath="ChannelName" 
+                        Grid.Column="1" 
+                        HorizontalContentAlignment="Stretch" 
+                        VerticalAlignment="Top">
+
+                        </ComboBox>
+                    </Grid>
+                    <StackPanel Grid.Column="1" Style="{StaticResource SaveGroup}" Margin="0" >
+                        <Button Content="Add" x:Name="addChannel" VerticalAlignment="Top" Click="addChannelButton_click" />
+                        <Button Content="Delete" x:Name="delChannel" VerticalAlignment="Top" Click="delChannelButton_click" />
+                    </StackPanel>
+                </Grid>
+                <ListBox x:Name="selectedChannels" Height="60" DisplayMemberPath="Name" ItemsSource="{Binding ChannelIds, UpdateSourceTrigger=PropertyChanged}">
+                    <ListBox.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Delete" Click="Delete_Click" />
+                        </ContextMenu>
+                    </ListBox.ContextMenu>
+                </ListBox>
+                <TextBlock Text="A message will be sent to each selected channel when this Discord Processor is chosen in a Voice Profile." TextWrapping="Wrap" FontSize="10"/>
+            </StackPanel>
+        </ContentControl>
+
+        <StackPanel Style="{StaticResource SaveGroup}">
+            
+            <Button x:Name="saveButton" Content="Save" Click="saveButton_Click" Width="50" />
+            <Button x:Name="cancelButton" Content="Cancel" Click="cancelButton_Click" Width="70" />
+        </StackPanel>
+
+    </StackPanel>
+</UserControl>
+    
+    
+    

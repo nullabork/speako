@@ -16,7 +16,8 @@ namespace speako.Services.Providers.Google
     public event EventHandler<IAuthSettings> Saved;
     public event EventHandler<IAuthSettings> Cancel;
 
-    private IAuthSettings _originalAuthSettings;
+    private GoogleAuthSettings _original;
+    private GoogleAuthSettings _working;
 
     public GoogleSettingsControl()
     {
@@ -25,12 +26,17 @@ namespace speako.Services.Providers.Google
     }
 
     //set data context
-    public void SetAuthSettings(IAuthSettings settings)
+    public void Configure(IAuthSettings settings)
     {
-      _originalAuthSettings = settings;
-      var cloned = ObjectUtils.Clone(settings);
-      cloned.PropertyChanged += OnPropertyChanged;
-      this.DataContext = cloned;
+
+      var og = (GoogleAuthSettings)settings;
+      var current = ObjectUtils.Clone(og);
+
+      _original = og;
+      _working = current;
+
+      _working.PropertyChanged += OnPropertyChanged;
+      this.DataContext = _working;
       SaveButtonState();
     }
 
@@ -41,13 +47,8 @@ namespace speako.Services.Providers.Google
 
     private void SaveButtonState()
     {
-      var isEqual = Compare.ObjectsPropertiesEqual((GoogleAuthSettings)this.DataContext, (GoogleAuthSettings)_originalAuthSettings);
+      var isEqual = Compare.ObjectsPropertiesEqual(_working, _original);
       saveButton.IsEnabled = !isEqual;
-    }
-
-    public IAuthSettings GetAuthSettings()
-    {
-      return (IAuthSettings)DataContext;
     }
 
     private void input_TextChanged(object sender, TextChangedEventArgs e)
@@ -55,27 +56,29 @@ namespace speako.Services.Providers.Google
       
     }
 
-    public bool SaveOnClosing()
+    public IAuthSettings SaveOnClosing()
     {
-      if (!Compare.ObjectsPropertiesEqual((GoogleAuthSettings)this.DataContext, (GoogleAuthSettings)_originalAuthSettings))
+      if (!Compare.ObjectsPropertiesEqual(_working, _original))
       {
         MessageBoxResult result = MessageBox.Show($"Do you want to save your changes?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
-        return result == MessageBoxResult.Yes;
+        if(result == MessageBoxResult.Yes)
+        {
+          return _working;
+        }
       }
-      return false;
+      return null;
     }
 
     private void saveButton_Click(object sender, RoutedEventArgs e)
     {
-      var settings = (IAuthSettings)this.DataContext;
-      Saved.Invoke(this, settings);
-      SaveButtonState();
+      
+      Saved.Invoke(this, _working);
+      Configure(_working);
     }
 
     private void cancelButton_Click(object sender, RoutedEventArgs e)
     {
-      var settings = (IAuthSettings)this.DataContext;
-      Cancel.Invoke(this, settings);
+      Cancel.Invoke(this, _working);
     }
   }
 }

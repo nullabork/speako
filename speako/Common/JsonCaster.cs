@@ -8,6 +8,18 @@ namespace speako.Common
   {
     public override bool CanConvert(Type objectType)
     {
+
+      if (objectType.Name == "String")
+      {
+        return false;
+      }
+
+
+      if (objectType.IsValueType)
+      {
+        return false;
+      }
+
       // Check if the objectType is a generic type and if it is an ObservableCollection<>
       if (objectType.IsGenericType && objectType.GetGenericTypeDefinition() == typeof(ObservableCollection<>))
       {
@@ -44,9 +56,8 @@ namespace speako.Common
             return instance;
           }
         }
-
-        // Default fallback if CastType is not specified or invalid
-        return existingValue ?? Activator.CreateInstance(objectType);
+        //Nope
+        //return existingValue ?? Activator.CreateInstance(objectType);
       }
 
       return existingValue;

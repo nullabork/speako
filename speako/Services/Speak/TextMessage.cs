@@ -9,16 +9,17 @@ namespace speako.Services.Speak
 {
   public class TextMessage
   {
-    //public TextMessage()
-    //{
+    public string Message { get; set; }
+    public string VoiceProfileName { get; set; }
 
-    //}
-    //public string VoiceProfileName { get; set; }
+    public DateTime DateTime { get; set; } = DateTime.Now;
 
-    //public DateTime M
+    public string CastType => GetType().ToString();
 
-    ////public string 
 
-    //public string CastType => GetType().ToString(); 
+    public string AsString()
+    {
+      return $"{DateTime} - {VoiceProfileName} : {Message}";
+    }
   }
 }

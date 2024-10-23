@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using FastDeepCloner;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace speako.Common
 {
@@ -13,20 +9,22 @@ namespace speako.Common
 
     public static T Clone<T>(this T obj) where T : class
     {
-      if (obj == null)
-        return null;
+      //if (obj == null)
+      //  return null;
 
-      // Retrieve the non-public MemberwiseClone method from the object's type
-      MethodInfo memberwiseCloneMethod = obj.GetType().GetMethod(
-          "MemberwiseClone",
-          BindingFlags.Instance | BindingFlags.NonPublic
-      );
+      //// Retrieve the non-public MemberwiseClone method from the object's type
+      //MethodInfo memberwiseCloneMethod = obj.GetType().GetMethod(
+      //    "MemberwiseClone",
+      //    BindingFlags.Instance | BindingFlags.NonPublic
+      //);
 
-      if (memberwiseCloneMethod == null)
-        throw new InvalidOperationException("MemberwiseClone method not found.");
+      //if (memberwiseCloneMethod == null)
+      //  throw new InvalidOperationException("MemberwiseClone method not found.");
 
       // Invoke MemberwiseClone and cast the result to T
-      return (T)memberwiseCloneMethod.Invoke(obj, null);
+      //return (T)memberwiseCloneMethod.Invoke(obj, null);
+
+      return DeepCloner.Clone(obj);
     }
 
     public static void CopyProperties<T>(T source, T destination)

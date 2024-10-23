@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:speako.Settings"
         mc:Ignorable="d"
+        Style="{StaticResource CustomWindowStyle}"
         Title="PreferencesWindow" Height="441" Width="519">
     <StackPanel>
 
@@ -19,41 +20,32 @@
             <Label Content="Preferences" VerticalAlignment="Top"/>
         </StackPanel>
 
-        <StackPanel>
-            <Label Content="Output Device" VerticalAlignment="Top"/>
-            <ComboBox x:Name="outputDeviceComboBox"  SelectedItem="{Binding AudioDeviceGUID, UpdateSourceTrigger=PropertyChanged}" SelectedValue="{Binding AudioDeviceGUID}" SelectedValuePath="DeviceGuid" VerticalAlignment="Top"  HorizontalContentAlignment="Stretch" SelectionChanged="outputDeviceComboBox_SelectionChanged" >
-                <ComboBox.ItemContainerStyle>
-                    <Style TargetType="ComboBoxItem">
-                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-                        <Setter Property="Width" Value="450"/>
-                    </Style>
-                </ComboBox.ItemContainerStyle>
-            </ComboBox>
-        </StackPanel>
+        <ContentControl Style="{StaticResource Bordered}">
+            <StackPanel>
+                <StackPanel Style="{StaticResource CheckBoxGroup}">
+                    <CheckBox VerticalAlignment="Center" x:Name="alwaysOnTop" Checked="alwaysOnTop_Checked" IsChecked="{Binding AlwaysOnTop, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Label Content="Always On Top" VerticalAlignment="Top"/>
+                </StackPanel>
+                <TextBlock Text="Try and force this application to sit on top of other applications." TextWrapping="Wrap" FontSize="10"/>
+            </StackPanel>
+        </ContentControl>
 
-        <StackPanel>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <!-- Fills remaining space -->
-                    <ColumnDefinition Width="Auto" />
-                    <!-- Adjusts to the size of the button -->
-                </Grid.ColumnDefinitions>
-
-                <!-- TextBox spans first column -->
-
-                <!-- Button in second column -->
-            </Grid>
-        </StackPanel>
+        <ContentControl Style="{StaticResource Bordered}">
+            <StackPanel>
+                <Label Content="Themes" VerticalAlignment="Top"/>
+                <ComboBox x:Name="themesComboBox"                 
+                    IsEditable="True" 
+                    IsReadOnly="True"    
+                          SelectedItem="{Binding Theme, UpdateSourceTrigger=PropertyChanged}"
+                    Text="Select Theme" >
+                    
+                </ComboBox>
+                <TextBlock Text="Select a theme and save to preview" Style="{StaticResource Description}"/>
+            </StackPanel>
+        </ContentControl>
 
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-            <StackPanel.Resources>
-                <Style TargetType="Button">
-                    <Setter Property="Padding" Value="10,2"/>
-                    <Setter Property="Margin" Value="10,0,0,0"/>
-                </Style>
-            </StackPanel.Resources>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Style="{StaticResource SaveGroup}">
             <Button x:Name="saveButton" Content="Save" Click="saveButton_Click" Width="50" />
             <Button x:Name="cancelButton" Content="Cancel" Click="cancelButton_Click" Width="70" />
         </StackPanel>

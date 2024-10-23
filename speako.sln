@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "speako", "speako\speako.csproj", "{7986AE3F-B15F-47B3-B829-AA5B1D1E8E96}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "speako", "speako\speako.csproj", "{7986AE3F-B15F-47B3-B829-AA5B1D1E8E96}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E22DFC7A-2700-4363-BA1D-A0022C8D2BF6}"
 	ProjectSection(SolutionItems) = preProject
@@ -12,16 +12,42 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "installer", "mowang\installer.wixproj", "{0D7914DF-8D95-46EC-B1D7-AA427E021669}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{7986AE3F-B15F-47B3-B829-AA5B1D1E8E96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7986AE3F-B15F-47B3-B829-AA5B1D1E8E96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7986AE3F-B15F-47B3-B829-AA5B1D1E8E96}.Debug|x64.ActiveCfg = Debug|x64
+		{7986AE3F-B15F-47B3-B829-AA5B1D1E8E96}.Debug|x64.Build.0 = Debug|x64
+		{7986AE3F-B15F-47B3-B829-AA5B1D1E8E96}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7986AE3F-B15F-47B3-B829-AA5B1D1E8E96}.Debug|x86.Build.0 = Debug|Any CPU
 		{7986AE3F-B15F-47B3-B829-AA5B1D1E8E96}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7986AE3F-B15F-47B3-B829-AA5B1D1E8E96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7986AE3F-B15F-47B3-B829-AA5B1D1E8E96}.Release|x64.ActiveCfg = Release|x64
+		{7986AE3F-B15F-47B3-B829-AA5B1D1E8E96}.Release|x64.Build.0 = Release|x64
+		{7986AE3F-B15F-47B3-B829-AA5B1D1E8E96}.Release|x86.ActiveCfg = Release|Any CPU
+		{7986AE3F-B15F-47B3-B829-AA5B1D1E8E96}.Release|x86.Build.0 = Release|Any CPU
+		{0D7914DF-8D95-46EC-B1D7-AA427E021669}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{0D7914DF-8D95-46EC-B1D7-AA427E021669}.Debug|Any CPU.Build.0 = Debug|x86
+		{0D7914DF-8D95-46EC-B1D7-AA427E021669}.Debug|x64.ActiveCfg = Debug|x86
+		{0D7914DF-8D95-46EC-B1D7-AA427E021669}.Debug|x64.Build.0 = Debug|x86
+		{0D7914DF-8D95-46EC-B1D7-AA427E021669}.Debug|x86.ActiveCfg = Debug|x86
+		{0D7914DF-8D95-46EC-B1D7-AA427E021669}.Debug|x86.Build.0 = Debug|x86
+		{0D7914DF-8D95-46EC-B1D7-AA427E021669}.Release|Any CPU.ActiveCfg = Release|x86
+		{0D7914DF-8D95-46EC-B1D7-AA427E021669}.Release|Any CPU.Build.0 = Release|x86
+		{0D7914DF-8D95-46EC-B1D7-AA427E021669}.Release|x64.ActiveCfg = Release|x86
+		{0D7914DF-8D95-46EC-B1D7-AA427E021669}.Release|x64.Build.0 = Release|x86
+		{0D7914DF-8D95-46EC-B1D7-AA427E021669}.Release|x86.ActiveCfg = Release|x86
+		{0D7914DF-8D95-46EC-B1D7-AA427E021669}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

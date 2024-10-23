@@ -4,7 +4,7 @@ using speako.Services.Auth;
 using speako.Services.Providers;
 using speako.Services.Providers.AWS;
 using speako.Services.ProviderSettings;
-using speako.Services.VoiceSettings;
+using speako.Services.VoiceProfiles;
 using speako.Settings;
 using System.Drawing;
 
@@ -71,12 +71,12 @@ namespace speako.Services.Providers.Azure
       throw new NotImplementedException();
     }
 
-    public Task<Stream> GetSpeechFromTextAsync(string text, VoiceProfile profile, CancellationToken token)
+    public Task<Stream> GetSpeechFromTextAsync(string text, VoiceProfiles.VoiceProfile profile, CancellationToken token)
     {
       throw new NotImplementedException();
     }
 
-    public VoiceProfile DefaultVoiceProfile()
+    public VoiceProfiles.VoiceProfile DefaultVoiceProfile()
     {
       throw new NotImplementedException();
     }
@@ -87,6 +87,11 @@ namespace speako.Services.Providers.Azure
     }
 
     public object CreateClient(IAuthSettings authSettings)
+    {
+      throw new NotImplementedException();
+    }
+
+    public Task<bool> Configure(IAuthSettings settingsObject)
     {
       throw new NotImplementedException();
     }

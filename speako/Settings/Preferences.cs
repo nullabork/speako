@@ -1,17 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 
 namespace speako.Settings
 {
   public class Preferences: JsonSerializable<Preferences>, INotifyPropertyChanged
   {
-    public Preferences() { }
+    public bool AlwaysOnTop { get; set; }
 
-    public string AudioDeviceGUID { get; set; }
+    public string Theme { get; set; }
+
+    public string Cheese { get; set; }
+    public string CastType => this.GetType().ToString();
 
     public event PropertyChangedEventHandler? PropertyChanged;
   }

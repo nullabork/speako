@@ -1,0 +1,104 @@
+﻿<UserControl x:Class="speako.Services.PostProcessors.DiscordWebHook.DiscordWebHookSettingsControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:speako.Services.PostProcessors.DiscordWebHook"
+             mc:Ignorable="d" 
+             VerticalAlignment="Top" Width="527" Margin="10,0,10,0">
+
+
+    <StackPanel VerticalAlignment="Top" Margin="0,-1,0,0">
+
+        <ContentControl Style="{StaticResource Bordered}">
+            <StackPanel Orientation="Vertical" >
+
+                <Label Content="Name" Target="{Binding ElementName=nameInput}"/>
+
+                <TextBox x:Name="nameInput" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"  />
+                <TextBlock Text="The Name of this Processor instance used to identify in a Voice Profile" Style="{StaticResource Description}"/>
+
+            </StackPanel>
+        </ContentControl>
+
+        <ContentControl Style="{StaticResource Bordered}">
+            <StackPanel>
+                <Label Content="Name Format" VerticalAlignment="Top"/>
+                <ComboBox x:Name="providerComboBox"                 
+                  IsEditable="True" 
+                  IsReadOnly="True" 
+                  Text="Select format"
+                  ItemsSource="{Binding NameFormats}"
+                  SelectedValue="{Binding NameFormat, UpdateSourceTrigger=PropertyChanged}"
+                  VerticalAlignment="Top"/>
+                <TextBlock Style="{StaticResource Description}" HorizontalAlignment="Left" >
+                    Select how you want the message sender name to appear in discord
+                    <LineBreak/>
+                    <Bold>{name}</Bold> is the Name of this config above.
+                    <LineBreak/>
+                    <Bold>{profile name}</Bold> is the name of the voice profile this config is attached to
+                </TextBlock>
+            </StackPanel>
+
+        </ContentControl>
+
+        <ContentControl Style="{StaticResource Bordered}">
+            <StackPanel Orientation="Vertical" >
+
+                <Label Content="Icon URL" Target="{Binding ElementName=iconURLInput}"/>
+
+                <TextBox x:Name="iconURLInput" Text="{Binding IconUrl, UpdateSourceTrigger=PropertyChanged}"  />
+                <TextBlock Text="A raw image url from a publicly accessable source like imgur .. e.g. https://i.imgur.com/JSg2zqT.png " Style="{StaticResource Description}"/>
+
+            </StackPanel>
+        </ContentControl>
+
+
+
+        <ContentControl Style="{StaticResource Bordered}">
+            <StackPanel>
+                <StackPanel Style="{StaticResource CheckBoxGroup}">
+                    <CheckBox VerticalAlignment="Center" x:Name="processAfter" IsChecked="{Binding ProcessAfter, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Label Content="Send Message after TTS" VerticalAlignment="Top"/>
+                </StackPanel>
+                <TextBlock Text="Wait for audio to stop before sending messages to these channels" Style="{StaticResource Description}"/>
+            </StackPanel>
+        </ContentControl>
+        <ContentControl Style="{StaticResource Bordered}">
+            <StackPanel>
+                <Label Content="Webhook Urls" Target="{Binding ElementName=iconURLInput}"/>
+                <TextBlock Text="Webhooks are a simple way to post messages from other apps and websites into discord using internet magic." Style="{StaticResource Description}"/>
+                <DataGrid ItemsSource="{Binding ChannelURLS, UpdateSourceTrigger=PropertyChanged}"
+              AutoGenerateColumns="False"
+              CanUserAddRows="True"
+              CanUserDeleteRows="True"
+      
+              IsReadOnly="False"
+                  Height="260"
+                  ScrollViewer.CanContentScroll="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Name" Binding="{Binding Name, UpdateSourceTrigger=PropertyChanged}" />
+                        <DataGridTextColumn Header="Channel Webhook URL" Width="*" Binding="{Binding WebHookURL, UpdateSourceTrigger=PropertyChanged}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+                <TextBlock Style="{StaticResource Description}">
+                    You or a server admin can create a webhook in Discord by going to 
+                    <LineBreak/>
+                    <Bold>Server Settings > Integrations > Webhooks > New Webhook</Bold>
+                    <LineBreak />
+                     Make sure to select the <Bold>Channel</Bold> you want this webhook to post to. You can configure the name and image of the webhook but this config will override it
+                </TextBlock>
+            </StackPanel>
+        </ContentControl>
+
+        <StackPanel Style="{StaticResource SaveGroup}">
+
+            <Button x:Name="saveButton" Content="Save" Click="saveButton_Click" Width="50" />
+            <Button x:Name="cancelButton" Content="Cancel" Click="cancelButton_Click" Width="70" />
+        </StackPanel>
+
+    </StackPanel>
+</UserControl>
+    
+    
+    

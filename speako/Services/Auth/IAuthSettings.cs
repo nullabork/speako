@@ -5,19 +5,19 @@ namespace speako.Services.Auth
 {
   public interface IAuthSettings
   {
+    public string DisplayName { get; }
     string GUID { get; set; }
     string Name { get; set; }
     string CastType { get; set; }
-    ITTSProvider Provider { get; set; }
+ 
+    public ITTSProvider GetProvider();
 
-    IAuthSettings InitProvider();
+    void Init();
+
+    public IProviderSettingsControl SettingsControl();
 
     public bool IsConfigured();
 
-
-    public string DisplayName { get; }
-
-    public IAuthSettings Duplicate();
 
     public event PropertyChangedEventHandler PropertyChanged;
   }

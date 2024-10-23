@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "speako": {
+      "commandName": "Project",
+      "hotReloadEnabled": false
+    }
+  }
+}

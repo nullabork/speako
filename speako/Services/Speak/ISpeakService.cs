@@ -1,11 +1,9 @@
-﻿
-using speako.Services.Providers;
-using speako.Services.VoiceSettings;
+﻿using speako.Services.VoiceProfiles;
 
 namespace speako.Services.Speak
 {
   public interface ISpeakService
   {
-    Task SpeakText(ITTSProvider ttsProvider, VoiceProfile profile, string text);
+    Task SpeakText(string message, VoiceProfile profile);
   }
 }
