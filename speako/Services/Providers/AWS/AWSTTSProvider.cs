@@ -75,7 +75,7 @@ namespace speako.Services.Providers.AWS
       throw new NotImplementedException();
     }
 
-    public object CreateClient(IAuthSettings authSettings)
+    public async Task<object> CreateClient()
     {
       throw new NotImplementedException();
     }

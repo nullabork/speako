@@ -30,13 +30,13 @@ namespace speako.Services.Providers.Google
       var task = new TaskCompletionSource<bool>();
 
       _settings = (GoogleAuthSettings)providerSettings;
-      _client = (TextToSpeechClient)CreateClient(_settings);
+      _client =  (TextToSpeechClient) await CreateClient();
       task.SetResult(true);
 
       return await task.Task;
     }
 
-    public object CreateClient(IAuthSettings providerSettings)
+    public async Task<object> CreateClient()
     {
       try
       {
@@ -63,7 +63,7 @@ namespace speako.Services.Providers.Google
       //if _settings look at least somewhat correct
       if (_settings == null || !_settings.IsConfigured())  return false;
 
-      var tempClient = (TextToSpeechClient)CreateClient(_settings);
+      var tempClient = (TextToSpeechClient) await CreateClient();
 
       //client still null
       if (tempClient == null) return false;

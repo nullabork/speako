@@ -60,10 +60,6 @@
     <None Update="Config\GoogleAuth.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="DataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
-    </None>
     <None Update="espeak-ng.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -73,16 +69,11 @@
     <None Update="piper.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Components\Styles\" />
     <Folder Include="Services\Message\" />
-    <Folder Include="Services\Providers\Piper\NewFolder\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -102,11 +93,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <AutoGen>True</AutoGen>
       <DependentUpon>AppConfig.settings</DependentUpon>
-    </Compile>
-    <Compile Update="DataSet1.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Update="Services\Providers\Piper\PiperTTSSettingsControl.xaml.cs">
       <SubType>Code</SubType>

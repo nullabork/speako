@@ -1,0 +1,824 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Include xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    
+    <Fragment>
+        <ComponentGroup Id="ProductComponents">
+            <Component Id="cmp01F57A0E1D13BF04B30F007CDAA4299C" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil3AA3B6135013944F5FFE9A42C2E11B02" KeyPath="yes" Source="$(var.speako.TargetDir)\Accord.Audio.DirectSound.dll" />
+            </Component>
+            <Component Id="cmpAA9C118BF2A8EBA8417EC4334428E459" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filE6BA089EB7F16969B644C907D4790F14" KeyPath="yes" Source="$(var.speako.TargetDir)\Accord.Audio.dll" />
+            </Component>
+            <Component Id="cmp9E97DD67767602F728006C17CBFE991F" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil6B0736796BA8C2A5D41F12814E571CBC" KeyPath="yes" Source="$(var.speako.TargetDir)\Accord.dll" />
+            </Component>
+            <Component Id="cmpEF2296956EE28376B426B940AEAD5ACE" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil454D532183DB82D4B34773C620AB5A0F" KeyPath="yes" Source="$(var.speako.TargetDir)\Accord.dll.config" />
+            </Component>
+            <Component Id="cmpAFB8933116D6D264A19E32777C47031C" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil0E9B79627743997C1E07F8179F8ECA79" KeyPath="yes" Source="$(var.speako.TargetDir)\Accord.Math.Core.dll" />
+            </Component>
+            <Component Id="cmp56A2F92376024DD17DD0F47E999A1D9D" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil7E5AE0F6D2C788E4A7F89B29E140F27B" KeyPath="yes" Source="$(var.speako.TargetDir)\Accord.Math.dll" />
+            </Component>
+            <Component Id="cmp54465610F64A96EF3322F07233C5F820" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil5CCBA4091CA52AE4298B1E2C87CC58AA" KeyPath="yes" Source="$(var.speako.TargetDir)\AWSSDK.Core.dll" />
+            </Component>
+            <Component Id="cmp496A9F8EACA252F3EF047B0253FCE58F" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filCD2AFA6A5E92784E057E9023B7C7EA1D" KeyPath="yes" Source="$(var.speako.TargetDir)\AWSSDK.Polly.dll" />
+            </Component>
+            <Component Id="cmpC4F6C60E87920783AF597164FFBB088C" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil7093B3A435DB6A128B4BDFD4016DF410" KeyPath="yes" Source="$(var.speako.TargetDir)\Discord.Net.Core.dll" />
+            </Component>
+            <Component Id="cmp3A68ED8E082F1113736A8472E2EFD0FE" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filFD80742D48D389C7B8CF241FF2D40CD2" KeyPath="yes" Source="$(var.speako.TargetDir)\Discord.Net.Rest.dll" />
+            </Component>
+            <Component Id="cmp53C5AABF5AE671F6F00CA0594E940021" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil9545475E00634C55D8636829C5A00FA7" KeyPath="yes" Source="$(var.speako.TargetDir)\Discord.Net.WebSocket.dll" />
+            </Component>
+            <Component Id="cmp8A8D1BD1A896044E6EE2CFD1E6E7A9C2" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil99EBF219532905A88D56A4DD023F32E0" KeyPath="yes" Source="$(var.speako.TargetDir)\FastDeepCloner.dll" />
+            </Component>
+            <Component Id="cmpA341C6253805465BB7935B843DD2FEF0" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil03BAB0E6A3B0C2872AA83A2163D7396A" KeyPath="yes" Source="$(var.speako.TargetDir)\FuzzySharp.dll" />
+            </Component>
+            <Component Id="cmpDBDD131D70803D0E59C62CECDDFC83CC" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil92EEA5379439D1FD6044E68BAA9C8B21" KeyPath="yes" Source="$(var.speako.TargetDir)\Google.Api.CommonProtos.dll" />
+            </Component>
+            <Component Id="cmpA77BD1BEBDB677BD588C964C5619AD0F" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filC2E04C25AA751253AA9F1DBD8823AEE4" KeyPath="yes" Source="$(var.speako.TargetDir)\Google.Api.Gax.dll" />
+            </Component>
+            <Component Id="cmpF466FC78E452334E996C29BD55D98F3F" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil1174DD810E2FC81A7CC65E113346CD83" KeyPath="yes" Source="$(var.speako.TargetDir)\Google.Api.Gax.Grpc.dll" />
+            </Component>
+            <Component Id="cmp944C0DDD216BC6AD99A0D859E6B63073" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filB60107B5E796F6187F79960EDADB81A7" KeyPath="yes" Source="$(var.speako.TargetDir)\Google.Apis.Auth.dll" />
+            </Component>
+            <Component Id="cmp10A912D19ABF9913D65315302B4DFEA4" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filF1CD23BE3A962B5CDBDEAFC6B12FD01D" KeyPath="yes" Source="$(var.speako.TargetDir)\Google.Apis.Core.dll" />
+            </Component>
+            <Component Id="cmpF9C24E1E7BCD302106AED282D4A70BD6" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil23E54273A3F31C7FFB0F74EB24C98107" KeyPath="yes" Source="$(var.speako.TargetDir)\Google.Apis.dll" />
+            </Component>
+            <Component Id="cmp1C8F1507B7BA6E6EDDB0DB87EC777662" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filD6264ADE91032E9B5125190AE04A2BA2" KeyPath="yes" Source="$(var.speako.TargetDir)\Google.Cloud.TextToSpeech.V1.dll" />
+            </Component>
+            <Component Id="cmp0A71DDF73735E58A21378FE1E7411D58" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filB054942960866FF91DC5A8C89402F6E9" KeyPath="yes" Source="$(var.speako.TargetDir)\Google.LongRunning.dll" />
+            </Component>
+            <Component Id="cmp2B62C064A3ED6A94B47BE64C5EB82D9E" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil627F933A2694B1BED9FD06B5FDD52C93" KeyPath="yes" Source="$(var.speako.TargetDir)\Google.Protobuf.dll" />
+            </Component>
+            <Component Id="cmpCF6FC4B0F054E1E36236A5D417D130DB" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil4613698EB622BCE815E7937B8F5051DB" KeyPath="yes" Source="$(var.speako.TargetDir)\Grpc.Auth.dll" />
+            </Component>
+            <Component Id="cmp7530465017BB74DDEEFF284B43AFA164" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filF3F51DFF9B4F49FA9BB94AD074AA7F28" KeyPath="yes" Source="$(var.speako.TargetDir)\Grpc.Core.Api.dll" />
+            </Component>
+            <Component Id="cmp301336F2D44076B758CAAEAEFFD98B4B" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil645F9138B236FAA537DC09760E5BB73A" KeyPath="yes" Source="$(var.speako.TargetDir)\Grpc.Net.Client.dll" />
+            </Component>
+            <Component Id="cmpD5921CC73D3D7D96B18ADAC140DDDBF5" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil61C6E628E74343C95130875F07EFF332" KeyPath="yes" Source="$(var.speako.TargetDir)\Grpc.Net.Common.dll" />
+            </Component>
+            <Component Id="cmpB1E267D3B3C74CF4F8ACCCB54D64A2F0" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filE6D9FD8634F7359C5380B2ED3557B521" KeyPath="yes" Source="$(var.speako.TargetDir)\IBM.Cloud.SDK.Core.dll" />
+            </Component>
+            <Component Id="cmp0DEA76F9DEE0F84A68E95C77F5288FB2" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil46BFAF1DF4B4A21E4EF9DACB72C576A4" KeyPath="yes" Source="$(var.speako.TargetDir)\IBM.Watson.Common.dll" />
+            </Component>
+            <Component Id="cmp0E40679A6FFC7D6C1737D81B2AAFFD1C" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil5D1792BA9BE8E8327AFFBE92608102E2" KeyPath="yes" Source="$(var.speako.TargetDir)\IBM.Watson.TextToSpeech.v1.dll" />
+            </Component>
+            <Component Id="cmp406ADAE8B8A9C6E18CF7CAB40E991546" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filD1AE546ED0FB5B7BB938E665072113FE" KeyPath="yes" Source="$(var.speako.TargetDir)\JsonSubTypes.dll" />
+            </Component>
+            <Component Id="cmp631964CC0D2B6D53B001DBFE4C5B169D" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filC764EF4F369DA7E888553B74936D2EDC" KeyPath="yes" Source="$(var.speako.TargetDir)\JWT.dll" />
+            </Component>
+            <Component Id="cmp20E5A82EE1F53BB560782568696E50EF" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil2E537F5E44EFF72FBE1AF325D6F073A2" KeyPath="yes" Source="$(var.speako.TargetDir)\Microsoft.Bcl.AsyncInterfaces.dll" />
+            </Component>
+            <Component Id="cmp36672765668472E37D50E530A2B591AE" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil92A33DFB8B3BD412F122EACE4525D84D" KeyPath="yes" Source="$(var.speako.TargetDir)\Microsoft.CognitiveServices.Speech.csharp.dll" />
+            </Component>
+            <Component Id="cmpDC19BA21EFF423B27F8787A2AB8F2B3C" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filF6767F9D22B6D46DD3A2FC798B5F23DE" KeyPath="yes" Source="$(var.speako.TargetDir)\Microsoft.Extensions.Configuration.Abstractions.dll" />
+            </Component>
+            <Component Id="cmp85A16DDDD438C8839C302EEFF54E8E0C" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil52FC3D526CBD9DC330C6FE3380563F0C" KeyPath="yes" Source="$(var.speako.TargetDir)\Microsoft.Extensions.Configuration.Binder.dll" />
+            </Component>
+            <Component Id="cmp4A61E3F01E16F7C35D22D304DE7C3D7D" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filB3B34A4CDA6A327AC31CAD64389BC80C" KeyPath="yes" Source="$(var.speako.TargetDir)\Microsoft.Extensions.Configuration.CommandLine.dll" />
+            </Component>
+            <Component Id="cmpC2B3CC4C105FBF588A9EBBD45742C349" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filE9F345539532616C2BEF86BE1CEB83E2" KeyPath="yes" Source="$(var.speako.TargetDir)\Microsoft.Extensions.Configuration.dll" />
+            </Component>
+            <Component Id="cmp695DF09F0E9EE30558F8C6D16553F843" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filEAA27D91AD78E3FCD8BA846C92752BAA" KeyPath="yes" Source="$(var.speako.TargetDir)\Microsoft.Extensions.Configuration.EnvironmentVariables.dll" />
+            </Component>
+            <Component Id="cmp0F72FDFC2B5DABBEED0952957424C516" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil732B9D1BB8B2BA629B3802CB721B7E55" KeyPath="yes" Source="$(var.speako.TargetDir)\Microsoft.Extensions.Configuration.FileExtensions.dll" />
+            </Component>
+            <Component Id="cmp191446DEBB621CC91C2B2E713F085F01" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil0CC9532B169036B73874B81A5F9C8F97" KeyPath="yes" Source="$(var.speako.TargetDir)\Microsoft.Extensions.Configuration.Json.dll" />
+            </Component>
+            <Component Id="cmp306F083BB44F8AEA42DD7E2AB9CD82C2" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil867F166CDED00C699F6B217A4FC42957" KeyPath="yes" Source="$(var.speako.TargetDir)\Microsoft.Extensions.Configuration.UserSecrets.dll" />
+            </Component>
+            <Component Id="cmp198468A4AE980CD6955CB6EB86083726" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil02E4E4D119BFC4831CEA5A71F1288443" KeyPath="yes" Source="$(var.speako.TargetDir)\Microsoft.Extensions.DependencyInjection.Abstractions.dll" />
+            </Component>
+            <Component Id="cmp493E9BC44885B6BC5C57BDB1302C40D9" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filA40291A4FBD4719B6995DEB783A39A65" KeyPath="yes" Source="$(var.speako.TargetDir)\Microsoft.Extensions.DependencyInjection.dll" />
+            </Component>
+            <Component Id="cmpD71177CD3BCD768F1F74211E6E2E353D" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filD6E38AF71AD3567AEFAB7A283BC7D3C6" KeyPath="yes" Source="$(var.speako.TargetDir)\Microsoft.Extensions.Diagnostics.Abstractions.dll" />
+            </Component>
+            <Component Id="cmpBB58932E81784E90600A3B2DEB2E2D6A" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filBFD8FDE91AE486857624064B5808A0C1" KeyPath="yes" Source="$(var.speako.TargetDir)\Microsoft.Extensions.Diagnostics.dll" />
+            </Component>
+            <Component Id="cmp0209E8308C907CAD5474151F7C6836F5" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil1036FDFADEB4E1F1FB133485A70A0DD4" KeyPath="yes" Source="$(var.speako.TargetDir)\Microsoft.Extensions.FileProviders.Abstractions.dll" />
+            </Component>
+            <Component Id="cmp6361EE614B62630DD923390326EAF03C" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil1B3C0C67DC448F84DA45630529031E78" KeyPath="yes" Source="$(var.speako.TargetDir)\Microsoft.Extensions.FileProviders.Physical.dll" />
+            </Component>
+            <Component Id="cmp1E5A63B6F657DD090469973A1C3D2C59" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil931DDF3633F4CABF1422600B672C70DE" KeyPath="yes" Source="$(var.speako.TargetDir)\Microsoft.Extensions.FileSystemGlobbing.dll" />
+            </Component>
+            <Component Id="cmpB96239F931804879A085E057C6E72657" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filFE47041DFF0F714E6C7D801D2D2C140A" KeyPath="yes" Source="$(var.speako.TargetDir)\Microsoft.Extensions.Hosting.Abstractions.dll" />
+            </Component>
+            <Component Id="cmp1ED5B5DCD1725E69F71E98865BCEAAB9" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filD0586081609434942EDB53299EF52D71" KeyPath="yes" Source="$(var.speako.TargetDir)\Microsoft.Extensions.Hosting.dll" />
+            </Component>
+            <Component Id="cmp8C674FD6A69988A60A77A4CEE0F53781" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil72342637E9F74EE945317D4603CEBA2F" KeyPath="yes" Source="$(var.speako.TargetDir)\Microsoft.Extensions.Logging.Abstractions.dll" />
+            </Component>
+            <Component Id="cmp9B211F39744547E733F9040027FF1A3B" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filC6D4BDB43CC150D24C5E1BDE9EB552F7" KeyPath="yes" Source="$(var.speako.TargetDir)\Microsoft.Extensions.Logging.Configuration.dll" />
+            </Component>
+            <Component Id="cmp60BA3AB6448C5A0208FEDA4F886EDDE8" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filA347F900C2828DE2F50C35BDA8F5CE44" KeyPath="yes" Source="$(var.speako.TargetDir)\Microsoft.Extensions.Logging.Console.dll" />
+            </Component>
+            <Component Id="cmp591239506CAB75D331DE5D90D6713057" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil1CB90B4A15160F351B5EB5D2DED1B050" KeyPath="yes" Source="$(var.speako.TargetDir)\Microsoft.Extensions.Logging.Debug.dll" />
+            </Component>
+            <Component Id="cmp835034F744990576E31C2DBC7C9293BF" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil71DD299EE7649E964200A4127797D1C0" KeyPath="yes" Source="$(var.speako.TargetDir)\Microsoft.Extensions.Logging.dll" />
+            </Component>
+            <Component Id="cmp3D087D80699D13BCB013A8533A2C0DCF" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filA050696110EF79DCA5E76B6513E54FB2" KeyPath="yes" Source="$(var.speako.TargetDir)\Microsoft.Extensions.Logging.EventLog.dll" />
+            </Component>
+            <Component Id="cmp63493859708989EE0F11F5DF7347E61A" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filBF2F378F474FFE2ABA30A373F8BB00C0" KeyPath="yes" Source="$(var.speako.TargetDir)\Microsoft.Extensions.Logging.EventSource.dll" />
+            </Component>
+            <Component Id="cmpF5D2F2D913749765205DC918BD981CD0" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil3F5CF8D11C3311A25D3082B99A709528" KeyPath="yes" Source="$(var.speako.TargetDir)\Microsoft.Extensions.Options.ConfigurationExtensions.dll" />
+            </Component>
+            <Component Id="cmp3279C150AE8DF554FD7EEE2085672A2B" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filA8D1F5D61FD7BC25099F707CBF5B1F24" KeyPath="yes" Source="$(var.speako.TargetDir)\Microsoft.Extensions.Options.dll" />
+            </Component>
+            <Component Id="cmp946145B53A7DCDFA822B0EFD2314FAB6" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil773F29942324AAB2A7E1977E1AC63609" KeyPath="yes" Source="$(var.speako.TargetDir)\Microsoft.Extensions.Primitives.dll" />
+            </Component>
+            <Component Id="cmpC3C247AF3BCF46EF3DE00984D264D359" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filF207EF2DABFDE0EB6D5BC441FC309B66" KeyPath="yes" Source="$(var.speako.TargetDir)\NAudio.Asio.dll" />
+            </Component>
+            <Component Id="cmpBE98D3D44CB27E52FF8860E684F72B53" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filCA140DBDB908CB183054BE126215BC0D" KeyPath="yes" Source="$(var.speako.TargetDir)\NAudio.Core.dll" />
+            </Component>
+            <Component Id="cmp979BB5B2297816EF2D91624FE967267D" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil90ABFE40E18B3705156C760B3E7FFC87" KeyPath="yes" Source="$(var.speako.TargetDir)\NAudio.dll" />
+            </Component>
+            <Component Id="cmp7A1CB3AD408D05BD6658F6AF651C958C" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil212D7686262714E585BEAD964B1484CF" KeyPath="yes" Source="$(var.speako.TargetDir)\NAudio.Midi.dll" />
+            </Component>
+            <Component Id="cmp183508D134DC714113705228F00F150E" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil918A6A3B4801B84A9F653571D12DE1D1" KeyPath="yes" Source="$(var.speako.TargetDir)\NAudio.Wasapi.dll" />
+            </Component>
+            <Component Id="cmpD0CE0730098096A4D261A0C7F1C67848" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filFD613E6C6316B8A95FEAEFAA5C9B3D36" KeyPath="yes" Source="$(var.speako.TargetDir)\NAudio.WinForms.dll" />
+            </Component>
+            <Component Id="cmpCE017872847B29F4C35A191DF46E0437" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil65F14F25D472E35D6B741BDF89FCC694" KeyPath="yes" Source="$(var.speako.TargetDir)\NAudio.WinMM.dll" />
+            </Component>
+            <Component Id="cmpBC4FC00A26E7D32479D42D3411317FC5" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil90A8AAD9FC612906D405476D61CEA3F4" KeyPath="yes" Source="$(var.speako.TargetDir)\Newtonsoft.Json.dll" />
+            </Component>
+            <Component Id="cmp52E74F8D973209E640FB1B193C43DC05" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil8755398ECC993FB0EC6F1FF4F46E5B8D" KeyPath="yes" Source="$(var.speako.TargetDir)\Omu.ValueInjecter.dll" />
+            </Component>
+            <Component Id="cmp330FFD4CA2F0EB1B9A0389CB78BE042C" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filD05B745B813CA1DCA4EFEE4F732FA2C9" KeyPath="yes" Source="$(var.speako.TargetDir)\PiperSharp.dll" />
+            </Component>
+            <Component Id="cmp7EF438D2A4E1FF3FA6222046A8791D88" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil384AFC995578699CA1F6C1519880B713" KeyPath="yes" Source="$(var.speako.TargetDir)\SharpCompress.dll" />
+            </Component>
+            <Component Id="cmpF1852951EC8115B6C2E0D49DB06174A3" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil08922C546DFAD998A4FF26A406B16514" KeyPath="yes" Source="$(var.speako.TargetDir)\SharpDX.DirectSound.dll" />
+            </Component>
+            <Component Id="cmp9607F152871CB9C2659ED14722E13E44" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filF5517F7734A13514A2CDF5F069816EE5" KeyPath="yes" Source="$(var.speako.TargetDir)\SharpDX.dll" />
+            </Component>
+            <Component Id="cmp908268E0C5CE4F53A39A15EBAE14F293" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filDA12A07EC6163CADC1CF38EE2542BFB8" KeyPath="yes" Source="$(var.speako.TargetDir)\speako.deps.json" />
+            </Component>
+            <Component Id="cmpE9446218DEDFA0836947A4D4DBAAF08E" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil694893FC2D12C7CBD44BFB70AD567FB5" KeyPath="yes" Source="$(var.speako.TargetDir)\speako.dll" />
+            </Component>
+            <Component Id="cmp13F7E314EABCEC85FD05ABFB3C36EF17" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil9F7D4BC527DDDE0CD1F9683B3596B407" KeyPath="yes" Source="$(var.speako.TargetDir)\speako.dll.config" />
+            </Component>
+            <Component Id="cmpA6513DC3D0C5A4C612F7FA21F167DFD0" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filD17C8A50B88D9ACC2CA8CE25382775B8" KeyPath="yes" Source="$(var.speako.TargetDir)\speako.exe" />
+            </Component>
+            <Component Id="cmpE6056F42140BBDEA89CFDCCC9292B074" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil791AFF31F8419120B4974CA72357320B" KeyPath="yes" Source="$(var.speako.TargetDir)\speako.pdb" />
+            </Component>
+            <Component Id="cmp032FBED9802593F186A0B7428084FC0F" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil91F9DD18617DE8D49FC0BB397BB69A52" KeyPath="yes" Source="$(var.speako.TargetDir)\speako.runtimeconfig.json" />
+            </Component>
+            <Component Id="cmpACDBAE59B9584DAADFCFCDB7304FC635" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil62A039AEAD67D242294347423492FF6D" KeyPath="yes" Source="$(var.speako.TargetDir)\System.Interactive.Async.dll" />
+            </Component>
+            <Component Id="cmpA2A1BDD7D0ED8DDB5B791349EAD85B7D" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filE87EA17BFD1B61B7B160F8651C6EA028" KeyPath="yes" Source="$(var.speako.TargetDir)\System.Linq.Async.dll" />
+            </Component>
+            <Component Id="cmpB2F9EBAF385E9E29B5A93F58B0D73177" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filA39AFD83E426A11FDBCFCA1B11CFEE01" KeyPath="yes" Source="$(var.speako.TargetDir)\System.Management.dll" />
+            </Component>
+            <Component Id="cmp6FD941A56CFB6288079AD725FC4C6CC9" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filF62ABB9A1DBA3DB8EA89A66F6CDF9023" KeyPath="yes" Source="$(var.speako.TargetDir)\System.Net.Http.Formatting.dll" />
+            </Component>
+            <Component Id="cmp3A072CB636CFA4F8D3A70D6D70681AB7" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil5AFEE917330AEF1D029FF91A31D5D401" KeyPath="yes" Source="$(var.speako.TargetDir)\XamlAnimatedGif.dll" />
+            </Component>
+            <Component Id="cmpC206C517AEB2DAA6FE1F4E59CA26C7E5" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil9503DF06886C0E0301E907C5EDF7D0EB" KeyPath="yes" Source="$(var.speako.TargetDir)\ZstdSharp.dll" />
+            </Component>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        </ComponentGroup>
+    </Fragment>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</Include>

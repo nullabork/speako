@@ -4,6 +4,7 @@ using Omu.ValueInjecter;
 using speako.Common;
 using speako.Services.Auth;
 using speako.Services.PostProcessors.Discord;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 
 namespace speako.Services.Providers.Piper
@@ -31,6 +32,9 @@ namespace speako.Services.Providers.Piper
     [JsonIgnore()]
     public ITTSProvider Provider { get; set; }
 
+    [JsonIgnore()]
+    public ObservableCollection<PiperTTSVoice> PiperTTSVoices { get; set; } = new ObservableCollection<PiperTTSVoice>();
+
 
     
     public string Name { get; set; } = "PiperTTS";
@@ -38,10 +42,18 @@ namespace speako.Services.Providers.Piper
 
     public string GUID { get; set; }
 
-    public void Init()
+    public async Task Init()
     {
       _provider = new PiperTTSProvider();
-      _provider.Configure(this);
+      await _provider.Configure(this);
+      var location = JsonConfigTools.GetDataDirectory();
+
+      var v = await PiperTTSProvider.GetAvailableVoicesAsync();
+      PiperTTSVoices = new ObservableCollection<PiperTTSVoice>(v.ToList());
+      //foreach (var item in PiperTTSVoices)
+      //{
+        
+      //}
     }
 
     //this is like... do the fields at least look filled out

@@ -1,0 +1,2130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <DirectoryRef Id="INSTALLFOLDER">
+            <Directory Id="dir0B6DC86EBAB610CFD56B476ECDD18AF2" Name="Config" />
+            <Directory Id="dirDF07101D491916338FDC45A285DC3902" Name="piper" />
+            <Directory Id="dir58E8247E2885C01898CAD009F9EFD8BA" Name="runtimes" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="ProductComponents">
+            <Component Id="cmp01F57A0E1D13BF04B30F007CDAA4299C" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil3AA3B6135013944F5FFE9A42C2E11B02" KeyPath="yes" Source="$(var.BuildOutputDir)\Accord.Audio.DirectSound.dll" />
+            </Component>
+            <Component Id="cmpAA9C118BF2A8EBA8417EC4334428E459" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filE6BA089EB7F16969B644C907D4790F14" KeyPath="yes" Source="$(var.BuildOutputDir)\Accord.Audio.dll" />
+            </Component>
+            <Component Id="cmp9E97DD67767602F728006C17CBFE991F" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil6B0736796BA8C2A5D41F12814E571CBC" KeyPath="yes" Source="$(var.BuildOutputDir)\Accord.dll" />
+            </Component>
+            <Component Id="cmpEF2296956EE28376B426B940AEAD5ACE" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil454D532183DB82D4B34773C620AB5A0F" KeyPath="yes" Source="$(var.BuildOutputDir)\Accord.dll.config" />
+            </Component>
+            <Component Id="cmpAFB8933116D6D264A19E32777C47031C" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil0E9B79627743997C1E07F8179F8ECA79" KeyPath="yes" Source="$(var.BuildOutputDir)\Accord.Math.Core.dll" />
+            </Component>
+            <Component Id="cmp56A2F92376024DD17DD0F47E999A1D9D" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil7E5AE0F6D2C788E4A7F89B29E140F27B" KeyPath="yes" Source="$(var.BuildOutputDir)\Accord.Math.dll" />
+            </Component>
+            <Component Id="cmp54465610F64A96EF3322F07233C5F820" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil5CCBA4091CA52AE4298B1E2C87CC58AA" KeyPath="yes" Source="$(var.BuildOutputDir)\AWSSDK.Core.dll" />
+            </Component>
+            <Component Id="cmp496A9F8EACA252F3EF047B0253FCE58F" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filCD2AFA6A5E92784E057E9023B7C7EA1D" KeyPath="yes" Source="$(var.BuildOutputDir)\AWSSDK.Polly.dll" />
+            </Component>
+            <Component Id="cmpC4F6C60E87920783AF597164FFBB088C" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil7093B3A435DB6A128B4BDFD4016DF410" KeyPath="yes" Source="$(var.BuildOutputDir)\Discord.Net.Core.dll" />
+            </Component>
+            <Component Id="cmp3A68ED8E082F1113736A8472E2EFD0FE" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filFD80742D48D389C7B8CF241FF2D40CD2" KeyPath="yes" Source="$(var.BuildOutputDir)\Discord.Net.Rest.dll" />
+            </Component>
+            <Component Id="cmp53C5AABF5AE671F6F00CA0594E940021" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil9545475E00634C55D8636829C5A00FA7" KeyPath="yes" Source="$(var.BuildOutputDir)\Discord.Net.WebSocket.dll" />
+            </Component>
+            <Component Id="cmp8A8D1BD1A896044E6EE2CFD1E6E7A9C2" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil99EBF219532905A88D56A4DD023F32E0" KeyPath="yes" Source="$(var.BuildOutputDir)\FastDeepCloner.dll" />
+            </Component>
+            <Component Id="cmpA341C6253805465BB7935B843DD2FEF0" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil03BAB0E6A3B0C2872AA83A2163D7396A" KeyPath="yes" Source="$(var.BuildOutputDir)\FuzzySharp.dll" />
+            </Component>
+            <Component Id="cmpDBDD131D70803D0E59C62CECDDFC83CC" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil92EEA5379439D1FD6044E68BAA9C8B21" KeyPath="yes" Source="$(var.BuildOutputDir)\Google.Api.CommonProtos.dll" />
+            </Component>
+            <Component Id="cmpA77BD1BEBDB677BD588C964C5619AD0F" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filC2E04C25AA751253AA9F1DBD8823AEE4" KeyPath="yes" Source="$(var.BuildOutputDir)\Google.Api.Gax.dll" />
+            </Component>
+            <Component Id="cmpF466FC78E452334E996C29BD55D98F3F" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil1174DD810E2FC81A7CC65E113346CD83" KeyPath="yes" Source="$(var.BuildOutputDir)\Google.Api.Gax.Grpc.dll" />
+            </Component>
+            <Component Id="cmp944C0DDD216BC6AD99A0D859E6B63073" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filB60107B5E796F6187F79960EDADB81A7" KeyPath="yes" Source="$(var.BuildOutputDir)\Google.Apis.Auth.dll" />
+            </Component>
+            <Component Id="cmp10A912D19ABF9913D65315302B4DFEA4" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filF1CD23BE3A962B5CDBDEAFC6B12FD01D" KeyPath="yes" Source="$(var.BuildOutputDir)\Google.Apis.Core.dll" />
+            </Component>
+            <Component Id="cmpF9C24E1E7BCD302106AED282D4A70BD6" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil23E54273A3F31C7FFB0F74EB24C98107" KeyPath="yes" Source="$(var.BuildOutputDir)\Google.Apis.dll" />
+            </Component>
+            <Component Id="cmp1C8F1507B7BA6E6EDDB0DB87EC777662" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filD6264ADE91032E9B5125190AE04A2BA2" KeyPath="yes" Source="$(var.BuildOutputDir)\Google.Cloud.TextToSpeech.V1.dll" />
+            </Component>
+            <Component Id="cmp0A71DDF73735E58A21378FE1E7411D58" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filB054942960866FF91DC5A8C89402F6E9" KeyPath="yes" Source="$(var.BuildOutputDir)\Google.LongRunning.dll" />
+            </Component>
+            <Component Id="cmp2B62C064A3ED6A94B47BE64C5EB82D9E" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil627F933A2694B1BED9FD06B5FDD52C93" KeyPath="yes" Source="$(var.BuildOutputDir)\Google.Protobuf.dll" />
+            </Component>
+            <Component Id="cmpCF6FC4B0F054E1E36236A5D417D130DB" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil4613698EB622BCE815E7937B8F5051DB" KeyPath="yes" Source="$(var.BuildOutputDir)\Grpc.Auth.dll" />
+            </Component>
+            <Component Id="cmp7530465017BB74DDEEFF284B43AFA164" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filF3F51DFF9B4F49FA9BB94AD074AA7F28" KeyPath="yes" Source="$(var.BuildOutputDir)\Grpc.Core.Api.dll" />
+            </Component>
+            <Component Id="cmp301336F2D44076B758CAAEAEFFD98B4B" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil645F9138B236FAA537DC09760E5BB73A" KeyPath="yes" Source="$(var.BuildOutputDir)\Grpc.Net.Client.dll" />
+            </Component>
+            <Component Id="cmpD5921CC73D3D7D96B18ADAC140DDDBF5" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil61C6E628E74343C95130875F07EFF332" KeyPath="yes" Source="$(var.BuildOutputDir)\Grpc.Net.Common.dll" />
+            </Component>
+            <Component Id="cmpB1E267D3B3C74CF4F8ACCCB54D64A2F0" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filE6D9FD8634F7359C5380B2ED3557B521" KeyPath="yes" Source="$(var.BuildOutputDir)\IBM.Cloud.SDK.Core.dll" />
+            </Component>
+            <Component Id="cmp0DEA76F9DEE0F84A68E95C77F5288FB2" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil46BFAF1DF4B4A21E4EF9DACB72C576A4" KeyPath="yes" Source="$(var.BuildOutputDir)\IBM.Watson.Common.dll" />
+            </Component>
+            <Component Id="cmp0E40679A6FFC7D6C1737D81B2AAFFD1C" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil5D1792BA9BE8E8327AFFBE92608102E2" KeyPath="yes" Source="$(var.BuildOutputDir)\IBM.Watson.TextToSpeech.v1.dll" />
+            </Component>
+            <Component Id="cmp406ADAE8B8A9C6E18CF7CAB40E991546" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filD1AE546ED0FB5B7BB938E665072113FE" KeyPath="yes" Source="$(var.BuildOutputDir)\JsonSubTypes.dll" />
+            </Component>
+            <Component Id="cmp631964CC0D2B6D53B001DBFE4C5B169D" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filC764EF4F369DA7E888553B74936D2EDC" KeyPath="yes" Source="$(var.BuildOutputDir)\JWT.dll" />
+            </Component>
+            <Component Id="cmp20E5A82EE1F53BB560782568696E50EF" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil2E537F5E44EFF72FBE1AF325D6F073A2" KeyPath="yes" Source="$(var.BuildOutputDir)\Microsoft.Bcl.AsyncInterfaces.dll" />
+            </Component>
+            <Component Id="cmp36672765668472E37D50E530A2B591AE" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil92A33DFB8B3BD412F122EACE4525D84D" KeyPath="yes" Source="$(var.BuildOutputDir)\Microsoft.CognitiveServices.Speech.csharp.dll" />
+            </Component>
+            <Component Id="cmpDC19BA21EFF423B27F8787A2AB8F2B3C" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filF6767F9D22B6D46DD3A2FC798B5F23DE" KeyPath="yes" Source="$(var.BuildOutputDir)\Microsoft.Extensions.Configuration.Abstractions.dll" />
+            </Component>
+            <Component Id="cmp85A16DDDD438C8839C302EEFF54E8E0C" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil52FC3D526CBD9DC330C6FE3380563F0C" KeyPath="yes" Source="$(var.BuildOutputDir)\Microsoft.Extensions.Configuration.Binder.dll" />
+            </Component>
+            <Component Id="cmp4A61E3F01E16F7C35D22D304DE7C3D7D" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filB3B34A4CDA6A327AC31CAD64389BC80C" KeyPath="yes" Source="$(var.BuildOutputDir)\Microsoft.Extensions.Configuration.CommandLine.dll" />
+            </Component>
+            <Component Id="cmpC2B3CC4C105FBF588A9EBBD45742C349" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filE9F345539532616C2BEF86BE1CEB83E2" KeyPath="yes" Source="$(var.BuildOutputDir)\Microsoft.Extensions.Configuration.dll" />
+            </Component>
+            <Component Id="cmp695DF09F0E9EE30558F8C6D16553F843" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filEAA27D91AD78E3FCD8BA846C92752BAA" KeyPath="yes" Source="$(var.BuildOutputDir)\Microsoft.Extensions.Configuration.EnvironmentVariables.dll" />
+            </Component>
+            <Component Id="cmp0F72FDFC2B5DABBEED0952957424C516" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil732B9D1BB8B2BA629B3802CB721B7E55" KeyPath="yes" Source="$(var.BuildOutputDir)\Microsoft.Extensions.Configuration.FileExtensions.dll" />
+            </Component>
+            <Component Id="cmp191446DEBB621CC91C2B2E713F085F01" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil0CC9532B169036B73874B81A5F9C8F97" KeyPath="yes" Source="$(var.BuildOutputDir)\Microsoft.Extensions.Configuration.Json.dll" />
+            </Component>
+            <Component Id="cmp306F083BB44F8AEA42DD7E2AB9CD82C2" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil867F166CDED00C699F6B217A4FC42957" KeyPath="yes" Source="$(var.BuildOutputDir)\Microsoft.Extensions.Configuration.UserSecrets.dll" />
+            </Component>
+            <Component Id="cmp198468A4AE980CD6955CB6EB86083726" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil02E4E4D119BFC4831CEA5A71F1288443" KeyPath="yes" Source="$(var.BuildOutputDir)\Microsoft.Extensions.DependencyInjection.Abstractions.dll" />
+            </Component>
+            <Component Id="cmp493E9BC44885B6BC5C57BDB1302C40D9" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filA40291A4FBD4719B6995DEB783A39A65" KeyPath="yes" Source="$(var.BuildOutputDir)\Microsoft.Extensions.DependencyInjection.dll" />
+            </Component>
+            <Component Id="cmpD71177CD3BCD768F1F74211E6E2E353D" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filD6E38AF71AD3567AEFAB7A283BC7D3C6" KeyPath="yes" Source="$(var.BuildOutputDir)\Microsoft.Extensions.Diagnostics.Abstractions.dll" />
+            </Component>
+            <Component Id="cmpBB58932E81784E90600A3B2DEB2E2D6A" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filBFD8FDE91AE486857624064B5808A0C1" KeyPath="yes" Source="$(var.BuildOutputDir)\Microsoft.Extensions.Diagnostics.dll" />
+            </Component>
+            <Component Id="cmp0209E8308C907CAD5474151F7C6836F5" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil1036FDFADEB4E1F1FB133485A70A0DD4" KeyPath="yes" Source="$(var.BuildOutputDir)\Microsoft.Extensions.FileProviders.Abstractions.dll" />
+            </Component>
+            <Component Id="cmp6361EE614B62630DD923390326EAF03C" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil1B3C0C67DC448F84DA45630529031E78" KeyPath="yes" Source="$(var.BuildOutputDir)\Microsoft.Extensions.FileProviders.Physical.dll" />
+            </Component>
+            <Component Id="cmp1E5A63B6F657DD090469973A1C3D2C59" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil931DDF3633F4CABF1422600B672C70DE" KeyPath="yes" Source="$(var.BuildOutputDir)\Microsoft.Extensions.FileSystemGlobbing.dll" />
+            </Component>
+            <Component Id="cmpB96239F931804879A085E057C6E72657" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filFE47041DFF0F714E6C7D801D2D2C140A" KeyPath="yes" Source="$(var.BuildOutputDir)\Microsoft.Extensions.Hosting.Abstractions.dll" />
+            </Component>
+            <Component Id="cmp1ED5B5DCD1725E69F71E98865BCEAAB9" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filD0586081609434942EDB53299EF52D71" KeyPath="yes" Source="$(var.BuildOutputDir)\Microsoft.Extensions.Hosting.dll" />
+            </Component>
+            <Component Id="cmp8C674FD6A69988A60A77A4CEE0F53781" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil72342637E9F74EE945317D4603CEBA2F" KeyPath="yes" Source="$(var.BuildOutputDir)\Microsoft.Extensions.Logging.Abstractions.dll" />
+            </Component>
+            <Component Id="cmp9B211F39744547E733F9040027FF1A3B" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filC6D4BDB43CC150D24C5E1BDE9EB552F7" KeyPath="yes" Source="$(var.BuildOutputDir)\Microsoft.Extensions.Logging.Configuration.dll" />
+            </Component>
+            <Component Id="cmp60BA3AB6448C5A0208FEDA4F886EDDE8" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filA347F900C2828DE2F50C35BDA8F5CE44" KeyPath="yes" Source="$(var.BuildOutputDir)\Microsoft.Extensions.Logging.Console.dll" />
+            </Component>
+            <Component Id="cmp591239506CAB75D331DE5D90D6713057" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil1CB90B4A15160F351B5EB5D2DED1B050" KeyPath="yes" Source="$(var.BuildOutputDir)\Microsoft.Extensions.Logging.Debug.dll" />
+            </Component>
+            <Component Id="cmp835034F744990576E31C2DBC7C9293BF" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil71DD299EE7649E964200A4127797D1C0" KeyPath="yes" Source="$(var.BuildOutputDir)\Microsoft.Extensions.Logging.dll" />
+            </Component>
+            <Component Id="cmp3D087D80699D13BCB013A8533A2C0DCF" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filA050696110EF79DCA5E76B6513E54FB2" KeyPath="yes" Source="$(var.BuildOutputDir)\Microsoft.Extensions.Logging.EventLog.dll" />
+            </Component>
+            <Component Id="cmp63493859708989EE0F11F5DF7347E61A" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filBF2F378F474FFE2ABA30A373F8BB00C0" KeyPath="yes" Source="$(var.BuildOutputDir)\Microsoft.Extensions.Logging.EventSource.dll" />
+            </Component>
+            <Component Id="cmpF5D2F2D913749765205DC918BD981CD0" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil3F5CF8D11C3311A25D3082B99A709528" KeyPath="yes" Source="$(var.BuildOutputDir)\Microsoft.Extensions.Options.ConfigurationExtensions.dll" />
+            </Component>
+            <Component Id="cmp3279C150AE8DF554FD7EEE2085672A2B" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filA8D1F5D61FD7BC25099F707CBF5B1F24" KeyPath="yes" Source="$(var.BuildOutputDir)\Microsoft.Extensions.Options.dll" />
+            </Component>
+            <Component Id="cmp946145B53A7DCDFA822B0EFD2314FAB6" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil773F29942324AAB2A7E1977E1AC63609" KeyPath="yes" Source="$(var.BuildOutputDir)\Microsoft.Extensions.Primitives.dll" />
+            </Component>
+            <Component Id="cmpC3C247AF3BCF46EF3DE00984D264D359" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filF207EF2DABFDE0EB6D5BC441FC309B66" KeyPath="yes" Source="$(var.BuildOutputDir)\NAudio.Asio.dll" />
+            </Component>
+            <Component Id="cmpBE98D3D44CB27E52FF8860E684F72B53" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filCA140DBDB908CB183054BE126215BC0D" KeyPath="yes" Source="$(var.BuildOutputDir)\NAudio.Core.dll" />
+            </Component>
+            <Component Id="cmp979BB5B2297816EF2D91624FE967267D" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil90ABFE40E18B3705156C760B3E7FFC87" KeyPath="yes" Source="$(var.BuildOutputDir)\NAudio.dll" />
+            </Component>
+            <Component Id="cmp7A1CB3AD408D05BD6658F6AF651C958C" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil212D7686262714E585BEAD964B1484CF" KeyPath="yes" Source="$(var.BuildOutputDir)\NAudio.Midi.dll" />
+            </Component>
+            <Component Id="cmp183508D134DC714113705228F00F150E" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil918A6A3B4801B84A9F653571D12DE1D1" KeyPath="yes" Source="$(var.BuildOutputDir)\NAudio.Wasapi.dll" />
+            </Component>
+            <Component Id="cmpD0CE0730098096A4D261A0C7F1C67848" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filFD613E6C6316B8A95FEAEFAA5C9B3D36" KeyPath="yes" Source="$(var.BuildOutputDir)\NAudio.WinForms.dll" />
+            </Component>
+            <Component Id="cmpCE017872847B29F4C35A191DF46E0437" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil65F14F25D472E35D6B741BDF89FCC694" KeyPath="yes" Source="$(var.BuildOutputDir)\NAudio.WinMM.dll" />
+            </Component>
+            <Component Id="cmpBC4FC00A26E7D32479D42D3411317FC5" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil90A8AAD9FC612906D405476D61CEA3F4" KeyPath="yes" Source="$(var.BuildOutputDir)\Newtonsoft.Json.dll" />
+            </Component>
+            <Component Id="cmp52E74F8D973209E640FB1B193C43DC05" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil8755398ECC993FB0EC6F1FF4F46E5B8D" KeyPath="yes" Source="$(var.BuildOutputDir)\Omu.ValueInjecter.dll" />
+            </Component>
+            <Component Id="cmp330FFD4CA2F0EB1B9A0389CB78BE042C" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filD05B745B813CA1DCA4EFEE4F732FA2C9" KeyPath="yes" Source="$(var.BuildOutputDir)\PiperSharp.dll" />
+            </Component>
+            <Component Id="cmp7EF438D2A4E1FF3FA6222046A8791D88" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil384AFC995578699CA1F6C1519880B713" KeyPath="yes" Source="$(var.BuildOutputDir)\SharpCompress.dll" />
+            </Component>
+            <Component Id="cmpF1852951EC8115B6C2E0D49DB06174A3" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil08922C546DFAD998A4FF26A406B16514" KeyPath="yes" Source="$(var.BuildOutputDir)\SharpDX.DirectSound.dll" />
+            </Component>
+            <Component Id="cmp9607F152871CB9C2659ED14722E13E44" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filF5517F7734A13514A2CDF5F069816EE5" KeyPath="yes" Source="$(var.BuildOutputDir)\SharpDX.dll" />
+            </Component>
+            <Component Id="cmp908268E0C5CE4F53A39A15EBAE14F293" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filDA12A07EC6163CADC1CF38EE2542BFB8" KeyPath="yes" Source="$(var.BuildOutputDir)\speako.deps.json" />
+            </Component>
+            <Component Id="cmpE9446218DEDFA0836947A4D4DBAAF08E" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil694893FC2D12C7CBD44BFB70AD567FB5" KeyPath="yes" Source="$(var.BuildOutputDir)\speako.dll" />
+            </Component>
+            <Component Id="cmp13F7E314EABCEC85FD05ABFB3C36EF17" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil9F7D4BC527DDDE0CD1F9683B3596B407" KeyPath="yes" Source="$(var.BuildOutputDir)\speako.dll.config" />
+            </Component>
+            <Component Id="cmpA6513DC3D0C5A4C612F7FA21F167DFD0" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filD17C8A50B88D9ACC2CA8CE25382775B8" KeyPath="yes" Source="$(var.BuildOutputDir)\speako.exe" />
+            </Component>
+            <Component Id="cmpE6056F42140BBDEA89CFDCCC9292B074" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil791AFF31F8419120B4974CA72357320B" KeyPath="yes" Source="$(var.BuildOutputDir)\speako.pdb" />
+            </Component>
+            <Component Id="cmp032FBED9802593F186A0B7428084FC0F" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil91F9DD18617DE8D49FC0BB397BB69A52" KeyPath="yes" Source="$(var.BuildOutputDir)\speako.runtimeconfig.json" />
+            </Component>
+            <Component Id="cmpACDBAE59B9584DAADFCFCDB7304FC635" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil62A039AEAD67D242294347423492FF6D" KeyPath="yes" Source="$(var.BuildOutputDir)\System.Interactive.Async.dll" />
+            </Component>
+            <Component Id="cmpA2A1BDD7D0ED8DDB5B791349EAD85B7D" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filE87EA17BFD1B61B7B160F8651C6EA028" KeyPath="yes" Source="$(var.BuildOutputDir)\System.Linq.Async.dll" />
+            </Component>
+            <Component Id="cmpB2F9EBAF385E9E29B5A93F58B0D73177" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filA39AFD83E426A11FDBCFCA1B11CFEE01" KeyPath="yes" Source="$(var.BuildOutputDir)\System.Management.dll" />
+            </Component>
+            <Component Id="cmp6FD941A56CFB6288079AD725FC4C6CC9" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="filF62ABB9A1DBA3DB8EA89A66F6CDF9023" KeyPath="yes" Source="$(var.BuildOutputDir)\System.Net.Http.Formatting.dll" />
+            </Component>
+            <Component Id="cmp3A072CB636CFA4F8D3A70D6D70681AB7" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil5AFEE917330AEF1D029FF91A31D5D401" KeyPath="yes" Source="$(var.BuildOutputDir)\XamlAnimatedGif.dll" />
+            </Component>
+            <Component Id="cmpC206C517AEB2DAA6FE1F4E59CA26C7E5" Directory="INSTALLFOLDER" Guid="*">
+                <File Id="fil9503DF06886C0E0301E907C5EDF7D0EB" KeyPath="yes" Source="$(var.BuildOutputDir)\ZstdSharp.dll" />
+            </Component>
+            <Component Id="cmp04E93DCB7BB7972B66C7493062B51217" Directory="dir0B6DC86EBAB610CFD56B476ECDD18AF2" Guid="*">
+                <File Id="fil5EFA067B1077AF58FDA05017DEEE1DBF" KeyPath="yes" Source="$(var.BuildOutputDir)\Config\079dc642-6306-4897-a236-7e30da016076.json" />
+            </Component>
+            <Component Id="cmpA8670E1192F93B944D2443071F8860AB" Directory="dir0B6DC86EBAB610CFD56B476ECDD18AF2" Guid="*">
+                <File Id="fil453B4B6B219D69C237D7558199DFAEBD" KeyPath="yes" Source="$(var.BuildOutputDir)\Config\936c5288-5d0c-4b26-b837-b406cdf7c54c.json" />
+            </Component>
+            <Component Id="cmpCB62EDFD99F219A8D8E241744FC15EB8" Directory="dir0B6DC86EBAB610CFD56B476ECDD18AF2" Guid="*">
+                <File Id="fil62DB87B2D88FC5D9495B6E39921EDB43" KeyPath="yes" Source="$(var.BuildOutputDir)\Config\ApplicationSettings.json" />
+            </Component>
+            <Component Id="cmpA0F90EB14CFA182A9875C11809126AAE" Directory="dir0B6DC86EBAB610CFD56B476ECDD18AF2" Guid="*">
+                <File Id="fil839923D11E58F107ED35B59793D17A21" KeyPath="yes" Source="$(var.BuildOutputDir)\Config\ApplicationSettingss.json" />
+            </Component>
+            <Component Id="cmp2A621CAE25A5FBEAB6BC22F533CFC313" Directory="dir0B6DC86EBAB610CFD56B476ECDD18AF2" Guid="*">
+                <File Id="fil7778281DFCEE62289EFEA9F52F7DB5F7" KeyPath="yes" Source="$(var.BuildOutputDir)\Config\ApplicationSettingssa.json" />
+            </Component>
+            <Component Id="cmpE6353BC05BE2A3AB01AB011EED75FBDE" Directory="dir0B6DC86EBAB610CFD56B476ECDD18AF2" Guid="*">
+                <File Id="fil2D238AFDFA52BB38FB297E824E79255D" KeyPath="yes" Source="$(var.BuildOutputDir)\Config\AppSettings.json" />
+            </Component>
+            <Component Id="cmpEA8CC9D5BDA826B3BD175FE95E41B05C" Directory="dir0B6DC86EBAB610CFD56B476ECDD18AF2" Guid="*">
+                <File Id="fil6A0B05C94D947B96FC9B5A113F5A045C" KeyPath="yes" Source="$(var.BuildOutputDir)\Config\ElevenAuth.json" />
+            </Component>
+            <Component Id="cmp56B3E6CE0FE2F60CB43437EEDACE2A00" Directory="dir0B6DC86EBAB610CFD56B476ECDD18AF2" Guid="*">
+                <File Id="fil67FA9D3580CDFFE4484059F280A99553" KeyPath="yes" Source="$(var.BuildOutputDir)\Config\GoogleAuth.json" />
+            </Component>
+            <Component Id="cmp96B566A6802010F61F7B0F1D2385F920" Directory="dir0B6DC86EBAB610CFD56B476ECDD18AF2" Guid="*">
+                <File Id="filDEACA38F5AC6C3F3A5AED6D654DE8166" KeyPath="yes" Source="$(var.BuildOutputDir)\Config\message_session_20241006225642.json" />
+            </Component>
+            <Component Id="cmpCE493FC78C3B34EF935278369AA692A1" Directory="dir0B6DC86EBAB610CFD56B476ECDD18AF2" Guid="*">
+                <File Id="fil41169AFB58FDAB4B84D633F13DB393EA" KeyPath="yes" Source="$(var.BuildOutputDir)\Config\message_session_20241007002500.json" />
+            </Component>
+            <Component Id="cmpEB6321302A3BF4C1070FF7CFD12A77BB" Directory="dir0B6DC86EBAB610CFD56B476ECDD18AF2" Guid="*">
+                <File Id="fil85BFFC6380E1FA3CDF33C733A9977F1D" KeyPath="yes" Source="$(var.BuildOutputDir)\Config\message_session_20241007002525.json" />
+            </Component>
+            <Component Id="cmpE0233425C645C506E9E70F4365E028F5" Directory="dir0B6DC86EBAB610CFD56B476ECDD18AF2" Guid="*">
+                <File Id="fil2D667EF118F661ED6D1D3992CF2B894B" KeyPath="yes" Source="$(var.BuildOutputDir)\Config\message_session_20241008000209.json" />
+            </Component>
+            <Component Id="cmp64EE0C3EE303D4FC2FEFF0E8E1C7BC54" Directory="dir0B6DC86EBAB610CFD56B476ECDD18AF2" Guid="*">
+                <File Id="filFE1AA482358F40803BB26C4A1ABEA6C2" KeyPath="yes" Source="$(var.BuildOutputDir)\Config\message_session_20241009001559.json" />
+            </Component>
+            <Component Id="cmp79548E3A5F67FE4B91682B71F7D5ED73" Directory="dir0B6DC86EBAB610CFD56B476ECDD18AF2" Guid="*">
+                <File Id="filC2BEB6DA4338E9545123D1B51FBF26A3" KeyPath="yes" Source="$(var.BuildOutputDir)\Config\message_session_20241011001214.json" />
+            </Component>
+            <Component Id="cmpCD41135C8545590E6AB339AC234330D6" Directory="dir0B6DC86EBAB610CFD56B476ECDD18AF2" Guid="*">
+                <File Id="filC5FAF8CD73A6F5743EDD080D5452A579" KeyPath="yes" Source="$(var.BuildOutputDir)\Config\message_session_20241012015152.json" />
+            </Component>
+            <Component Id="cmpB452F1F4B86C39DD05CE096FFB794F60" Directory="dir0B6DC86EBAB610CFD56B476ECDD18AF2" Guid="*">
+                <File Id="fil92D1E280D54CC29BB2EF3E35DFD19A1B" KeyPath="yes" Source="$(var.BuildOutputDir)\Config\message_session_20241013004053.json" />
+            </Component>
+            <Component Id="cmp83A722D0CD09B994012DE09B8E4E1C95" Directory="dir0B6DC86EBAB610CFD56B476ECDD18AF2" Guid="*">
+                <File Id="fil3CDA94DDC547E9F372B6F48453746E25" KeyPath="yes" Source="$(var.BuildOutputDir)\Config\message_session_20241017031446.json" />
+            </Component>
+            <Component Id="cmpDAFA9BA2B6CC436053D9F7C1AF000188" Directory="dir0B6DC86EBAB610CFD56B476ECDD18AF2" Guid="*">
+                <File Id="filE93981184E236A0E79AEB1ED2418A128" KeyPath="yes" Source="$(var.BuildOutputDir)\Config\message_session_20241020015244.json" />
+            </Component>
+            <Component Id="cmp1329D319AAB5D7F8A4753A54784188E9" Directory="dir0B6DC86EBAB610CFD56B476ECDD18AF2" Guid="*">
+                <File Id="fil3D3E245575CCBFCE935039C649548A32" KeyPath="yes" Source="$(var.BuildOutputDir)\Config\message_session_20241022225041.json" />
+            </Component>
+            <Component Id="cmp897090D9FF7E7BE0BD89121B89780A6D" Directory="dir0B6DC86EBAB610CFD56B476ECDD18AF2" Guid="*">
+                <File Id="filAF21AAD7C8506CF965C8E47597332376" KeyPath="yes" Source="$(var.BuildOutputDir)\Config\Preferences.json" />
+            </Component>
+            <Component Id="cmp42DE0A6210E0FFBADDA2E4C9A097419F" Directory="dirDF07101D491916338FDC45A285DC3902" Guid="*">
+                <File Id="filBCA5EC4C5103AF76C35170430E402884" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng.dll" />
+            </Component>
+            <Component Id="cmp8E5D72D5C7AAE5E46151436A1E89E982" Directory="dirDF07101D491916338FDC45A285DC3902" Guid="*">
+                <File Id="fil7D3E0F9617AC98639FD4F4095C09BF28" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\libtashkeel_model.ort" />
+            </Component>
+            <Component Id="cmpC45DCDBDA1B3DF0EDEBEF076D88EA4AE" Directory="dirDF07101D491916338FDC45A285DC3902" Guid="*">
+                <File Id="fil27DF1C5CFA04D0F3C1916FD3A7919ED6" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\onnxruntime.dll" />
+            </Component>
+            <Component Id="cmp92F6B3024011EEF8DA12460DF38F768B" Directory="dirDF07101D491916338FDC45A285DC3902" Guid="*">
+                <File Id="filEAAA80754C5B99EEB9638C770A2AF4ED" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\onnxruntime_providers_shared.dll" />
+            </Component>
+            <Component Id="cmpD3DCF365D03A1E7F397C860D9136AA45" Directory="dirDF07101D491916338FDC45A285DC3902" Guid="*">
+                <File Id="fil56BC414982D77B58F4F8598D395014CE" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\piper.exe" />
+            </Component>
+            <Component Id="cmpDA07438A183EFE33A796BA6204C3756C" Directory="dirDF07101D491916338FDC45A285DC3902" Guid="*">
+                <File Id="fil2598A7B16A6BB5D0AC610D2F2C551C12" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\piper_phonemize.dll" />
+            </Component>
+            <Component Id="cmp76E3AAB689642866E3BE78B25EDAAD8E" Directory="dirE34FEA5E01D67A906AFBBF6EA2DCFC2A" Guid="*">
+                <File Id="filB46981E426D8FA496033D177D665BB18" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\en_GB-alan-medium\en_GB-alan-medium.onnx" />
+            </Component>
+            <Component Id="cmp1EC9C8B3DAC8432B0C135EC9921A21FC" Directory="dirE34FEA5E01D67A906AFBBF6EA2DCFC2A" Guid="*">
+                <File Id="fil72810D9FE1ADD33775F17C51816F8568" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\en_GB-alan-medium\en_GB-alan-medium.onnx.json" />
+            </Component>
+            <Component Id="cmp9F1BBCA80982A4D636BE88C8434DA87C" Directory="dirE34FEA5E01D67A906AFBBF6EA2DCFC2A" Guid="*">
+                <File Id="fil625D5002146134A583F5620970390A75" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\en_GB-alan-medium\model.json" />
+            </Component>
+            <Component Id="cmp5AD6285587004EFFC22CF827B11A6A3A" Directory="dirE34FEA5E01D67A906AFBBF6EA2DCFC2A" Guid="*">
+                <File Id="filE1EA0CC19BF432A0A0E7C79E6D735FFF" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\en_GB-alan-medium\MODEL_CARD" />
+            </Component>
+            <Component Id="cmpAB02450C04F0FAB5D9BB089BAFDF697B" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil9BA63BA60AE216355E3D7829A3C0FDD4" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\af_dict" />
+            </Component>
+            <Component Id="cmp467DAF5D1D378DAC406FB6762FED14A3" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filFC31EC14EE5CD5B8797B870669BE8569" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\am_dict" />
+            </Component>
+            <Component Id="cmp36EE3FB2EF036976B10E73CD5D13BFBB" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil5346201638CAA77401B87DDE15024078" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\an_dict" />
+            </Component>
+            <Component Id="cmp364899C5FBEA70E41896E77F33B904B8" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil61239A5DAC0DEB6C62ECCB8BCD7B0CA3" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\ar_dict" />
+            </Component>
+            <Component Id="cmp2D5350EC0164902486AEC544193F24F6" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil14F80925735FD28F738830BB5090F3FF" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\as_dict" />
+            </Component>
+            <Component Id="cmp557753726CB5C775B905555DF19BD940" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil7C7327CB4A815AC87F67DD7019F79903" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\az_dict" />
+            </Component>
+            <Component Id="cmp9274D7CFAF517176015094E007FBE543" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil977F6547D7A5CB92770BCE8F56ACFA3E" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\ba_dict" />
+            </Component>
+            <Component Id="cmp96C3FADA24D3E58FD22315917C1247D9" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filDA5AC7707B1AB3C9D5E85D6436F01DD4" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\be_dict" />
+            </Component>
+            <Component Id="cmp6FE4A467CCC3AC886054946CD1433846" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filBB4FF024C12D70EBBB66A96D9FACE7E1" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\bg_dict" />
+            </Component>
+            <Component Id="cmpDF60E43ADC3F9B03029342DCB506CF0C" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil47755506565C9779CE0C3FE2FBF2EA90" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\bn_dict" />
+            </Component>
+            <Component Id="cmp8613092384C4439A26673ECCEB4F34D5" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil0BA0B6D4218D6978E60833DB9DC4CF11" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\bpy_dict" />
+            </Component>
+            <Component Id="cmp6A1E04381218A68D455DF7ED5422DCFE" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filB85807EC7D2F47A759F5C2DB69D75E73" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\bs_dict" />
+            </Component>
+            <Component Id="cmp1CAB0764189FF7703E9DED7A2F6A81AB" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil23DAFA79F0CD5910504544A74025C193" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\ca_dict" />
+            </Component>
+            <Component Id="cmpEE4C01BB41EC22771F5A2D2320682E6A" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filAE0C54F8F03AAB665E9B617F6FC5D250" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\chr_dict" />
+            </Component>
+            <Component Id="cmp855B9EEDBF74D993D21E7A3E6BF8D37B" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filF2472AC0496C2821578E47EB860A00A8" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\cmn_dict" />
+            </Component>
+            <Component Id="cmp9A894C77FBE4AD279E08BAFBD650C65F" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filC8DB1F1FE701558DE7F1B2FF62F45069" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\cs_dict" />
+            </Component>
+            <Component Id="cmp77B4E45039D2F0553C25F821517DD825" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filA1B07DC0E1C9A579149ADCCB7B0FC2D0" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\cv_dict" />
+            </Component>
+            <Component Id="cmp59149AD1302D585F41B855FA48CD6E0F" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil463DAA3B52DB330AF3607B628347045C" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\cy_dict" />
+            </Component>
+            <Component Id="cmpDB9E8D1FD7F00E8381F43B84654E8865" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil3539DDE54F974990F7023B1DD60E722A" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\da_dict" />
+            </Component>
+            <Component Id="cmp5C3E9292B43A72FF4F8F447975A68F6A" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filE8E543D266490C9996657B4407AB4CC4" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\de_dict" />
+            </Component>
+            <Component Id="cmp35408A8FCCBE41C7D3A1BACB28BF6E00" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil4FD4E7714EA312E2B8C2E19ACF23D33E" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\el_dict" />
+            </Component>
+            <Component Id="cmpAA88933688D0C85B888467561145529F" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil474A8F778AFA162D5EAE2FB0922624FB" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\en_dict" />
+            </Component>
+            <Component Id="cmpB0B77C1DF3D4B682DA56A7AAD36D0EB9" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filF1412939E91D82A3310661A3832AFB43" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\eo_dict" />
+            </Component>
+            <Component Id="cmpE8A3D98D3215D1E8EE701662B9E0B13D" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil6E542CBA3CDD5C33FA83D8ECD8EAEBEE" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\es_dict" />
+            </Component>
+            <Component Id="cmp1E3835D732EEB9485F6BB21252944F31" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filBA63CE20E173807D34287D38D18A1C39" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\et_dict" />
+            </Component>
+            <Component Id="cmp859017908790548E608154BFD144702E" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filCB49570E43EA387DDAE196DBE5DF1B51" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\eu_dict" />
+            </Component>
+            <Component Id="cmp6E91241940A50AD9ED14419BD1061700" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filC3F204088853843CB734551701AD481E" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\fa_dict" />
+            </Component>
+            <Component Id="cmp0CCEDBE94F7E7C268B7D7110445E3E01" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil87A5B1E8830712833E544D2E07A5639E" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\fi_dict" />
+            </Component>
+            <Component Id="cmp4E58E669A245CF3D59F5FF2BD3A44ED3" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filD9583CB348764EFB3BE52DDBDBBAF59D" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\fr_dict" />
+            </Component>
+            <Component Id="cmpD85D8F0238382BCCEE7E7F44C407BC3C" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil275BCBCC99A1F1A7BB3356CABF61E1BB" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\ga_dict" />
+            </Component>
+            <Component Id="cmp19541E6CBEFA3F4A804468729FC1BB63" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil03E5B3FAEF4D199E3F84F92C6E94916E" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\gd_dict" />
+            </Component>
+            <Component Id="cmp707AEAF428F1D3D19059FB5639C8AC2C" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil81D29FD4A43E58FC3256F3BAB7392574" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\gn_dict" />
+            </Component>
+            <Component Id="cmp8381A1A056718628E15C4FDE72D57803" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil8E82D5DAE2AB06DC08D0C69A1D4E13B6" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\grc_dict" />
+            </Component>
+            <Component Id="cmpE4B2DB6C62C9534049CED16F1CA0DE48" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil539C321F716C808ABB6610F13BE64510" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\gu_dict" />
+            </Component>
+            <Component Id="cmp07185C1E309F53D8E8CE60EBAC035F6C" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil88C81899947E0D5C86B527EAAFC82D65" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\hak_dict" />
+            </Component>
+            <Component Id="cmp1DDBD872B002055B20BEA6823BAF46FF" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil2C93B45B95A012C2C39FD0A543969133" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\haw_dict" />
+            </Component>
+            <Component Id="cmp97912D333E7509AD1F6A86132BAD26B1" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil7A1CF52DFB005F141572054B8898A30A" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\he_dict" />
+            </Component>
+            <Component Id="cmp943F1CA8ACA60175DAB32246E37DC638" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filBBC62B8CDE2436CA4FC2D9E351A879FC" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\hi_dict" />
+            </Component>
+            <Component Id="cmp4E1DC75D72D3A51215D464DEE379FA23" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filC0EC24DACB07F31A3900E848C4488604" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\hr_dict" />
+            </Component>
+            <Component Id="cmp3908F521F71DAB717B9BEE85F02799CB" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filB508253B9890A350B831FE3E1EDB0B67" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\ht_dict" />
+            </Component>
+            <Component Id="cmpA127478DCBB4E75A61C206FF2278585A" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filA0338C053A86900EA03DC3646FA39476" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\hu_dict" />
+            </Component>
+            <Component Id="cmp1781DD0087B8A19D1D090C42A90E36A3" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filE74BF9F5DF5966218B7ADB32191C01AF" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\hy_dict" />
+            </Component>
+            <Component Id="cmpDA1A5CED62CE4C82FD49E045DF0001B8" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil48BE17DB9F1BA741B99BE88EB1D00D91" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\ia_dict" />
+            </Component>
+            <Component Id="cmp5E23A6273931846E5BAB9C016FC2ADEC" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil3F59EC44F60C032075C3BDEB93906C19" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\id_dict" />
+            </Component>
+            <Component Id="cmpF70C9BEBC3ABE92D22EF5C4817EAFD29" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filFC26FD31B6A2DD3A2CE2C4D43A5500D2" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\intonations" />
+            </Component>
+            <Component Id="cmpAC1B9AFEE79E826B8EE2313193DA0D82" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil69534D58D11C2C4CEBAF4E34856FEC8B" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\io_dict" />
+            </Component>
+            <Component Id="cmp77EC904C0511DE1B3606AF86CC6EB4F0" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filC49CE8DA4C50660B750F9573DDD0624F" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\is_dict" />
+            </Component>
+            <Component Id="cmpD9BE60EDB752851C0FE5D50E5002F366" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil30E1804B610D5FAC68A3720AE20BEDDE" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\it_dict" />
+            </Component>
+            <Component Id="cmpFA746963F2C4F2092FC6BFEBAD5C8D79" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil6FCA72B2BA1EDC527CEF13101C250012" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\ja_dict" />
+            </Component>
+            <Component Id="cmp26088294F47B82966B4D29A074B1F1CB" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filE73ADBD4F1C767A89DFDDB609CE1A39A" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\jbo_dict" />
+            </Component>
+            <Component Id="cmp9C2088C9C02ABA8E7E4F9E1479C48BD2" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil9322BA8FC37DD1083AFD7EA30F47F4C4" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\ka_dict" />
+            </Component>
+            <Component Id="cmpE6B8B0445DDEE966BE9468F84FC91C1C" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil473BE7C104C88F84515D9E29EC3660E5" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\kk_dict" />
+            </Component>
+            <Component Id="cmpA85C0BE8E4EFC16A467468D9C700B39F" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filB5DECF85E6B859155903B5189301809B" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\kl_dict" />
+            </Component>
+            <Component Id="cmp96839249A8F8535A783B283AB42B88B9" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil30BF2D1FDDE12F27836B4D50594F2C02" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\kn_dict" />
+            </Component>
+            <Component Id="cmp611B7405083CF499573D9924B1E8D73D" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filA18EB9F125A991A0F9D09855E93B727B" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\kok_dict" />
+            </Component>
+            <Component Id="cmp56970338222B3B6ED4C98970F17750F7" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil615C5C393272FE513287512A6302E26C" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\ko_dict" />
+            </Component>
+            <Component Id="cmp4C4E51E87206236124BA70C9A519C3D6" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil2C0CAB7396B5AA0627A805BA2F34ECF1" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\ku_dict" />
+            </Component>
+            <Component Id="cmp6C6BDD373826C1FC58F2AB0D8E00BDBC" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filE4E22D72E2DB38899E4A6514CDF2DFA2" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\ky_dict" />
+            </Component>
+            <Component Id="cmpA9F147DBD0505CD74335A4529C3BFA41" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil90BF31F22A8B2BC627A7466028A781D6" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\la_dict" />
+            </Component>
+            <Component Id="cmp98B77ECA1212C8A6CE17FF1D08696C35" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil9B78771349B79750AF6346E46614E140" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lb_dict" />
+            </Component>
+            <Component Id="cmpB4221050DFF68D0750BF9A6A0BF9AB1D" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filC795247833D699FBB7A6FA4270D54AF9" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lfn_dict" />
+            </Component>
+            <Component Id="cmp1796CA8C0823A0CBE382AACD5C5C9010" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil98FD67F05816F51DB27F53C6D20C71B8" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lt_dict" />
+            </Component>
+            <Component Id="cmpBED9397B69C1FB09E9BFA36B6877C650" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filBB54E38E3CD8D82EBA9413555573844B" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lv_dict" />
+            </Component>
+            <Component Id="cmpE8A187E7E9F3000BAC5C2C18D3CF7933" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil80BA64F9C5618372191ACEF67CCA84DB" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\mi_dict" />
+            </Component>
+            <Component Id="cmp4971650DBDBDD5A4BCCB81D8A05963F2" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil05C705E8620F29439C4C5B07087175FA" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\mk_dict" />
+            </Component>
+            <Component Id="cmpBEFFAFC2748246E34FBB4C288FC8B246" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil4356E85EE077B012C34E05780D7571C5" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\ml_dict" />
+            </Component>
+            <Component Id="cmpF2733910EA6F891F1FE382514C491E06" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil02CFCE0DD59FEF974262D731A16DA14E" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\mr_dict" />
+            </Component>
+            <Component Id="cmpC602DAC27434EF37720979E7097CDFAE" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil28221E2F53DCAC0ECF1FC6B2517E187B" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\ms_dict" />
+            </Component>
+            <Component Id="cmpADBB60C724788AA82A089785AF0FED20" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filFABDE6C528242AF813158DF83F59F83A" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\mto_dict" />
+            </Component>
+            <Component Id="cmp10A7D686C11D1147C981EBBFF2A55DEA" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil2E50A740E702E7109EB3EC6A55652D4A" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\mt_dict" />
+            </Component>
+            <Component Id="cmp91F2B74A564F8A3E0D0B25F8352CA6DE" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil884C93D5B6958A8BBB8983D5BC916DF6" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\my_dict" />
+            </Component>
+            <Component Id="cmpDC3D019021DD268A8FAF21D6BAE8938C" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filB1A00F722F4323EAC2319C0A340924A4" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\nci_dict" />
+            </Component>
+            <Component Id="cmp2B1BC74A7635541E0B455C0B227EFA1F" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil234FEC483EB4704CAA16714C25EEC57B" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\ne_dict" />
+            </Component>
+            <Component Id="cmp153B353D0D0962B3FFEAE83A733ADD9F" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filD64813045467A43754FF97323CA2489E" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\nl_dict" />
+            </Component>
+            <Component Id="cmpD8AD4BCA90189A0106A2DBD1FD2E363D" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filF650BCBAF37CCCAA775CB0D7DA97442F" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\nog_dict" />
+            </Component>
+            <Component Id="cmp480E5E800964D9DA38707D2AC1BA55F3" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil11DC13A4C224183C203BF9BDD73A22A4" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\no_dict" />
+            </Component>
+            <Component Id="cmpD6F785E51D965636B9FA67C9808C3D9C" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filA59497528B175289CE78478919B297D5" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\om_dict" />
+            </Component>
+            <Component Id="cmpB6F105A76474B1F423CD68DB2B852288" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filB4F52E606BE247D7C40951D88E1314D3" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\or_dict" />
+            </Component>
+            <Component Id="cmpCFDC43940B2C1919EAF6FCC624015596" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filE7B20D4555A86019C5C983F9C8FC5820" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\pap_dict" />
+            </Component>
+            <Component Id="cmpD81CF934C90994A431E4F76FD3A97405" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil930A1DF762EE115825401A5DD797E12F" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\pa_dict" />
+            </Component>
+            <Component Id="cmp09FC196D69E65E7EA3DE59F77C31199C" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filB88EFA71739B6A1B02E128CAF84B02AD" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\phondata" />
+            </Component>
+            <Component Id="cmpB5DB2C556AC812A554F4C66A6BCFC3E7" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil9F52998C839EC6780B7356B91546ADEC" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\phondata-manifest" />
+            </Component>
+            <Component Id="cmpC4DE6E71D0A739F72C456F0301EB4CC5" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filDE22A7ADDD5C3AD52AF640D725707DB6" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\phonindex" />
+            </Component>
+            <Component Id="cmp5CD90AABF300BD632FEE6AB62006B6F1" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil9E0E1B00B506B22A60174A4EC6636F01" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\phontab" />
+            </Component>
+            <Component Id="cmp530C7F2F3FDDAD9E3989785BE3E97641" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil460B1A62A0D0A29CCF0670414FFC9AE1" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\piqd_dict" />
+            </Component>
+            <Component Id="cmpFD09A55C1987DF7AFA0F09BA064A7A4E" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil6F2E659F69CC899531C34B27B9AF1C21" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\pl_dict" />
+            </Component>
+            <Component Id="cmpFF3559F6C8E69397F2B6D4255AD40724" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil662EE89234A2C1607B6AFD45A046B7B4" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\pt_dict" />
+            </Component>
+            <Component Id="cmpE3AC59D6A5856F292CECEE5084AA3A34" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filEC55C97C1B5AC47FB20B81896C5918E4" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\py_dict" />
+            </Component>
+            <Component Id="cmp414104DD429C746C9589CC808BC89970" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil9EB5D2F6E805686EB2E084061889A5FF" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\qdb_dict" />
+            </Component>
+            <Component Id="cmp1E1FEA61780107DCCC3F554CD7A2E8CE" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filCD2BCBB65D26BA4FA46EB045BD60F50A" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\quc_dict" />
+            </Component>
+            <Component Id="cmpC042BD4D274499B096E72CBA56423C59" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil7196C3D1B8A6EA0CB650F2047F7A87D8" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\qu_dict" />
+            </Component>
+            <Component Id="cmpD9FB451CA559083EDCE811D8B71D4C51" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil27C76738CEBF05DF2A7986A9C771CE73" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\qya_dict" />
+            </Component>
+            <Component Id="cmpC17017079733614F4F573B57D9885BDE" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filAE4E39EA5F07FF9CB201F92D5A7FCBED" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\ro_dict" />
+            </Component>
+            <Component Id="cmp1C2DB7E6CBBD81716601621ED6AAE540" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filA9557180B520DB6316F4C6E51553812E" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\ru_dict" />
+            </Component>
+            <Component Id="cmp38B374A07FD9ED384CA9B2EB692B3FA8" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filB3AC32101412BFEBDDB343F1E5332BA4" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\sd_dict" />
+            </Component>
+            <Component Id="cmpFFEBFE45B356F6E6FD710FFFDA4DF7AF" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filCDEC5ED74B9BAEA0D9B7935B0754CA3C" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\shn_dict" />
+            </Component>
+            <Component Id="cmp12F01744F135A7CB748F3AAB95CDEBDD" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filC91497F057F7ADE8DED527BAC19A446B" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\si_dict" />
+            </Component>
+            <Component Id="cmpDD7BDC5C793CF2543CD45848205263F3" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil159F39887F8060CBCBF4D58353B2B0D1" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\sjn_dict" />
+            </Component>
+            <Component Id="cmpD7E93711317ACF81193C6E31986F805E" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil646E570C750AD47FBECCA03D3121CDE5" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\sk_dict" />
+            </Component>
+            <Component Id="cmpDC891CE138B6B4180F4848206A3F307B" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil80A43D5C1EDB121453D935E101E5C551" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\sl_dict" />
+            </Component>
+            <Component Id="cmpC778E9563FD6F5259CB4C10C4A07CE0C" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filC94341CED0221B606916AB043EA5DE91" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\smj_dict" />
+            </Component>
+            <Component Id="cmp110E96D4713DDDAA17226F84AAB77F30" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil7C3435BAED004DA86C291B8117E29ABD" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\sq_dict" />
+            </Component>
+            <Component Id="cmp7AA12306AFC0EED1A0D8EDE4D159D085" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filC4C9D018AD3D5D3F58A0FB230B78C2AC" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\sr_dict" />
+            </Component>
+            <Component Id="cmpCDEE304E7CCA293D309029064D05E1DF" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filDD3F84F13CB5869042CCCCD6D8DC95A6" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\sv_dict" />
+            </Component>
+            <Component Id="cmp846B0BE2673670DE239276663AB1F052" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil09582ACDD05D2F0087412D674EF927C9" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\sw_dict" />
+            </Component>
+            <Component Id="cmpAE7D4C42FDB231E267E2DB3587BCFB22" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil7B049728449835D9260AC7C3185FE2AD" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\ta_dict" />
+            </Component>
+            <Component Id="cmpFEA1A13D866D920895EDA10BE0670254" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil1ACF8B55D790B61B2F0EB85239373CDF" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\te_dict" />
+            </Component>
+            <Component Id="cmpDC1A25E290F13A4D74BA16CD74B438CA" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil054604762B5A254BEDCA03D1CA205DDA" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\th_dict" />
+            </Component>
+            <Component Id="cmp94622B4A9DE920EA79F27517BB0EF6A9" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filB112AA33BBD56497B21954E923A5B62D" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\tk_dict" />
+            </Component>
+            <Component Id="cmpC9B5F33EF8792D7079852755C19574EA" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filAF8FEE2AF2CCD185AD007C2950D9DFEF" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\tn_dict" />
+            </Component>
+            <Component Id="cmp3148058F29B85226FE4C604AEBC60AC2" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil708D3361BDF7076D1CE4CF57C44BB00C" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\tr_dict" />
+            </Component>
+            <Component Id="cmpFC97FBB17670DDE8E08CCA1A156E7741" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filF38C92EB41FD1C73FA1CDA54CF26D638" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\tt_dict" />
+            </Component>
+            <Component Id="cmp48847AAC624499E6BE6F6FC707BEE4EF" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil53BB94DFC6F37AA6817234C73B52A10C" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\ug_dict" />
+            </Component>
+            <Component Id="cmp8E3B45B10DFB5B234C78BE5F99D148D3" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil0E48CC1BB2C8E7FCD2203CB5141EB38A" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\uk_dict" />
+            </Component>
+            <Component Id="cmp5D8BA6943111566FC773658DF1940597" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil0B450C4F4D4693AEE3E991725E965364" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\ur_dict" />
+            </Component>
+            <Component Id="cmp59C0EE0EC4D73E782B2136C0DBB885D4" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil9D9CAFD3A55BC2C6183CE1CF5FFCC508" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\uz_dict" />
+            </Component>
+            <Component Id="cmp6C33987E2693A25515ED7189EB930967" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="filEFDD54F91C431FD9EE5005F45F8DCA20" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\vi_dict" />
+            </Component>
+            <Component Id="cmp7B95ACA53D29A17C9AA8816A5788B506" Directory="dir2D911BBAFF8C03C75E6D8F0401038E01" Guid="*">
+                <File Id="fil3032976F9306C90868A702D576303269" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\yue_dict" />
+            </Component>
+            <Component Id="cmp80CC12BD08A52AF2B561276C898D26E8" Directory="dirA00609CDBD9F0015B160BA6458FA2628" Guid="*">
+                <File Id="filDF9067685D65F2AE37724BE7E96478A1" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\eu" />
+            </Component>
+            <Component Id="cmp6EF507CC32E89A07CCBF7808109CF061" Directory="dirA00609CDBD9F0015B160BA6458FA2628" Guid="*">
+                <File Id="fil38B8752BD227F19F217441F7744BC7FE" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\ko" />
+            </Component>
+            <Component Id="cmpE227CCDC2156316284AFBC36F3FBAE64" Directory="dirA00609CDBD9F0015B160BA6458FA2628" Guid="*">
+                <File Id="filD719A73C0DA352FB3C20F2C2B3FB6EB5" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\qu" />
+            </Component>
+            <Component Id="cmpE7FD4747240BC1BE6321AB68A772176F" Directory="dir3C4EEE30295FA3F3567AF9F6EC9E2233" Guid="*">
+                <File Id="filA4777F4768032E34D08AC4FBEF874733" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\aav\vi" />
+            </Component>
+            <Component Id="cmp8D12D3382E5AAF34374F8AD53B4D122A" Directory="dir3C4EEE30295FA3F3567AF9F6EC9E2233" Guid="*">
+                <File Id="filF5345CFEA487B275D836CFABB2280097" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\aav\vi-VN-x-central" />
+            </Component>
+            <Component Id="cmp3F74302F2A910384A68EFA59915253DA" Directory="dir3C4EEE30295FA3F3567AF9F6EC9E2233" Guid="*">
+                <File Id="filD032D6DDA53736ED779B58B8BB584015" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\aav\vi-VN-x-south" />
+            </Component>
+            <Component Id="cmp18E3B90B2B4940A9AA47DA5F6277E686" Directory="dirBA37B9A9164061F576982F25BDB13294" Guid="*">
+                <File Id="fil4CAE8D2D45A9CCFEFBE8921505C62B8B" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\art\eo" />
+            </Component>
+            <Component Id="cmpB007A9E842BC88E3E0C63E4313E656E6" Directory="dirBA37B9A9164061F576982F25BDB13294" Guid="*">
+                <File Id="fil0336656315DBCFA0B9E84D93BEB5EBF8" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\art\ia" />
+            </Component>
+            <Component Id="cmpF11CBB394D7280796047BC906B018B71" Directory="dirBA37B9A9164061F576982F25BDB13294" Guid="*">
+                <File Id="fil2A042066DE04245B89D41B9AAA77AD86" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\art\io" />
+            </Component>
+            <Component Id="cmpD53B07CFF6F73C223106D716EC22B7B9" Directory="dirBA37B9A9164061F576982F25BDB13294" Guid="*">
+                <File Id="fil2D9ECD432F7F129E1A515048081E6419" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\art\jbo" />
+            </Component>
+            <Component Id="cmpC5538EEEDAF6041B8CC7B494D28B4C8F" Directory="dirBA37B9A9164061F576982F25BDB13294" Guid="*">
+                <File Id="fil5FAF8D2B4EF449E7EA64C40F86611FC1" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\art\lfn" />
+            </Component>
+            <Component Id="cmp71984E501365F396C0805CAA37DE3DCD" Directory="dirBA37B9A9164061F576982F25BDB13294" Guid="*">
+                <File Id="filE3639D454752EBB2EEFFFB76742C5962" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\art\piqd" />
+            </Component>
+            <Component Id="cmp7AB1AD46411845FECCB1EF576631EFC8" Directory="dirBA37B9A9164061F576982F25BDB13294" Guid="*">
+                <File Id="fil760FFC226E55F912FB9563C0CAD6E2F4" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\art\py" />
+            </Component>
+            <Component Id="cmp4329C245BE1FF2E95201AE32B6EC1527" Directory="dirBA37B9A9164061F576982F25BDB13294" Guid="*">
+                <File Id="filCDCADB827E0EE6F51C7634168221BC66" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\art\qdb" />
+            </Component>
+            <Component Id="cmp45A372D3FF85B471FC11B4F7C5190D40" Directory="dirBA37B9A9164061F576982F25BDB13294" Guid="*">
+                <File Id="filA921A44884193C533FA864CC845AC410" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\art\qya" />
+            </Component>
+            <Component Id="cmp3511FC2AEF1AD2FE10BD209012AC5419" Directory="dirBA37B9A9164061F576982F25BDB13294" Guid="*">
+                <File Id="filB5BAF7398D8FE208BA0756CF484D8F6F" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\art\sjn" />
+            </Component>
+            <Component Id="cmpCB2B0D135BD0E1BCFA226242F1058880" Directory="dir5A85C8CCC2D5E8B5B6C413D693270888" Guid="*">
+                <File Id="fil0286E33FBA0DF56140A6825C0D187DFD" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\azc\nci" />
+            </Component>
+            <Component Id="cmp5BCFE1C5B01EEA6D761C775B8407849A" Directory="dir6B05F8EA91D0BC9C0D7B5918C6D4A103" Guid="*">
+                <File Id="filC6E9E40EEAD2378044834BA1ACB929A0" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\bat\lt" />
+            </Component>
+            <Component Id="cmp8191FDD9088DE158ED37F4731A2B1D1D" Directory="dir6B05F8EA91D0BC9C0D7B5918C6D4A103" Guid="*">
+                <File Id="filD683DCA867B14E868A98D53D6E3968A1" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\bat\ltg" />
+            </Component>
+            <Component Id="cmp7F584B2A37050D9BAAED42E974624996" Directory="dir6B05F8EA91D0BC9C0D7B5918C6D4A103" Guid="*">
+                <File Id="fil18528831EFEE73E1774DBA0BC5E9D60D" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\bat\lv" />
+            </Component>
+            <Component Id="cmp6359A8012E3071B27CA3A7C769534E5E" Directory="dir381347C75747CBC511B6D92CFC53CA23" Guid="*">
+                <File Id="fil2AC05D0F2287D0AFC871A548D5ACC89E" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\bnt\sw" />
+            </Component>
+            <Component Id="cmpC268EBCA23347E62903B1BA2BFF762F7" Directory="dir381347C75747CBC511B6D92CFC53CA23" Guid="*">
+                <File Id="filA898A84CC43EA4D2FC104A376A87DAFC" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\bnt\tn" />
+            </Component>
+            <Component Id="cmp8E27E47B619E1BB17F17DCCE005C1C00" Directory="dir8310F8E4C6DC244D14C90776FCC17F48" Guid="*">
+                <File Id="filECC0028BF2BD22E86D2515C32869816B" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\ccs\ka" />
+            </Component>
+            <Component Id="cmpAF43C3F320775CE97F639F18B04EF52A" Directory="dir5094AD7AF4E7300ECB4B8F6A5E7336D3" Guid="*">
+                <File Id="fil16B23F3BD8219C320A7F85156C947099" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\cel\cy" />
+            </Component>
+            <Component Id="cmpAA21E061C24EB9BD9396EF1737AB5E31" Directory="dir5094AD7AF4E7300ECB4B8F6A5E7336D3" Guid="*">
+                <File Id="fil20C39CDA4A32DBEF2EA5683A8640D0EB" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\cel\ga" />
+            </Component>
+            <Component Id="cmp1DFB60EF6A82005FE4B2C77A50C1C692" Directory="dir5094AD7AF4E7300ECB4B8F6A5E7336D3" Guid="*">
+                <File Id="filB8B669AD91CD333C2D7DC1B07FCF380A" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\cel\gd" />
+            </Component>
+            <Component Id="cmpAA29A6ABE757B6018BE1E9DCDC0B5937" Directory="dir3FF00E548BB949DC424D93FEDBD9270B" Guid="*">
+                <File Id="filF4D5118071D99AFF6B183F4D34BB78BD" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\cus\om" />
+            </Component>
+            <Component Id="cmpA8378A25DA03158300D3767B68B71B91" Directory="dirC77BB283B3E122BBC26E2B70BD7CEEE0" Guid="*">
+                <File Id="filD9A9635E8048E7ED9A5726063F43155F" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\dra\kn" />
+            </Component>
+            <Component Id="cmpCE0D05C994C62BF6CA682D746AF30903" Directory="dirC77BB283B3E122BBC26E2B70BD7CEEE0" Guid="*">
+                <File Id="filAA742DB5DFE33F051855F462412C36D8" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\dra\ml" />
+            </Component>
+            <Component Id="cmp6EAB907987243CB46E6316B04C993FF3" Directory="dirC77BB283B3E122BBC26E2B70BD7CEEE0" Guid="*">
+                <File Id="fil0A5FD6EB82A19A8AAD5DDB4B36457170" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\dra\ta" />
+            </Component>
+            <Component Id="cmp7C4F5B41E00F3FF3EF64C2C99AB941BA" Directory="dirC77BB283B3E122BBC26E2B70BD7CEEE0" Guid="*">
+                <File Id="filDD04595FECC9755883775E7554C1BF20" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\dra\te" />
+            </Component>
+            <Component Id="cmp0C86CD1D60C48E4262336931E5B3FF8D" Directory="dir930E4EF4E2D33EEB60C6E8F2B659A4DA" Guid="*">
+                <File Id="fil14AE67E0D819A3BB04C0A760DAB6DFDA" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\esx\kl" />
+            </Component>
+            <Component Id="cmpA17FB2989B8A801B35F3A125AD1CF3CF" Directory="dir0C7AFAF2D40BAF7EC487DE823E6C69D7" Guid="*">
+                <File Id="filA58BC18F754C336BB98F35C33D10F19E" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\gmq\da" />
+            </Component>
+            <Component Id="cmpDD7E92653533B984BFC3698C2BD31D79" Directory="dir0C7AFAF2D40BAF7EC487DE823E6C69D7" Guid="*">
+                <File Id="fil20363FCBF14A3C445C17A5DEEFEEC879" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\gmq\is" />
+            </Component>
+            <Component Id="cmp3738D9E8CBAC17935FCE739E97260A58" Directory="dir0C7AFAF2D40BAF7EC487DE823E6C69D7" Guid="*">
+                <File Id="fil256751CDE2997DB669B139F1E33233FB" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\gmq\nb" />
+            </Component>
+            <Component Id="cmpAF2B57DD73106567EF0266FF672BCBF7" Directory="dir0C7AFAF2D40BAF7EC487DE823E6C69D7" Guid="*">
+                <File Id="filC2FF79F99A31726CA1C2829C3C5E09E8" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\gmq\sv" />
+            </Component>
+            <Component Id="cmp5D86AC46C094712A43D2CDD96757975F" Directory="dirEEC8DF8F8BC55E2779B56496A489D780" Guid="*">
+                <File Id="fil1A906F560864CE67AA7F8A3E05827458" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\gmw\af" />
+            </Component>
+            <Component Id="cmpCD37E820CBD558979AE78643EDD1E461" Directory="dirEEC8DF8F8BC55E2779B56496A489D780" Guid="*">
+                <File Id="fil267F19DF843DD51F273F19503A72AD74" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\gmw\de" />
+            </Component>
+            <Component Id="cmpE113E20586D1C4CF253D0460D77FABD6" Directory="dirEEC8DF8F8BC55E2779B56496A489D780" Guid="*">
+                <File Id="fil431A23770393F7B2636F7C1C57834DA4" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\gmw\en" />
+            </Component>
+            <Component Id="cmp220EFFDA48B11668A2B5A28C2D9DFF0E" Directory="dirEEC8DF8F8BC55E2779B56496A489D780" Guid="*">
+                <File Id="filD7DA0F5941A6F40C2CAB70BEDA36C101" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\gmw\en-029" />
+            </Component>
+            <Component Id="cmpF9C5FE7DCF2AAE6ED42BB94414E69730" Directory="dirEEC8DF8F8BC55E2779B56496A489D780" Guid="*">
+                <File Id="filD37A29D20F3173F113DCECE364B38B54" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\gmw\en-GB-scotland" />
+            </Component>
+            <Component Id="cmpBFB3799D38FB9FAEF19C1B17F3FB9D84" Directory="dirEEC8DF8F8BC55E2779B56496A489D780" Guid="*">
+                <File Id="fil35277185A6C4A051E1972C1E5DB82638" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\gmw\en-GB-x-gbclan" />
+            </Component>
+            <Component Id="cmp7158C1051BC10CBA9D99B7799636378E" Directory="dirEEC8DF8F8BC55E2779B56496A489D780" Guid="*">
+                <File Id="fil4ABC07C14F67F11D0BDF3DA355F8FABC" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\gmw\en-GB-x-gbcwmd" />
+            </Component>
+            <Component Id="cmp7EF7722348BDED0E9CFEB4472174F5DE" Directory="dirEEC8DF8F8BC55E2779B56496A489D780" Guid="*">
+                <File Id="fil913AC5A9CBEA4EE8738B807D15010BF6" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\gmw\en-GB-x-rp" />
+            </Component>
+            <Component Id="cmpB78CD2DB2412C3919D30E4B4CEAEEB6C" Directory="dirEEC8DF8F8BC55E2779B56496A489D780" Guid="*">
+                <File Id="fil5BD63EC12CD047B5B09EA1E520021EAA" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\gmw\en-US" />
+            </Component>
+            <Component Id="cmp9AA95A995455EA76A710F1D4C9D2CEF6" Directory="dirEEC8DF8F8BC55E2779B56496A489D780" Guid="*">
+                <File Id="filEA5AAB60B6A0B634ACC0C91E13A58F28" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\gmw\en-US-nyc" />
+            </Component>
+            <Component Id="cmpD5AA40ED45562E7BA97B0FD231D2F6D9" Directory="dirEEC8DF8F8BC55E2779B56496A489D780" Guid="*">
+                <File Id="filAF49D18B393950A0BBFCDB02F300706A" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\gmw\lb" />
+            </Component>
+            <Component Id="cmpB657DF237C3E5B1F15F0494378943470" Directory="dirEEC8DF8F8BC55E2779B56496A489D780" Guid="*">
+                <File Id="filD740D59B99403714FFCE8A22D6566BB9" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\gmw\nl" />
+            </Component>
+            <Component Id="cmpEC969ADC1B574BB635D5000676DA1E6F" Directory="dirE1F571F42D05992D395979295B90BB86" Guid="*">
+                <File Id="filBCA64AC19C1D11F2930AF5222B1599DE" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\grk\el" />
+            </Component>
+            <Component Id="cmpE32CE4706F21B186A2761EE5BED23332" Directory="dirE1F571F42D05992D395979295B90BB86" Guid="*">
+                <File Id="fil963AAA198E6F0D380D84AC5AD5C7B5F6" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\grk\grc" />
+            </Component>
+            <Component Id="cmp60C6AC43A64FA0971D5583ADAD71A957" Directory="dirEC676C14E03A7A81855EBDCC039E6F82" Guid="*">
+                <File Id="fil63674E256FBC41E122BAA7EBD7B5A7CA" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\inc\as" />
+            </Component>
+            <Component Id="cmp74BCFB819EF52371A39EDE4AF613214D" Directory="dirEC676C14E03A7A81855EBDCC039E6F82" Guid="*">
+                <File Id="fil91E64A1D29B44045DD638B3370EAB974" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\inc\bn" />
+            </Component>
+            <Component Id="cmp09351636681D695C763F0E3319FD7498" Directory="dirEC676C14E03A7A81855EBDCC039E6F82" Guid="*">
+                <File Id="fil3841E032630D76BDF2A66AABDE89B66C" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\inc\bpy" />
+            </Component>
+            <Component Id="cmp969F13203CF141F56366316B92073C3F" Directory="dirEC676C14E03A7A81855EBDCC039E6F82" Guid="*">
+                <File Id="fil6EB17B04BA40C4B52C1C094830754586" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\inc\gu" />
+            </Component>
+            <Component Id="cmp60A3678CF1BF18DDD780280933718267" Directory="dirEC676C14E03A7A81855EBDCC039E6F82" Guid="*">
+                <File Id="fil36CAA098772AA2747F78ADAD1856814C" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\inc\hi" />
+            </Component>
+            <Component Id="cmpC6B2A129AFD978BF21C56548352CA2CB" Directory="dirEC676C14E03A7A81855EBDCC039E6F82" Guid="*">
+                <File Id="fil1138F338DE42276520BA6394DA1A487F" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\inc\kok" />
+            </Component>
+            <Component Id="cmp8094775FB33F72BC19D6337A315F7919" Directory="dirEC676C14E03A7A81855EBDCC039E6F82" Guid="*">
+                <File Id="fil584EA4E9C64A8CC743116103A0632B89" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\inc\mr" />
+            </Component>
+            <Component Id="cmp16FA68A69FF8BC633F05A097CDAA3177" Directory="dirEC676C14E03A7A81855EBDCC039E6F82" Guid="*">
+                <File Id="fil8A34E45B3AA413A4B92DE1BEA63B1CA2" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\inc\ne" />
+            </Component>
+            <Component Id="cmp8C558B0C64FEEA0F13F1894AE240B0A4" Directory="dirEC676C14E03A7A81855EBDCC039E6F82" Guid="*">
+                <File Id="fil60C709CEE5691BAEB20EC49CDF298182" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\inc\or" />
+            </Component>
+            <Component Id="cmpF8D46F062CDA6CF0135D342751EAC70A" Directory="dirEC676C14E03A7A81855EBDCC039E6F82" Guid="*">
+                <File Id="fil9ECFAE231E6114DDF63957385749D844" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\inc\pa" />
+            </Component>
+            <Component Id="cmp98C00994916C6EBAFDB2B57BC109C2F5" Directory="dirEC676C14E03A7A81855EBDCC039E6F82" Guid="*">
+                <File Id="fil7558E520D1D6A3AACF391FDB3241FAC0" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\inc\sd" />
+            </Component>
+            <Component Id="cmp745332041F8EED03302FD7E84E363396" Directory="dirEC676C14E03A7A81855EBDCC039E6F82" Guid="*">
+                <File Id="fil2E821CC9A097166F95AAA3F108046CBE" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\inc\si" />
+            </Component>
+            <Component Id="cmpA7D3776A0B5BE8661F4DC7253AE813C6" Directory="dirEC676C14E03A7A81855EBDCC039E6F82" Guid="*">
+                <File Id="filBD0331B82315D50D5E4AB3A6FF23858A" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\inc\ur" />
+            </Component>
+            <Component Id="cmp696406616523DE5E149567770D01A9E0" Directory="dirD25662175D561D2A713A2BA13D6867C5" Guid="*">
+                <File Id="fil7B9880B0403E538E67A7EA3B6EECF752" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\ine\hy" />
+            </Component>
+            <Component Id="cmpD78C8E60268F18A674F4DB684CA76467" Directory="dirD25662175D561D2A713A2BA13D6867C5" Guid="*">
+                <File Id="filE1BB25D9F2807213CCCF05F3103AFFC5" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\ine\hyw" />
+            </Component>
+            <Component Id="cmp575968FB0557EC5920404F350068B748" Directory="dirD25662175D561D2A713A2BA13D6867C5" Guid="*">
+                <File Id="fil816A9C74A78DBD1EEF95B9ACA057988E" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\ine\sq" />
+            </Component>
+            <Component Id="cmp1434450A134A2271B655EF78CAB178CA" Directory="dirD7BDA869AA492D2CCE0824D1653D9487" Guid="*">
+                <File Id="fil112C4205ECFEAD149AE7B061628D7089" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\ira\fa" />
+            </Component>
+            <Component Id="cmp2654BD5614F7FD7EE91259FD9CBBB237" Directory="dirD7BDA869AA492D2CCE0824D1653D9487" Guid="*">
+                <File Id="filD013993A347FA0F8DFA0A4BFD33293EA" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\ira\fa-Latn" />
+            </Component>
+            <Component Id="cmp8E9916941225581B75D35ABAB242A5D0" Directory="dirD7BDA869AA492D2CCE0824D1653D9487" Guid="*">
+                <File Id="filCC587EA351E40664313A060DB4B379A7" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\ira\ku" />
+            </Component>
+            <Component Id="cmp678F939D76DD1A3E5A4E4325B7293488" Directory="dir90F655F1E126B6F5AC59D6B4064FD438" Guid="*">
+                <File Id="filEABE4165D4DFD94FA04910E05E8940B0" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\iro\chr" />
+            </Component>
+            <Component Id="cmp323B5997D891630CC49122D02B325709" Directory="dirB4CDAF65D627C5EF28F89ED708917A3E" Guid="*">
+                <File Id="filD5BA463ED62364915EDF11E5AC7789BC" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\itc\la" />
+            </Component>
+            <Component Id="cmpFB4FA4CAB0356EB9316B17B20683BB06" Directory="dir353C0438B88DC55179A3247327BBD924" Guid="*">
+                <File Id="filBE5E13FA13CE14EAF3DD9F19B61A16BB" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\jpx\ja" />
+            </Component>
+            <Component Id="cmpD5FC0CA8C6A3B2A0ACBEBB557B283445" Directory="dir475FF27C5EE6EF285FDE8B854E2D5F13" Guid="*">
+                <File Id="fil67BCFDD0262D9768DEE7236F475C8D1C" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\map\haw" />
+            </Component>
+            <Component Id="cmp153B4F3569C0C5A975739953E98E33D4" Directory="dirABE93A467AA865B4DD4FF9940E52861E" Guid="*">
+                <File Id="fil61694802FD9F550F0A0FB8B47709F8B1" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\miz\mto" />
+            </Component>
+            <Component Id="cmpFE6BE3A4605506CDA2C871564345ED7F" Directory="dirC4FBC45C5406E012A25A4E85444BE4AB" Guid="*">
+                <File Id="fil5F8768EE3D76DF7654E2F93B92DF44A7" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\myn\quc" />
+            </Component>
+            <Component Id="cmp77C10DF5BAB60B7D4C51A0C975AFB729" Directory="dir63BBC5DE2A4ADAE341F912514F8D894E" Guid="*">
+                <File Id="fil950552EA53CD000FE794ED5804FBDAD1" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\poz\id" />
+            </Component>
+            <Component Id="cmp70D6E42A50881141716428EA3FD90DBA" Directory="dir63BBC5DE2A4ADAE341F912514F8D894E" Guid="*">
+                <File Id="filAE64DA9DB21C19EA8E40D8F6F20351A2" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\poz\mi" />
+            </Component>
+            <Component Id="cmp733715FAC70B17046A69D4DD838C041B" Directory="dir63BBC5DE2A4ADAE341F912514F8D894E" Guid="*">
+                <File Id="fil480ECB919B3DAFD7A77C02C7F9716A8A" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\poz\ms" />
+            </Component>
+            <Component Id="cmp6007AAECAFD5794427F50BE475045209" Directory="dirDC8B467EC67FB41462A370567F7D9BAB" Guid="*">
+                <File Id="fil86C9A48E222C67BECDC5BC4384C5F2FF" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\roa\an" />
+            </Component>
+            <Component Id="cmp055D5DFF9BCC2A73BD7FE82725C28880" Directory="dirDC8B467EC67FB41462A370567F7D9BAB" Guid="*">
+                <File Id="fil0754B5D2BA1F368570CC53ED59FF539E" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\roa\ca" />
+            </Component>
+            <Component Id="cmp2001F78A8E88DDEE5672F1333D1A5211" Directory="dirDC8B467EC67FB41462A370567F7D9BAB" Guid="*">
+                <File Id="filCC2AFD94A31F8DEDF08B38DF6951E8A9" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\roa\es" />
+            </Component>
+            <Component Id="cmp21080BF172BF04FD6189EBC622765F8E" Directory="dirDC8B467EC67FB41462A370567F7D9BAB" Guid="*">
+                <File Id="fil236594387A3FF72511320ECA8CBB70C2" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\roa\es-419" />
+            </Component>
+            <Component Id="cmp6E3AD8C67C8CB483D278AE243CF3065C" Directory="dirDC8B467EC67FB41462A370567F7D9BAB" Guid="*">
+                <File Id="fil4AEAB21E097DA6FEF278C43975C1ADE0" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\roa\fr" />
+            </Component>
+            <Component Id="cmpFF331D21C36FEECC5316415FBAE6E02D" Directory="dirDC8B467EC67FB41462A370567F7D9BAB" Guid="*">
+                <File Id="fil32A0312F8A5734E8C0D6763DB573C51C" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\roa\fr-BE" />
+            </Component>
+            <Component Id="cmpC58CEC80B46C73D936CA8F78DE6C8DCD" Directory="dirDC8B467EC67FB41462A370567F7D9BAB" Guid="*">
+                <File Id="filAFD1CECD27D83C02FBAC9D76653C83EF" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\roa\fr-CH" />
+            </Component>
+            <Component Id="cmp324F79A8FFE355504A216A48E7EEAAB2" Directory="dirDC8B467EC67FB41462A370567F7D9BAB" Guid="*">
+                <File Id="filF05054EF8FB74B45BCECBC7B2BAEF5B6" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\roa\ht" />
+            </Component>
+            <Component Id="cmp7E46233C1F2BCF49055F225D774C6909" Directory="dirDC8B467EC67FB41462A370567F7D9BAB" Guid="*">
+                <File Id="fil73567C790733D2589DD823B5A2F3ADE0" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\roa\it" />
+            </Component>
+            <Component Id="cmp054D164DE4AC17E6E72D3C61D5DECDA9" Directory="dirDC8B467EC67FB41462A370567F7D9BAB" Guid="*">
+                <File Id="fil93B2C181C23A0EAF8DEDCEB77DA5DAD0" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\roa\pap" />
+            </Component>
+            <Component Id="cmp7709CA7E336912512C08C31885126E4D" Directory="dirDC8B467EC67FB41462A370567F7D9BAB" Guid="*">
+                <File Id="filD30CC107620184D251553D4D1300D0FD" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\roa\pt" />
+            </Component>
+            <Component Id="cmp03BFEE6A0172BDBC8BFEF554F873E38A" Directory="dirDC8B467EC67FB41462A370567F7D9BAB" Guid="*">
+                <File Id="fil0D5348C18E31089E6F196EABB0D11259" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\roa\pt-BR" />
+            </Component>
+            <Component Id="cmp459A9DFF3B286E53B6FC534E9BDFF32B" Directory="dirDC8B467EC67FB41462A370567F7D9BAB" Guid="*">
+                <File Id="filC751266B97A696247B4003BB50309E6F" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\roa\ro" />
+            </Component>
+            <Component Id="cmp5B98DCCF6D99CF5EAB82DCE48B5F7A9E" Directory="dir51B19A0F96453F644240C4C797287EC9" Guid="*">
+                <File Id="fil6D0D19D1241F5A04803A673B06E1E38F" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\sai\gn" />
+            </Component>
+            <Component Id="cmpD36FAB29B40F0D2F2FF88D99828D5E43" Directory="dir549075031D0520EA7A325A9E7ABACB9A" Guid="*">
+                <File Id="fil86A855ACA2A33D3B83E9F7C827410190" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\sem\am" />
+            </Component>
+            <Component Id="cmpE46B1822EEB507167270B2CB81974D73" Directory="dir549075031D0520EA7A325A9E7ABACB9A" Guid="*">
+                <File Id="filABCE3C7A6D203E78E05CA623BB8CA95E" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\sem\ar" />
+            </Component>
+            <Component Id="cmpD9E309C8951B4B96BFAF1F5D5AAA0A25" Directory="dir549075031D0520EA7A325A9E7ABACB9A" Guid="*">
+                <File Id="fil7CFB14212D464430E9F98062018A71E4" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\sem\he" />
+            </Component>
+            <Component Id="cmp02D138ACBA450843DC84881C3B754B26" Directory="dir549075031D0520EA7A325A9E7ABACB9A" Guid="*">
+                <File Id="fil51451223D78068F126CA5C8825E0C569" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\sem\mt" />
+            </Component>
+            <Component Id="cmp1000137DD1FD37D6B50DE971C476245C" Directory="dirFB866D7E8CB9D56715E5A3590DFE7EC2" Guid="*">
+                <File Id="filC2D4F6310B80C182F57BDA4CE495669E" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\sit\cmn" />
+            </Component>
+            <Component Id="cmp446FC9D8996CC94BCDBEEBFA37DC21F2" Directory="dirFB866D7E8CB9D56715E5A3590DFE7EC2" Guid="*">
+                <File Id="filECDA3EB9ADAF6587E98BC70F70C7B56E" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\sit\cmn-Latn-pinyin" />
+            </Component>
+            <Component Id="cmp3A43B01A8999F6BE824EDA72036621C0" Directory="dirFB866D7E8CB9D56715E5A3590DFE7EC2" Guid="*">
+                <File Id="filF7BA2BA3926F82907AFC1D20289C8DD1" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\sit\hak" />
+            </Component>
+            <Component Id="cmp7FBD3DFA5D3E144F8877E864860FC5E1" Directory="dirFB866D7E8CB9D56715E5A3590DFE7EC2" Guid="*">
+                <File Id="fil5DEED9FC8915BA877FADE13C96C409FD" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\sit\my" />
+            </Component>
+            <Component Id="cmpA86E5AED3228B6AD41447154AE937CA6" Directory="dirFB866D7E8CB9D56715E5A3590DFE7EC2" Guid="*">
+                <File Id="fil4F9DF67C18AB60CB03B69E7812A59CED" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\sit\yue" />
+            </Component>
+            <Component Id="cmpA3836E759EBF2ACCABBCC74F841B84A9" Directory="dirFB866D7E8CB9D56715E5A3590DFE7EC2" Guid="*">
+                <File Id="filB680D9F2299C1E3996728C4172B90935" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\sit\yue-Latn-jyutping" />
+            </Component>
+            <Component Id="cmp2494A3A88D3A824EDF80081D1A454B12" Directory="dirA960CF6FFCA68AEA493A9FB99DAAEFDE" Guid="*">
+                <File Id="filB3ED32667155606DE872F9CFEE9A8AA2" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\tai\shn" />
+            </Component>
+            <Component Id="cmp3767671308618ED2E4DEFAC526E540EA" Directory="dirA960CF6FFCA68AEA493A9FB99DAAEFDE" Guid="*">
+                <File Id="fil35626CAA3BC573DFF8D466E62E748FEB" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\tai\th" />
+            </Component>
+            <Component Id="cmp1B41FEDB585DE39B96344010B8DA00B2" Directory="dir3FB746A8AC39435BDCAB2A2BF82A41B0" Guid="*">
+                <File Id="fil6EA9CB50E069FE73BB2B19B5D42C489E" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\trk\az" />
+            </Component>
+            <Component Id="cmpFA23AAD393A072C4D45408580124C337" Directory="dir3FB746A8AC39435BDCAB2A2BF82A41B0" Guid="*">
+                <File Id="fil2B86894A431161ECF2BD03AA66F15EAC" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\trk\ba" />
+            </Component>
+            <Component Id="cmpC76369EA9ABF07AD223A924E25FA8079" Directory="dir3FB746A8AC39435BDCAB2A2BF82A41B0" Guid="*">
+                <File Id="fil1FBB08D71DF4079FDA7B7C033C8819F7" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\trk\cv" />
+            </Component>
+            <Component Id="cmp0A9B523570706AA34DD7B2D3D67366AA" Directory="dir3FB746A8AC39435BDCAB2A2BF82A41B0" Guid="*">
+                <File Id="filB97A0A072F2DC07145363AB86A2F38EF" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\trk\kk" />
+            </Component>
+            <Component Id="cmp0C5B3A9CABC3394F9009D45F48EE3D31" Directory="dir3FB746A8AC39435BDCAB2A2BF82A41B0" Guid="*">
+                <File Id="fil70617A9857F801B2455237806B061DC1" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\trk\ky" />
+            </Component>
+            <Component Id="cmpC2170FC368335E5152C0C2B0C4779901" Directory="dir3FB746A8AC39435BDCAB2A2BF82A41B0" Guid="*">
+                <File Id="fil9EFD01912D0599934BD5328B3353A8D2" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\trk\nog" />
+            </Component>
+            <Component Id="cmp870B43F4EF865949D9444C238311084D" Directory="dir3FB746A8AC39435BDCAB2A2BF82A41B0" Guid="*">
+                <File Id="filC38843F36D5CA3753B1F43C15844246F" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\trk\tk" />
+            </Component>
+            <Component Id="cmp300159064ACCFAFFB5E3F817E06E9851" Directory="dir3FB746A8AC39435BDCAB2A2BF82A41B0" Guid="*">
+                <File Id="filA683A7A31A96838AB486BCB6379E43E8" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\trk\tr" />
+            </Component>
+            <Component Id="cmpE8743EFDD744918BEEF594D62D01C36B" Directory="dir3FB746A8AC39435BDCAB2A2BF82A41B0" Guid="*">
+                <File Id="filD9C85F41ED66ED2EB462FEE4FF4845E3" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\trk\tt" />
+            </Component>
+            <Component Id="cmp6DAEF346258BD179F3A3A1F3A381A720" Directory="dir3FB746A8AC39435BDCAB2A2BF82A41B0" Guid="*">
+                <File Id="fil268FA0F005C6DFC6408FF5F737DB882A" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\trk\ug" />
+            </Component>
+            <Component Id="cmpA498D98FAE163602F4533296E295B4D3" Directory="dir3FB746A8AC39435BDCAB2A2BF82A41B0" Guid="*">
+                <File Id="fil19BF864080DBF875D762D77B8097021E" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\trk\uz" />
+            </Component>
+            <Component Id="cmpAF4D887EC6A6E5A7E1B68F9E049BC5E4" Directory="dir5179D8FF730451AE1FC315F9F31BE843" Guid="*">
+                <File Id="fil268ACD14369DC499800633449B62DA65" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\urj\et" />
+            </Component>
+            <Component Id="cmp65831BAE0E4E94B98067FA5A3931DC1A" Directory="dir5179D8FF730451AE1FC315F9F31BE843" Guid="*">
+                <File Id="filD9EE5A10CC7AC2D875991F43BC458D07" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\urj\fi" />
+            </Component>
+            <Component Id="cmpC490F74F7BCAB09C9E9BA863B3025B0C" Directory="dir5179D8FF730451AE1FC315F9F31BE843" Guid="*">
+                <File Id="filB991B4C8BA7820B3ED77095A5008D493" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\urj\hu" />
+            </Component>
+            <Component Id="cmp7B05787DC6460953CB8AF1B371054F49" Directory="dir5179D8FF730451AE1FC315F9F31BE843" Guid="*">
+                <File Id="filA76F1149CDCE5B47C8CC0AA0D060C8A0" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\urj\smj" />
+            </Component>
+            <Component Id="cmp04526FDF0D221B30E65BBE627078F1A0" Directory="dir9266D294F75C2BC4939060CE7A33F0D4" Guid="*">
+                <File Id="filEDEE3FDD6768C93B2B6952C7C1DB5E0C" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\zle\be" />
+            </Component>
+            <Component Id="cmp26932530D5DB3BFE499511382AA3B003" Directory="dir9266D294F75C2BC4939060CE7A33F0D4" Guid="*">
+                <File Id="filAA6EDC9D1E8AE9A0878B0872667D5DB9" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\zle\ru" />
+            </Component>
+            <Component Id="cmpE74395A79C0C2FF00084EC054DD6C365" Directory="dir9266D294F75C2BC4939060CE7A33F0D4" Guid="*">
+                <File Id="filF9187408FFBC0829F6A16E6D7284598E" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\zle\ru-cl" />
+            </Component>
+            <Component Id="cmp58FE54123AA8EAED010B6EAB4F621B45" Directory="dir9266D294F75C2BC4939060CE7A33F0D4" Guid="*">
+                <File Id="fil81F6F6CEE94BADE330DD8546752CD146" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\zle\ru-LV" />
+            </Component>
+            <Component Id="cmpE102AC6AC9F327DE4F6D514CF04BA1D1" Directory="dir9266D294F75C2BC4939060CE7A33F0D4" Guid="*">
+                <File Id="filB10F4BCD57C03E69F8BFB90F9DA4E51D" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\zle\uk" />
+            </Component>
+            <Component Id="cmp94FE32D2AD365C65473BA739DAAD1F29" Directory="dir49E143EBA615AA654BAC1C0748246755" Guid="*">
+                <File Id="filEBBA8A393055C19F2DDC053F5CEB3F55" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\zls\bg" />
+            </Component>
+            <Component Id="cmpEABA9C880BBBA46E74CF8854D883A047" Directory="dir49E143EBA615AA654BAC1C0748246755" Guid="*">
+                <File Id="fil32DA4437E4BDF02D754C7A3B7FB7C32D" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\zls\bs" />
+            </Component>
+            <Component Id="cmp9A550F07A9CBC42530C5743B5E213BF7" Directory="dir49E143EBA615AA654BAC1C0748246755" Guid="*">
+                <File Id="filBE3833F4B110585A77D93125BCAD15A5" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\zls\hr" />
+            </Component>
+            <Component Id="cmp02BE6EB8B332FC680E4D5FD698BF06A4" Directory="dir49E143EBA615AA654BAC1C0748246755" Guid="*">
+                <File Id="fil77D5E961A1A76E0E9E87F35E03AA829E" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\zls\mk" />
+            </Component>
+            <Component Id="cmp5359117418B2248FF1337439FE42CD4F" Directory="dir49E143EBA615AA654BAC1C0748246755" Guid="*">
+                <File Id="filF984B6593D6801FB10FBD89887F294F0" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\zls\sl" />
+            </Component>
+            <Component Id="cmp5A9167D099505667464CA269FA7FEAFA" Directory="dir49E143EBA615AA654BAC1C0748246755" Guid="*">
+                <File Id="fil44C015C42CB1CDE6AAFCC28B957CC8BC" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\zls\sr" />
+            </Component>
+            <Component Id="cmp7124BE583E8AA25BE3C0503B0528A465" Directory="dir16408793365F768A030F90D7035E06BD" Guid="*">
+                <File Id="fil533D0E3D5B7FD9D3DE29A5561103D936" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\zlw\cs" />
+            </Component>
+            <Component Id="cmp8FAE72C07B5A21621B88246D83603E07" Directory="dir16408793365F768A030F90D7035E06BD" Guid="*">
+                <File Id="fil9376491DF14F0829E3BA2105D74D397D" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\zlw\pl" />
+            </Component>
+            <Component Id="cmp739A988E80A9DED92E1F59EC07B61CAB" Directory="dir16408793365F768A030F90D7035E06BD" Guid="*">
+                <File Id="fil979A712D15879B612F1BC038F1F6BFBD" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\lang\zlw\sk" />
+            </Component>
+            <Component Id="cmp6D4992A643B464776322D2A212B43D04" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil30AFF6E35D9190DFE55BF31FEAA8D553" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\adam" />
+            </Component>
+            <Component Id="cmp2FC91B4BF026694EF43A5948AC482844" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="filBCCA2A57E6DA8131816DBAAD3023772D" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\Alex" />
+            </Component>
+            <Component Id="cmp4B250013B91AF323CEF64098C39B5B4C" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="filC496A532623A0E5A147BD41EDE19592E" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\Alicia" />
+            </Component>
+            <Component Id="cmpFFC8ABBD10891097BFD2E5B39870A4F9" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil24351BE4FF87010367CDC46065F5BF27" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\Andrea" />
+            </Component>
+            <Component Id="cmpC287A3D587F7AFF23D384DEFB4A1276C" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil0D0B45C930DC8BE0B20BA85C6D13BE59" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\Andy" />
+            </Component>
+            <Component Id="cmpA1A5F22875BF2093712E166BD5ABAA56" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="filBA094719DEE8F5AE690A2515B6EA1BBF" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\anika" />
+            </Component>
+            <Component Id="cmpE4DC5B2FA24EE4CAB5EE1EDE8B16F6F7" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="filBD219853F94DF3A9609315EE1025327F" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\anikaRobot" />
+            </Component>
+            <Component Id="cmp4B41F578AB0EF18FF2249187B4F70EE8" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil3AB9573BB3CC891954C2E5C847641B3B" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\Annie" />
+            </Component>
+            <Component Id="cmp883FD0FA340488181C7E0BF39ED33635" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil156296D13662ADCDD67A140C151798D6" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\announcer" />
+            </Component>
+            <Component Id="cmp5A4FEE06D62AA61DC0FABBB3BED0CC06" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil1FA88597B0EED3D00A71CB3A670CAC10" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\antonio" />
+            </Component>
+            <Component Id="cmpD89F4135180696BD5EE5E185C5227FAA" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil0B9C35A9055B1402221A0588046C64C1" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\AnxiousAndy" />
+            </Component>
+            <Component Id="cmp977ED32A34D30E1D001E2A4670D09389" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil1F59B438598410518ADA417E4E6C0F5D" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\aunty" />
+            </Component>
+            <Component Id="cmp7EB5CC78979E6DE2D3934A30E3EB136C" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil7D9193310AA2F14647EB9164A73A6EAF" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\belinda" />
+            </Component>
+            <Component Id="cmpFE116955202F6D21C5F6C82E4DA3C892" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil97C1A87AB9EA54251FCD4C2F5EE9E2B2" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\benjamin" />
+            </Component>
+            <Component Id="cmpF354C62F2625F5563618E8F669BB8389" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil9C6521AADB6BE8DA882CB4DF21B84EF7" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\boris" />
+            </Component>
+            <Component Id="cmp5F9CFC4E79F0BF06F5BE21E75410EA9B" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil005300523D957AA3ED728B86835E7266" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\caleb" />
+            </Component>
+            <Component Id="cmp85AE357D4A6B1E8888459AA0F342F185" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil4FECC7B43754AF0BC7BA2812A6A32A24" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\croak" />
+            </Component>
+            <Component Id="cmpF69DAABD58BD9F523B28F0124B807F05" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil063FA813797A01E33CBB0736BD4612BE" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\david" />
+            </Component>
+            <Component Id="cmp98B1B407D7985770B54D6FC318E5DF98" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil7DAB227261FD95129562C708B5542962" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\Demonic" />
+            </Component>
+            <Component Id="cmp6D5A6480D9DB0C6D1E2FB0A855799984" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="filA8BD032B037CA2EC3DA060E234F02333" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\Denis" />
+            </Component>
+            <Component Id="cmp5CCABF005460D8A7457C967A6EF5B3FE" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil218CFCE49FD710927CB7C49DA7BE214E" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\Diogo" />
+            </Component>
+            <Component Id="cmpA0E5F09E8C4C70CD6F64509FB50DE74A" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="filA9F42497F3033331A07EB8854634725F" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\ed" />
+            </Component>
+            <Component Id="cmpCCE74CC67409AE6814E7ABEAC8504064" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil669D454E3805987E546E0E4EF0F029B9" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\edward" />
+            </Component>
+            <Component Id="cmp446F891191548F6C03238145DCD3CA56" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="filB8D8CC571F7D90B6F5419A73A309FE26" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\edward2" />
+            </Component>
+            <Component Id="cmp170BCADBEE57AA4F6B48AFDBCF4176DB" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil23978FC38F2B0DD53C09A422473AD1C1" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\f1" />
+            </Component>
+            <Component Id="cmp2B7ABC4CCBA6CB608FD7D6262582FA5A" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="filFBCACE3CD8EF004FA4F1A062D605E310" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\f2" />
+            </Component>
+            <Component Id="cmp726B4B6877039B2EA284A803CEF82A18" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil2A6D262490AA89539AC2E4A5D95C52FB" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\f3" />
+            </Component>
+            <Component Id="cmp6BB87F7514672623C0BC0F453637D001" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="filD6D1268E5EA1EB93D6AF742E716CE514" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\f4" />
+            </Component>
+            <Component Id="cmpD4533DEBCFD44816F9FD379F0E3E2270" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="filE58E72AC6B8DC085F2D371E7CDB1C94E" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\f5" />
+            </Component>
+            <Component Id="cmpBA9784F43BC34587DA07AC19DD59B9A3" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil2D6658F9118D82769EAF66A9136A968F" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\fast" />
+            </Component>
+            <Component Id="cmp94F50CD9C2A25647327BA891F6BE88DF" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="filFC5E21AEDC2C28F701173E87D2C75B71" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\Gene" />
+            </Component>
+            <Component Id="cmp5EC8609CA8382EDE6279057971F1ADDC" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil30FE5964FEFD406068EC8C3629AE80F6" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\Gene2" />
+            </Component>
+            <Component Id="cmp9921A970AB88DE66A870A5DA086022B8" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="filDF9A4C814FA87E9D426EC9B2A4A3C043" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\grandma" />
+            </Component>
+            <Component Id="cmpC8BB414BF37A62889C612A5D353FBB7C" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil5AD2A150B36347748FAC1496FAD5ECB4" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\grandpa" />
+            </Component>
+            <Component Id="cmp4EA3B1ADB8AAB7DA476F1E02CD4E0647" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="filCE9C9BFE2645830C0F5D30B613A41A60" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\gustave" />
+            </Component>
+            <Component Id="cmp0FBBBF9AC75DBA969C28CF4DDF4253B7" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil8CE874037D5725C5678B902757E266F8" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\Henrique" />
+            </Component>
+            <Component Id="cmp7C9CB6AEE523CE7ACAE423CFDBECA0FA" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="filBE418A204F53C69980EF93998F008BDD" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\Hugo" />
+            </Component>
+            <Component Id="cmp4C7036D6BCA35ED43A15797D9BA25AD1" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="filA6BD096294C5A5EB938A6D55982905C5" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\ian" />
+            </Component>
+            <Component Id="cmp14800EA8EA84B148DBBBAF80409C3C01" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil8BA858FFCD121706D368138D5B1F99A1" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\iven" />
+            </Component>
+            <Component Id="cmpCF22B8118A3DAB02D386F55E5C3736AF" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="filF5A8FA642952EF73118E62196A04C5CC" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\iven2" />
+            </Component>
+            <Component Id="cmp835159D9CA7DB3FDA24F954F4485FE4E" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="filBF7C3CAC3372E4F009994C83298200F2" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\iven3" />
+            </Component>
+            <Component Id="cmp1A82D3D12F5E4BADB38D36BBADEA132B" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="filC8D91DA2749DD200B648361DF44BE533" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\iven4" />
+            </Component>
+            <Component Id="cmpA27F718F2B04A72449DE3065E20EE99E" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="filA8649FEBD49141C42F70CEC17B3627E1" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\Jacky" />
+            </Component>
+            <Component Id="cmp0AE8BB9767CCCFC99978D8E00A3F3905" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="filA61F6700D34EDC2C67482EA4D53E776E" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\john" />
+            </Component>
+            <Component Id="cmp8534D14BF632F0BE72BE7A81BE51D0F6" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="filE7B2EFBD5BA4CA89C7B6C09CC916E9AA" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\kaukovalta" />
+            </Component>
+            <Component Id="cmp78904C68F64D0EAE861F0E33BC110526" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil19A5282FE60BA30D00492FF7E965C3D1" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\klatt" />
+            </Component>
+            <Component Id="cmp3F911CE6488AD5B0C6B4EEC67B3F16DC" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="filFFAAE0AB96A257B8446D8EE2271D11AA" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\klatt2" />
+            </Component>
+            <Component Id="cmpE291542F4E69BE10E9E9AD214B4A6018" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil280A4EBEEFB92CD3429AE614C6FABEBF" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\klatt3" />
+            </Component>
+            <Component Id="cmp403467340DD86C832C30A6BC82EB71E6" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil0E2793241EC3986A7A0252DCC3274C07" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\klatt4" />
+            </Component>
+            <Component Id="cmp21EA6C7FDF4C5ADF060F9E7623479109" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="filB9BC5CC6DE6C13A1796091AFA8F753FD" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\klatt5" />
+            </Component>
+            <Component Id="cmp600FC51BBBCB41527E0D40589B7E8C32" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="filCDA90B5559E2F56B624AD9E48DC3CDC6" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\klatt6" />
+            </Component>
+            <Component Id="cmpDC607A82D09A7A12029750A803CA1405" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="filC8D7A6947F28EC5C79FC70E5CC9F2D3D" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\Lee" />
+            </Component>
+            <Component Id="cmp6A9DAF2DC754657545099651377BA6C1" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil52772269E898EB080AD607C9C359AF52" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\linda" />
+            </Component>
+            <Component Id="cmpE2341BE388FFB81B0E4EA2311D9272D4" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil87A3741FB05642EB283BA263E35CC3AC" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\m1" />
+            </Component>
+            <Component Id="cmpD0745C1667AEA7487DDE455D55174402" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="filAE3B2CA92F5A89C297E214CE9DE42982" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\m2" />
+            </Component>
+            <Component Id="cmp71C971514D85643638ACF30A11235BD2" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil598E36D4E833D64CDFDFA6C72B952675" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\m3" />
+            </Component>
+            <Component Id="cmp172B7F252BDD0628A8105C122620A3EE" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="filF35B6887A29E4BF9C4ED308040F298E3" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\m4" />
+            </Component>
+            <Component Id="cmp03AAF13C3132950EB45F96D4DCC8BA6A" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="filEF39D2A964A5BE79540E8BB8EA7D5467" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\m5" />
+            </Component>
+            <Component Id="cmp7AEEA071FC6B164649D725ABDEB46F37" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil27FE45BD6071160A9716DE7A1657ECBB" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\m6" />
+            </Component>
+            <Component Id="cmp7D26F1D0CF0A91959885189AD8E30296" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="filC6DF88157BE69C879F4F424BFD28C2B9" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\m7" />
+            </Component>
+            <Component Id="cmp78A0D21036D79ECAEFFB3FEAB456185A" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="filC00183BF551CB758F763D5B3C84885D3" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\m8" />
+            </Component>
+            <Component Id="cmpBABCD8523409B43934F1BD6C32438DD2" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil083E3310D728504722152A5BF6677DCE" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\marcelo" />
+            </Component>
+            <Component Id="cmp730B36C8EA7CE8BBAA09BD12C18531C4" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="filBEC508514B56474461CC3BB2803CFDCD" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\Marco" />
+            </Component>
+            <Component Id="cmp3ED6F7A37B5CD12AD3AC36F57013E232" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil8CEB58ECFCBBE3C73BC3417D16DE239B" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\Mario" />
+            </Component>
+            <Component Id="cmpACC5428D49E2D3AD32E19EE929A859DF" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil1F2998948B06A9D079620D27CBD4593C" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\max" />
+            </Component>
+            <Component Id="cmpB81D2C9C1A93F4EBC44006C1831E8349" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="filB84D218DACF24B268EAB4735677D9A09" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\Michael" />
+            </Component>
+            <Component Id="cmp6A8A8CC4715C1B6BF6625FCA1D53C17E" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil91ED3873BF09261F7AA6D6F29F25F3FF" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\michel" />
+            </Component>
+            <Component Id="cmpFE895038F7CB56BB855CD8DC69E07FEA" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil40ECB8053EDE1CB16DBE5F3755101315" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\miguel" />
+            </Component>
+            <Component Id="cmpB204E952DD0D3ED38A9E461993B57329" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="filBA6B6DBF4531B3AA18DBEFB655523F7A" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\Mike" />
+            </Component>
+            <Component Id="cmp9B53F9014C3C0213FA3DB8CE5EBE00B8" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="filCB992924F5DE7C883608C0B24FD25D6F" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\mike2" />
+            </Component>
+            <Component Id="cmp384ED86EC650B2EBF9F68B7871589719" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil8376F757E0B9EF9DCE48BD3589D3903D" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\Mr serious" />
+            </Component>
+            <Component Id="cmpE0C8C66344A5D914B4DD77E117D93708" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil6655C2E0D7322E658390EC97C9AA76B2" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\Nguyen" />
+            </Component>
+            <Component Id="cmp74A91AEEC7514B11ABEC2EF42483A4E4" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="filCF983091D1B0EFD2D5C6E9644FC3A7FC" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\norbert" />
+            </Component>
+            <Component Id="cmpF317DF24937B8CE43001124C9CED51E9" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="filE86B21A63559A52957C269AE44029FE8" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\pablo" />
+            </Component>
+            <Component Id="cmp9AFC9A4AFD5980369EBF56F1AB55C03E" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil4C965A37D3700681038DB9C1799C1F97" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\paul" />
+            </Component>
+            <Component Id="cmp8C39C5B1A872FDE6A441BAD9D88327AD" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil41CE7CE7DDEE80F7F288B85E3B011869" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\pedro" />
+            </Component>
+            <Component Id="cmpCA0754BF9689D60F025132AE16D8A76B" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil282A2C156CE7EC02EB7E9AB2BEFFE4C5" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\quincy" />
+            </Component>
+            <Component Id="cmp69A1681E9B224E5E6A008F634ED226FB" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil35DBDEC5AF52F9CE7607D6E77A1D42B2" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\Reed" />
+            </Component>
+            <Component Id="cmp67F0A7BD313BD7F0CB0836F51F4C47D3" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil3E52C92B03F6B2171B831877AEF74A66" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\RicishayMax" />
+            </Component>
+            <Component Id="cmp2FDAB2BC9660D7C9F99E0FDBE503B09A" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil6D06BF767E97FFA942BA42C93F5AF2AE" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\RicishayMax2" />
+            </Component>
+            <Component Id="cmpA76A51D717CA361C2542B587F60901D3" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil7C8936E2EFC9ED79184028AEDB02B067" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\RicishayMax3" />
+            </Component>
+            <Component Id="cmp58B657365B0193FA70F23DC6CE24B68D" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil9CBBAC16CCA44D24B917C36545F1BDAE" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\rob" />
+            </Component>
+            <Component Id="cmp58C7925FB047F5600BF5B664A41484EF" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil4F27914874D980746AF5963DDD1FE36F" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\robert" />
+            </Component>
+            <Component Id="cmpBFE819965B02D6C9DC9C538D5A794933" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil6FD0FB88647E88D1983C0E12805665AD" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\robosoft" />
+            </Component>
+            <Component Id="cmp21D22AA3AA9081BE535A0A3C9DEFF242" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil27611EF825A2A1667B7270CB17B2B046" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\robosoft2" />
+            </Component>
+            <Component Id="cmp5E97DE5ECD8BD18D356B5FA6EFE3AC38" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil3F49F4C38AD8DF6415154B7BDF36893D" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\robosoft3" />
+            </Component>
+            <Component Id="cmp3963AB484E3D8A6FB7CFE1041804E5EA" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil13B966C9FE8D98A32220A92BAE8077B7" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\robosoft4" />
+            </Component>
+            <Component Id="cmp956BD9581EB2667C9937B610DA4917E3" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="filAB2D19CF32D011991418A6933B5D810D" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\robosoft5" />
+            </Component>
+            <Component Id="cmp47691BB2BAC077236CFE5EA177591339" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil45F7359D558B92F80F2D028D977A7E5B" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\robosoft6" />
+            </Component>
+            <Component Id="cmp5F5EEEE44F9A17C09E70A6C2C2814C52" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil68BA930DA94391066E1E27684F495926" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\robosoft7" />
+            </Component>
+            <Component Id="cmpAD1B0B7D9110B7A7D0BA08321F2B3A42" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="filA61ED91B80DD41CA55320C888602EB36" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\robosoft8" />
+            </Component>
+            <Component Id="cmp30C6E190DC40AEE902FED2D8E52890D8" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil6ACB859E7D24F40247C249AF84024E95" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\sandro" />
+            </Component>
+            <Component Id="cmp10AC9C3D703542679E9C174CA5955B6B" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil863EAF1DFDF1D2B8AA9205047DBED916" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\shelby" />
+            </Component>
+            <Component Id="cmp68433B6C96DB2B7D7991B36C671AE0D2" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="filA1274ED32F5C52CFA5B56ED5DA251F21" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\steph" />
+            </Component>
+            <Component Id="cmp02CEA8F0EC601E0CAA143DC0C2899115" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil66D85D5EB04BA36BE16EF4DB3A9F9DE8" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\steph2" />
+            </Component>
+            <Component Id="cmp4BBF5804D150A1A76DB2EBF59A87447F" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil3E8158BBF2D35D8C11CEF7BEFBB45766" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\steph3" />
+            </Component>
+            <Component Id="cmpDEC5FA44207840D3F8B4D46311A602A2" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil88D9353D08B3AD4F87C90597BC550891" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\Storm" />
+            </Component>
+            <Component Id="cmp7FEEF33A65B6FF3825FFB74B063634AD" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil218D6901351A1CD5A356CDB51933280D" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\travis" />
+            </Component>
+            <Component Id="cmp7CB129B5E3FA77689C130851B6D1CE91" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil63991E7745749F49CA5ED401592B547D" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\Tweaky" />
+            </Component>
+            <Component Id="cmpC105C76A915EF80E860C7B844CEBC025" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil11B7E0FC88858ED042A9DA02FAACD961" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\UniRobot" />
+            </Component>
+            <Component Id="cmpF02E4119C50199D32EBD4D1379C80FE9" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="filED684D638DD2639319137AE57112B8F4" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\victor" />
+            </Component>
+            <Component Id="cmp9D0D3276B295FFCA0575B2F61696AB75" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil05A7766C01F617C77D21E4C527002EFD" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\whisper" />
+            </Component>
+            <Component Id="cmpB4F8E0F350585067D0485B2310BA4DB7" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil358339D928AD1EA660D89FF8530895B6" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\whisperf" />
+            </Component>
+            <Component Id="cmp04EEA34233646166C97D403D6D02681C" Directory="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Guid="*">
+                <File Id="fil25F046B856F90108131357F571AA6E30" KeyPath="yes" Source="$(var.BuildOutputDir)\piper\espeak-ng-data\voices\!v\zac" />
+            </Component>
+            <Component Id="cmp56BE74808107C60E72B1E30F6DB3AB65" Directory="dir311E63ED181C210A1E6248F633919C7B" Guid="*">
+                <File Id="filFAE85B261ED60B0E1C82CD44037439A1" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\android-arm\native\libMicrosoft.CognitiveServices.Speech.core.so" />
+            </Component>
+            <Component Id="cmp25820538470EAF47B55C30FBC9536CAF" Directory="dir311E63ED181C210A1E6248F633919C7B" Guid="*">
+                <File Id="fil36FAE2FC0D0AA3ED1FBBF85E0982541A" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\android-arm\native\libMicrosoft.CognitiveServices.Speech.extension.audio.sys.so" />
+            </Component>
+            <Component Id="cmp620D4C5AB74DB3385CF76654FDF59057" Directory="dir311E63ED181C210A1E6248F633919C7B" Guid="*">
+                <File Id="fil042A7D8A5FDFA1BA2F9118F3B2B81D22" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\android-arm\native\libMicrosoft.CognitiveServices.Speech.extension.kws.ort.so" />
+            </Component>
+            <Component Id="cmpBA3EEBAB3F3BC6FB0B34B51CA7D04C67" Directory="dir311E63ED181C210A1E6248F633919C7B" Guid="*">
+                <File Id="fil9396359663F4C136D7CED95961D6DE15" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\android-arm\native\libMicrosoft.CognitiveServices.Speech.extension.kws.so" />
+            </Component>
+            <Component Id="cmp7E3EC0C68AD74C90217E1449CB1906CF" Directory="dir311E63ED181C210A1E6248F633919C7B" Guid="*">
+                <File Id="fil4D68E8B840043B2421CA581DCFD2AD0F" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\android-arm\native\libMicrosoft.CognitiveServices.Speech.extension.lu.so" />
+            </Component>
+            <Component Id="cmp6ABEDE6795BFD7612BE128597738B1EF" Directory="dir28441454EC4C1CA118E06D570702ABE7" Guid="*">
+                <File Id="fil993CE171EC29287310B614346D86125F" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\android-arm64\native\libMicrosoft.CognitiveServices.Speech.core.so" />
+            </Component>
+            <Component Id="cmp42C0165F3E6C86BA103750A196E98CBD" Directory="dir28441454EC4C1CA118E06D570702ABE7" Guid="*">
+                <File Id="fil4CCFF28C2B4B4EF5F2BCD1F096D43E94" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\android-arm64\native\libMicrosoft.CognitiveServices.Speech.extension.audio.sys.so" />
+            </Component>
+            <Component Id="cmp19AD952A2520D718092BFCB39E6082AE" Directory="dir28441454EC4C1CA118E06D570702ABE7" Guid="*">
+                <File Id="filEB806F3FA077B193665F6D4B8BB3C9FA" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\android-arm64\native\libMicrosoft.CognitiveServices.Speech.extension.kws.ort.so" />
+            </Component>
+            <Component Id="cmpC25BDB8161ECD77347350DB63EAD2F40" Directory="dir28441454EC4C1CA118E06D570702ABE7" Guid="*">
+                <File Id="filAA3C3356F32D57E838FF3A268A61E57B" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\android-arm64\native\libMicrosoft.CognitiveServices.Speech.extension.kws.so" />
+            </Component>
+            <Component Id="cmpF7BDEC4FD23A323E5203E9391C53BD28" Directory="dir28441454EC4C1CA118E06D570702ABE7" Guid="*">
+                <File Id="fil726E453015C58C39C3C767484B4AA8BD" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\android-arm64\native\libMicrosoft.CognitiveServices.Speech.extension.lu.so" />
+            </Component>
+            <Component Id="cmp6130E3EEF3C8BDF9D81EB3048489D878" Directory="dir979ACB8C5F1F56D5053B455A0584BE62" Guid="*">
+                <File Id="filEE8A4E3BC01021EA56CB9E32966D9F72" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\android-x64\native\libMicrosoft.CognitiveServices.Speech.core.so" />
+            </Component>
+            <Component Id="cmpFF3F1340AF10236443C80256AC816260" Directory="dir979ACB8C5F1F56D5053B455A0584BE62" Guid="*">
+                <File Id="fil3BC9A916EB587FE0BADD5DA16FDF2425" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\android-x64\native\libMicrosoft.CognitiveServices.Speech.extension.audio.sys.so" />
+            </Component>
+            <Component Id="cmpCB46934EE8E7F4BD4E1EB4805A8B31B7" Directory="dir979ACB8C5F1F56D5053B455A0584BE62" Guid="*">
+                <File Id="fil925C115522F668C99B0F0A701E502A01" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\android-x64\native\libMicrosoft.CognitiveServices.Speech.extension.kws.ort.so" />
+            </Component>
+            <Component Id="cmp9B250FD528661C3761882D0B6FDDD5E1" Directory="dir979ACB8C5F1F56D5053B455A0584BE62" Guid="*">
+                <File Id="fil38670F058EB64D71C3407CE1DE0C1A39" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\android-x64\native\libMicrosoft.CognitiveServices.Speech.extension.kws.so" />
+            </Component>
+            <Component Id="cmpF64FD20929A17C4C1AEAB5C1FEE13137" Directory="dir979ACB8C5F1F56D5053B455A0584BE62" Guid="*">
+                <File Id="fil403FA709302B8DCB2B7783F6F5C080BD" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\android-x64\native\libMicrosoft.CognitiveServices.Speech.extension.lu.so" />
+            </Component>
+            <Component Id="cmpF42499960E5639B661B01F4A38F30A61" Directory="dir60EB5E5147B97B05443C54CE6AD8BE4A" Guid="*">
+                <File Id="fil58A833A205DF796E9C63F96F61AE60BF" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\android-x86\native\libMicrosoft.CognitiveServices.Speech.core.so" />
+            </Component>
+            <Component Id="cmp2A4B095A4FB536E319D3E7A852D47AF4" Directory="dir60EB5E5147B97B05443C54CE6AD8BE4A" Guid="*">
+                <File Id="filFE80AE3D5810D409E7ECE5C512A60BB3" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\android-x86\native\libMicrosoft.CognitiveServices.Speech.extension.audio.sys.so" />
+            </Component>
+            <Component Id="cmp71E46D90BA91EE361F9EEDFBD1366158" Directory="dir60EB5E5147B97B05443C54CE6AD8BE4A" Guid="*">
+                <File Id="filD0B2747D4F6B5234FF4FF20E82F864FF" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\android-x86\native\libMicrosoft.CognitiveServices.Speech.extension.kws.ort.so" />
+            </Component>
+            <Component Id="cmp3741A889C4D0D8F39170DCFAB719E1D9" Directory="dir60EB5E5147B97B05443C54CE6AD8BE4A" Guid="*">
+                <File Id="filE510567D1E47AA5282E82941BE2885CC" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\android-x86\native\libMicrosoft.CognitiveServices.Speech.extension.kws.so" />
+            </Component>
+            <Component Id="cmpE1709A072E11E7E8BEB52635F1EE0D06" Directory="dir60EB5E5147B97B05443C54CE6AD8BE4A" Guid="*">
+                <File Id="filD74074590F5436EEE87CD2696507C2E6" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\android-x86\native\libMicrosoft.CognitiveServices.Speech.extension.lu.so" />
+            </Component>
+            <Component Id="cmpF4250059CB158414B16AF331EEC4E6FE" Directory="dirC0E5FF1FE837ADD8F189E0AEA77CAD9C" Guid="*">
+                <File Id="fil11E1637AD4A5B3418BEA27BDACBEF196" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\centos7-x64\native\libMicrosoft.CognitiveServices.Speech.core.so" />
+            </Component>
+            <Component Id="cmp5C5963DDC97AD18644E0D53A3FF1E11A" Directory="dirC0E5FF1FE837ADD8F189E0AEA77CAD9C" Guid="*">
+                <File Id="fil9D7E03ED5FF718FCBCE67A2279EAF7F8" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\centos7-x64\native\libMicrosoft.CognitiveServices.Speech.extension.audio.sys.so" />
+            </Component>
+            <Component Id="cmp7E7FA8697AEA99E10A67D4375E1028B4" Directory="dirC0E5FF1FE837ADD8F189E0AEA77CAD9C" Guid="*">
+                <File Id="fil398A48FC5E6462C0F96C04761FAA583D" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\centos7-x64\native\libMicrosoft.CognitiveServices.Speech.extension.codec.so" />
+            </Component>
+            <Component Id="cmpEE312485569BD486C5519C852EAB02D7" Directory="dirC0E5FF1FE837ADD8F189E0AEA77CAD9C" Guid="*">
+                <File Id="fil967CB0B49FF49A8D0948B354FD62B7E3" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\centos7-x64\native\libMicrosoft.CognitiveServices.Speech.extension.kws.ort.so" />
+            </Component>
+            <Component Id="cmp77602B43BD071AD43A6616F9C96B26B3" Directory="dirC0E5FF1FE837ADD8F189E0AEA77CAD9C" Guid="*">
+                <File Id="fil060D35332A791AAE5A948DAB98A3C6B1" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\centos7-x64\native\libMicrosoft.CognitiveServices.Speech.extension.kws.so" />
+            </Component>
+            <Component Id="cmpAF68DDCDB74D0B647802C1C3FD3C2D1C" Directory="dirC0E5FF1FE837ADD8F189E0AEA77CAD9C" Guid="*">
+                <File Id="fil1C59898D8664C92FF8EE6A4EA3ADAA3E" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\centos7-x64\native\libMicrosoft.CognitiveServices.Speech.extension.lu.so" />
+            </Component>
+            <Component Id="cmp5557A03C779961D35969B465E2CF6E10" Directory="dirC0E5FF1FE837ADD8F189E0AEA77CAD9C" Guid="*">
+                <File Id="fil955DD1FCD08A4A94077E53FFC010905F" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\centos7-x64\native\libpal_azure_c_shared.so" />
+            </Component>
+            <Component Id="cmp25F5A89B2F78736841F00B45B8100680" Directory="dirC0E5FF1FE837ADD8F189E0AEA77CAD9C" Guid="*">
+                <File Id="filBA3B6017568689DD9B81B6A8F266A766" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\centos7-x64\native\libpal_azure_c_shared_openssl3.so" />
+            </Component>
+            <Component Id="cmp6ECA81225E3476814FC4D890D994C26E" Directory="dirA860B78D72E443CC23C14C535935C0DC" Guid="*">
+                <File Id="filD6A816CC262341D103E28E523200F0C0" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\ios-arm64\native\libMicrosoft.CognitiveServices.Speech.core.a" />
+            </Component>
+            <Component Id="cmpA861B77D2C2887211D9080325BC78481" Directory="dirB210ED1C5BF85FD07F210F8E48F37F4A" Guid="*">
+                <File Id="fil57897BD0F471889FF57ECA3A6A67B487" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\iossimulator-arm64\native\libMicrosoft.CognitiveServices.Speech.core.a" />
+            </Component>
+            <Component Id="cmp8728C58032EAA9F9884E8BEABE54B884" Directory="dir2934D5C3CE711E1FC863020D9F7A2BBD" Guid="*">
+                <File Id="fil096D55DEA988151C63F3C2A278AF2AE8" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\iossimulator-x64\native\libMicrosoft.CognitiveServices.Speech.core.a" />
+            </Component>
+            <Component Id="cmpEA9EB24D1EA907FEDA9CFC344120A85A" Directory="dir9A148561629B0714FBEDFF1629ECA00D" Guid="*">
+                <File Id="fil574906F33B15C6B78EBFD89ACB7D3813" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\linux-arm\lib\netstandard2.0\Microsoft.CognitiveServices.Speech.csharp.dll" />
+            </Component>
+            <Component Id="cmp463C21482A1C421A52E9E9E5F671F7C2" Directory="dirDE2B6474A7AE43169B31CD69645DD47A" Guid="*">
+                <File Id="fil98023AADA270D189FC56AA770A9AAA7A" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\linux-arm\native\libMicrosoft.CognitiveServices.Speech.core.so" />
+            </Component>
+            <Component Id="cmpE674AD94F804D79A9919ED1B2380759C" Directory="dirDE2B6474A7AE43169B31CD69645DD47A" Guid="*">
+                <File Id="filF59D1460BDDA73A0230E3F1E617E042C" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\linux-arm\native\libMicrosoft.CognitiveServices.Speech.extension.audio.sys.so" />
+            </Component>
+            <Component Id="cmp0A96080E09E83A4546DFBC512D3A2652" Directory="dirDE2B6474A7AE43169B31CD69645DD47A" Guid="*">
+                <File Id="filD4C45830741DD0C020A4F645E446AB73" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\linux-arm\native\libMicrosoft.CognitiveServices.Speech.extension.codec.so" />
+            </Component>
+            <Component Id="cmp830D3FDC24F565D5DD88446BF726C615" Directory="dirDE2B6474A7AE43169B31CD69645DD47A" Guid="*">
+                <File Id="fil8FB40630E667BF72B1553ACC6979E771" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\linux-arm\native\libMicrosoft.CognitiveServices.Speech.extension.kws.ort.so" />
+            </Component>
+            <Component Id="cmpF4396E7DD3C4D338E82A4F9BA2F1B303" Directory="dirDE2B6474A7AE43169B31CD69645DD47A" Guid="*">
+                <File Id="filF22B88B668528457F9ECD73F6CC84E18" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\linux-arm\native\libMicrosoft.CognitiveServices.Speech.extension.kws.so" />
+            </Component>
+            <Component Id="cmpD2866CC23FD7CA0444CB2577C798FA8F" Directory="dirDE2B6474A7AE43169B31CD69645DD47A" Guid="*">
+                <File Id="fil59AD3327EEDDAA9A8B43236DDA951DF5" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\linux-arm\native\libMicrosoft.CognitiveServices.Speech.extension.lu.so" />
+            </Component>
+            <Component Id="cmpF499DFAF4AC967B227C5A4530498B37B" Directory="dirDE2B6474A7AE43169B31CD69645DD47A" Guid="*">
+                <File Id="fil1BA12584D81A8F87B18892CDBEAE687D" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\linux-arm\native\libpal_azure_c_shared.so" />
+            </Component>
+            <Component Id="cmp3E70B36AA582E43FDA13622A6C94A75A" Directory="dirDE2B6474A7AE43169B31CD69645DD47A" Guid="*">
+                <File Id="fil49A31DD1ACF9BF16ABBD9F85E7462D7E" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\linux-arm\native\libpal_azure_c_shared_openssl3.so" />
+            </Component>
+            <Component Id="cmp0C92AFC83D8887A4CE157B4201E8EB95" Directory="dir19328F88F33C8C26BA8CA98BFD3F9AA2" Guid="*">
+                <File Id="filA518425926BD8DEDCE47A973651BA17F" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\linux-arm64\lib\netstandard2.0\Microsoft.CognitiveServices.Speech.csharp.dll" />
+            </Component>
+            <Component Id="cmpFE46BA073280B6EFB6CC1CD9F10DB10D" Directory="dirD4D406B0649E8BA45C0D436FC1C3D7B7" Guid="*">
+                <File Id="fil6DBC0D2F632557C4118187F4DC402881" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\linux-arm64\native\libMicrosoft.CognitiveServices.Speech.core.so" />
+            </Component>
+            <Component Id="cmpDDAA0119B4C159B126A2F0DC495439B5" Directory="dirD4D406B0649E8BA45C0D436FC1C3D7B7" Guid="*">
+                <File Id="fil02CE486832F4F609A044AD7590B95997" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\linux-arm64\native\libMicrosoft.CognitiveServices.Speech.extension.audio.sys.so" />
+            </Component>
+            <Component Id="cmp813A941C13280A60780699E8E55E094A" Directory="dirD4D406B0649E8BA45C0D436FC1C3D7B7" Guid="*">
+                <File Id="fil09C5EBAC3B6ABB89AC820B3F99CC61DB" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\linux-arm64\native\libMicrosoft.CognitiveServices.Speech.extension.codec.so" />
+            </Component>
+            <Component Id="cmp3A8C0A94CBFF2F301F4F88A3324E5029" Directory="dirD4D406B0649E8BA45C0D436FC1C3D7B7" Guid="*">
+                <File Id="fil57ECCC0A27B9C01E3CA01AABEE84099A" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\linux-arm64\native\libMicrosoft.CognitiveServices.Speech.extension.kws.ort.so" />
+            </Component>
+            <Component Id="cmp98ECD524280E3686A8B11A32FE069A4B" Directory="dirD4D406B0649E8BA45C0D436FC1C3D7B7" Guid="*">
+                <File Id="fil0E0D977C1D94FBE42B0C1030F4690E48" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\linux-arm64\native\libMicrosoft.CognitiveServices.Speech.extension.kws.so" />
+            </Component>
+            <Component Id="cmp6A748D3C1FACB4CA531975734061068C" Directory="dirD4D406B0649E8BA45C0D436FC1C3D7B7" Guid="*">
+                <File Id="fil6B1400D57124D0BB0FC57DCA7A35B9DE" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\linux-arm64\native\libMicrosoft.CognitiveServices.Speech.extension.lu.so" />
+            </Component>
+            <Component Id="cmp518D3FA14FEFCF3FAA5365876F926EEC" Directory="dirD4D406B0649E8BA45C0D436FC1C3D7B7" Guid="*">
+                <File Id="filB35E5DBBF4BAF5305D7FFB5EA85791F8" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\linux-arm64\native\libpal_azure_c_shared.so" />
+            </Component>
+            <Component Id="cmp825E3B39CF525AB63771BB8AD57D9557" Directory="dirD4D406B0649E8BA45C0D436FC1C3D7B7" Guid="*">
+                <File Id="fil9EF4C4E4839EA4265670F6908599A13D" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\linux-arm64\native\libpal_azure_c_shared_openssl3.so" />
+            </Component>
+            <Component Id="cmp2C93C0891D3A7A91DE6C7DDFE356EE7D" Directory="dir56BB4E8D7AC1D47E6E031BE06CD14F25" Guid="*">
+                <File Id="filD2983C0CDDE8E6C2DD1FBD7C5199366F" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\linux-x64\lib\netstandard2.0\Microsoft.CognitiveServices.Speech.csharp.dll" />
+            </Component>
+            <Component Id="cmpBB4001A6137E7616E1D5BC6DBC389777" Directory="dirE1E651EB5B4F1522E5E10B81FEA70677" Guid="*">
+                <File Id="fil473E44804017BA2B519F8A43B5D16F8E" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\linux-x64\native\libMicrosoft.CognitiveServices.Speech.core.so" />
+            </Component>
+            <Component Id="cmp192AF6CD86737C11066610E5661FF559" Directory="dirE1E651EB5B4F1522E5E10B81FEA70677" Guid="*">
+                <File Id="filA925D32973668A9FC029257A7744FE52" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\linux-x64\native\libMicrosoft.CognitiveServices.Speech.extension.audio.sys.so" />
+            </Component>
+            <Component Id="cmp3520575AFAE53938633C99669AE5A710" Directory="dirE1E651EB5B4F1522E5E10B81FEA70677" Guid="*">
+                <File Id="fil8C73B725F00AC3A015B3DF11241A8C1B" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\linux-x64\native\libMicrosoft.CognitiveServices.Speech.extension.codec.so" />
+            </Component>
+            <Component Id="cmp04065143365FD6FD601A3BD9A2409293" Directory="dirE1E651EB5B4F1522E5E10B81FEA70677" Guid="*">
+                <File Id="fil55F8863518DB9E740C78528D9584D4AD" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\linux-x64\native\libMicrosoft.CognitiveServices.Speech.extension.kws.ort.so" />
+            </Component>
+            <Component Id="cmpEF0C7DF723A2CC4C34FD4B4B686573A9" Directory="dirE1E651EB5B4F1522E5E10B81FEA70677" Guid="*">
+                <File Id="filD2A9CBB60FB23617AF36663F1739001E" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\linux-x64\native\libMicrosoft.CognitiveServices.Speech.extension.kws.so" />
+            </Component>
+            <Component Id="cmpF0DC53A4580A08790E35DE84A37B9CF8" Directory="dirE1E651EB5B4F1522E5E10B81FEA70677" Guid="*">
+                <File Id="filD7D9EBCF58A5A583DDAEBF5E134986E7" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\linux-x64\native\libMicrosoft.CognitiveServices.Speech.extension.lu.so" />
+            </Component>
+            <Component Id="cmp93B7F4C8D4D37B2EBCFC5B1593CD7425" Directory="dirE1E651EB5B4F1522E5E10B81FEA70677" Guid="*">
+                <File Id="filDF4D79B5F0594CF78C5FD8BA5AF475CC" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\linux-x64\native\libpal_azure_c_shared.so" />
+            </Component>
+            <Component Id="cmp5985D1D9D0339776C52C383A409F11F4" Directory="dirE1E651EB5B4F1522E5E10B81FEA70677" Guid="*">
+                <File Id="fil8FCE1DBDE999388C2274CC4CBD78274A" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\linux-x64\native\libpal_azure_c_shared_openssl3.so" />
+            </Component>
+            <Component Id="cmp019E201B2F2D8BFE46262E13CB0D17EA" Directory="dir061EED55DBD8BA28EE353FBFFD24DFCA" Guid="*">
+                <File Id="fil9DDE519FDDA18F18E48DC24BDD423B89" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\maccatalyst-arm64\native\libMicrosoft.CognitiveServices.Speech.core.a" />
+            </Component>
+            <Component Id="cmpDF8AD8D605FC7EE359E262AEE7FC84D6" Directory="dir316CE79B45BEC2BDBCE1198C353C9208" Guid="*">
+                <File Id="filEEFE4FE113A50135046061967361612A" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\maccatalyst-x64\native\libMicrosoft.CognitiveServices.Speech.core.a" />
+            </Component>
+            <Component Id="cmp7B6B1BC789ADD139D0CB1932A705E275" Directory="dir4D630553D189F2F8FD69D8A8F9A8C394" Guid="*">
+                <File Id="fil325841B996AD4932C04844DC5130BECA" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\osx-arm64\lib\netstandard2.0\Microsoft.CognitiveServices.Speech.csharp.dll" />
+            </Component>
+            <Component Id="cmp3534D3021701D22F7585B45A912CA936" Directory="dir2A5033986A8D1FF1B6E317B1A9949571" Guid="*">
+                <File Id="filC476B4AEC5583D1D5408D92E2B921B70" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\osx-arm64\native\libMicrosoft.CognitiveServices.Speech.core.dylib" />
+            </Component>
+            <Component Id="cmp3E4971BD6070A2E69BF785E5EF89A5CD" Directory="dirB3BEA9CD83A720F645DE2F0CD6595280" Guid="*">
+                <File Id="filABCC68EC35F60DA4128EB3EA0D147284" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\osx-x64\lib\netstandard2.0\Microsoft.CognitiveServices.Speech.csharp.dll" />
+            </Component>
+            <Component Id="cmp3042EC7FE1403590089D175D76A88B2F" Directory="dir71D0D403061D4DE071C64AEB774E16CF" Guid="*">
+                <File Id="fil1179D9D6864BAA6F3516EBD0A48D1359" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\osx-x64\native\libMicrosoft.CognitiveServices.Speech.core.dylib" />
+            </Component>
+            <Component Id="cmpF691EE0820E6971F7B8D0080F29BD564" Directory="dirDD971CF8A24F0A315231939725032995" Guid="*">
+                <File Id="filB34D3D6E5B34960F54003B6D8D383CB8" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\win\lib\net7.0\System.Management.dll" />
+            </Component>
+            <Component Id="cmpB9A01C52420D5BB10B575BF1946B0A25" Directory="dir46754318AAFE7C2D3BBAC065B627290B" Guid="*">
+                <File Id="fil476B99504EF9C108EF6144ACCA829B66" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\win-arm\native\Microsoft.CognitiveServices.Speech.core.dll" />
+            </Component>
+            <Component Id="cmpDD99501891B4947E6DA80C522F4457DE" Directory="dir46754318AAFE7C2D3BBAC065B627290B" Guid="*">
+                <File Id="filDDD8D477F77744D747EE084C035934C0" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\win-arm\native\Microsoft.CognitiveServices.Speech.extension.audio.sys.dll" />
+            </Component>
+            <Component Id="cmp05A1529BDD5152BD12F94FA9DD7F14A1" Directory="dir46754318AAFE7C2D3BBAC065B627290B" Guid="*">
+                <File Id="fil497BB220522CB5E8B6942B191DBB4A41" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\win-arm\native\Microsoft.CognitiveServices.Speech.extension.kws.dll" />
+            </Component>
+            <Component Id="cmp8E1F34198C841CCA3A243CC4A179DB31" Directory="dir46754318AAFE7C2D3BBAC065B627290B" Guid="*">
+                <File Id="filAA776923638C99535F86D38C4A708D8C" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\win-arm\native\Microsoft.CognitiveServices.Speech.extension.kws.ort.dll" />
+            </Component>
+            <Component Id="cmp30518C7AA385F0E427906D4807844762" Directory="dir46754318AAFE7C2D3BBAC065B627290B" Guid="*">
+                <File Id="fil42ACA53C7ADC44D952F777D033466C52" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\win-arm\native\Microsoft.CognitiveServices.Speech.extension.lu.dll" />
+            </Component>
+            <Component Id="cmpC48916F57AD725DEB0B9F91CF6A95ED0" Directory="dir65EC979D52EB501E3A656AA03EE4F2F5" Guid="*">
+                <File Id="fil853AAC2480BEFA51A7E687679406BBBA" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\win-arm64\native\Microsoft.CognitiveServices.Speech.core.dll" />
+            </Component>
+            <Component Id="cmp4BFD6539CA4F1CFF6CBCB4DFCC27CF02" Directory="dir65EC979D52EB501E3A656AA03EE4F2F5" Guid="*">
+                <File Id="filD51F2C1C50C973CB3AFDAF891880F281" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\win-arm64\native\Microsoft.CognitiveServices.Speech.extension.audio.sys.dll" />
+            </Component>
+            <Component Id="cmp89F66F4AA97368BFD72522DCC569C2A7" Directory="dir65EC979D52EB501E3A656AA03EE4F2F5" Guid="*">
+                <File Id="fil8CD411C9F554DB183D8B29131F634621" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\win-arm64\native\Microsoft.CognitiveServices.Speech.extension.kws.dll" />
+            </Component>
+            <Component Id="cmpB6A8F47E4D7CFD0513AD60C7712513B4" Directory="dir65EC979D52EB501E3A656AA03EE4F2F5" Guid="*">
+                <File Id="fil7BC98D2D5FFEEE5F014ED83494FBD45B" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\win-arm64\native\Microsoft.CognitiveServices.Speech.extension.kws.ort.dll" />
+            </Component>
+            <Component Id="cmpCC7EDC2E0D38850E7EEC6D251FD8D67C" Directory="dir65EC979D52EB501E3A656AA03EE4F2F5" Guid="*">
+                <File Id="fil607733E1103F03E24E254FB5AAD1C2CF" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\win-arm64\native\Microsoft.CognitiveServices.Speech.extension.lu.dll" />
+            </Component>
+            <Component Id="cmp4BA4409A7DA206E1DF2C33B219D3957F" Directory="dir1F9DF9DD2FB29AE2942604FAC206D5C4" Guid="*">
+                <File Id="fil56182374CB20BE741EEFEB8E0C18F5E3" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\win-x64\native\Microsoft.CognitiveServices.Speech.core.dll" />
+            </Component>
+            <Component Id="cmpC781F8F74C9D1C78E0D7899736F381F6" Directory="dir1F9DF9DD2FB29AE2942604FAC206D5C4" Guid="*">
+                <File Id="fil2768D90E215B1B1E3658787CA4CBFDB5" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\win-x64\native\Microsoft.CognitiveServices.Speech.extension.audio.sys.dll" />
+            </Component>
+            <Component Id="cmp0DCDDBC3C9948DEA51CBAC985AC7F27B" Directory="dir1F9DF9DD2FB29AE2942604FAC206D5C4" Guid="*">
+                <File Id="fil6F18AAE86C799D8BA69DC062C5E7DC51" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\win-x64\native\Microsoft.CognitiveServices.Speech.extension.codec.dll" />
+            </Component>
+            <Component Id="cmpC46C94F570B427CA436C16CCA572528A" Directory="dir1F9DF9DD2FB29AE2942604FAC206D5C4" Guid="*">
+                <File Id="fil8FF0C785BC355C28332D4969EA80A617" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\win-x64\native\Microsoft.CognitiveServices.Speech.extension.kws.dll" />
+            </Component>
+            <Component Id="cmpA4BBFE2C91F29E7096BE21EBDC27B289" Directory="dir1F9DF9DD2FB29AE2942604FAC206D5C4" Guid="*">
+                <File Id="filFE80D267D5E560A502FCC6ABBC97DD8A" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\win-x64\native\Microsoft.CognitiveServices.Speech.extension.kws.ort.dll" />
+            </Component>
+            <Component Id="cmp6A61C961105D8FBD5B98C00EB6CEF9FF" Directory="dir1F9DF9DD2FB29AE2942604FAC206D5C4" Guid="*">
+                <File Id="fil206516913474DAA3A4D84C173E913607" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\win-x64\native\Microsoft.CognitiveServices.Speech.extension.lu.dll" />
+            </Component>
+            <Component Id="cmp551C28E41816443EB6C40EF87E104D51" Directory="dir2B43AAE918D399CEF13EC6CBA2D3D5EA" Guid="*">
+                <File Id="fil5930BDA9172DE7741EFD0795239150C2" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\win-x86\native\Microsoft.CognitiveServices.Speech.core.dll" />
+            </Component>
+            <Component Id="cmp7A27F81D56D7C556671E9C28ED8079AD" Directory="dir2B43AAE918D399CEF13EC6CBA2D3D5EA" Guid="*">
+                <File Id="fil36AA2CA6D857A5A8545F132B05535840" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\win-x86\native\Microsoft.CognitiveServices.Speech.extension.audio.sys.dll" />
+            </Component>
+            <Component Id="cmp24D357F3F7967D26357D9E1F049971E7" Directory="dir2B43AAE918D399CEF13EC6CBA2D3D5EA" Guid="*">
+                <File Id="fil75FB8F6B496D53BE1796095FAE7D378B" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\win-x86\native\Microsoft.CognitiveServices.Speech.extension.codec.dll" />
+            </Component>
+            <Component Id="cmp08B0C05C87F4C37D93B837A8039E9B5A" Directory="dir2B43AAE918D399CEF13EC6CBA2D3D5EA" Guid="*">
+                <File Id="fil3326AE40B4F08897C562859C877F6F31" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\win-x86\native\Microsoft.CognitiveServices.Speech.extension.kws.dll" />
+            </Component>
+            <Component Id="cmp8F9BB25651A2C1F5F7FC8029EF34C4AE" Directory="dir2B43AAE918D399CEF13EC6CBA2D3D5EA" Guid="*">
+                <File Id="fil46AD3B825C8A24BF93B9589848084AF6" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\win-x86\native\Microsoft.CognitiveServices.Speech.extension.kws.ort.dll" />
+            </Component>
+            <Component Id="cmp433747B46DF74DD4EF6009E92229ACB9" Directory="dir2B43AAE918D399CEF13EC6CBA2D3D5EA" Guid="*">
+                <File Id="fil98377BC3C2A7B5C0EF6C97709BBC07AD" KeyPath="yes" Source="$(var.BuildOutputDir)\runtimes\win-x86\native\Microsoft.CognitiveServices.Speech.extension.lu.dll" />
+            </Component>
+        </ComponentGroup>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirD99FDB93EE0FF8EBF475D423F347AC92">
+            <Directory Id="dir061EED55DBD8BA28EE353FBFFD24DFCA" Name="native" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirA00609CDBD9F0015B160BA6458FA2628">
+            <Directory Id="dir0C7AFAF2D40BAF7EC487DE823E6C69D7" Name="gmq" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirA00609CDBD9F0015B160BA6458FA2628">
+            <Directory Id="dir16408793365F768A030F90D7035E06BD" Name="zlw" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirA36C69D942A5D70F4D74C8CE46630FD6">
+            <Directory Id="dir19328F88F33C8C26BA8CA98BFD3F9AA2" Name="netstandard2.0" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirB9C75524282911E40C3C964A8836A714">
+            <Directory Id="dir1F9DF9DD2FB29AE2942604FAC206D5C4" Name="native" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dir885F950A2D631138687919946BC358C7">
+            <Directory Id="dir28441454EC4C1CA118E06D570702ABE7" Name="native" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirD10AE190C8206884578D7E81B62AD4A6">
+            <Directory Id="dir2934D5C3CE711E1FC863020D9F7A2BBD" Name="native" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dir2F16A789372805F097C242E23779E164">
+            <Directory Id="dir2A5033986A8D1FF1B6E317B1A9949571" Name="native" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dir92F336DAA82E5A629052407A3F87EF27">
+            <Directory Id="dir2B43AAE918D399CEF13EC6CBA2D3D5EA" Name="native" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirDF07101D491916338FDC45A285DC3902">
+            <Directory Id="dir2D911BBAFF8C03C75E6D8F0401038E01" Name="espeak-ng-data" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dir58E8247E2885C01898CAD009F9EFD8BA">
+            <Directory Id="dir2F16A789372805F097C242E23779E164" Name="osx-arm64" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dir9F2CCE8E52B78D0F3ABEA786C8A3730C">
+            <Directory Id="dir311E63ED181C210A1E6248F633919C7B" Name="native" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dir725C710B19977C76374038BEBFE449A4">
+            <Directory Id="dir316CE79B45BEC2BDBCE1198C353C9208" Name="native" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirA00609CDBD9F0015B160BA6458FA2628">
+            <Directory Id="dir353C0438B88DC55179A3247327BBD924" Name="jpx" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirA00609CDBD9F0015B160BA6458FA2628">
+            <Directory Id="dir381347C75747CBC511B6D92CFC53CA23" Name="bnt" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirA00609CDBD9F0015B160BA6458FA2628">
+            <Directory Id="dir3C4EEE30295FA3F3567AF9F6EC9E2233" Name="aav" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dir58E8247E2885C01898CAD009F9EFD8BA">
+            <Directory Id="dir3D8DEB3C640C048A998C6F06E4AD1F18" Name="ios-arm64" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirA00609CDBD9F0015B160BA6458FA2628">
+            <Directory Id="dir3FB746A8AC39435BDCAB2A2BF82A41B0" Name="trk" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirA00609CDBD9F0015B160BA6458FA2628">
+            <Directory Id="dir3FF00E548BB949DC424D93FEDBD9270B" Name="cus" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dir58E8247E2885C01898CAD009F9EFD8BA">
+            <Directory Id="dir42B901FB10752B2744AE05D46EAF35EC" Name="osx-x64" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dir58E8247E2885C01898CAD009F9EFD8BA">
+            <Directory Id="dir4368456DE80A31A0FABEF422CF868A74" Name="linux-arm64" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dir9FF0F9C1A7463CA0B24689AA89D869B5">
+            <Directory Id="dir46754318AAFE7C2D3BBAC065B627290B" Name="native" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirA00609CDBD9F0015B160BA6458FA2628">
+            <Directory Id="dir475FF27C5EE6EF285FDE8B854E2D5F13" Name="map" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirA00609CDBD9F0015B160BA6458FA2628">
+            <Directory Id="dir49E143EBA615AA654BAC1C0748246755" Name="zls" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirDDF7A7B34ADCA7436A3BB71EE6456564">
+            <Directory Id="dir4D630553D189F2F8FD69D8A8F9A8C394" Name="netstandard2.0" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirC73827A628608D6D356DCCCFBE8066C8">
+            <Directory Id="dir505CD2D1E4CC8BB9A22C5491161BA0B1" Name="!v" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirA00609CDBD9F0015B160BA6458FA2628">
+            <Directory Id="dir5094AD7AF4E7300ECB4B8F6A5E7336D3" Name="cel" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirA00609CDBD9F0015B160BA6458FA2628">
+            <Directory Id="dir5179D8FF730451AE1FC315F9F31BE843" Name="urj" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirA00609CDBD9F0015B160BA6458FA2628">
+            <Directory Id="dir51B19A0F96453F644240C4C797287EC9" Name="sai" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirA00609CDBD9F0015B160BA6458FA2628">
+            <Directory Id="dir549075031D0520EA7A325A9E7ABACB9A" Name="sem" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirFCC1680685057D688EC2F43BD2F5A551">
+            <Directory Id="dir56BB4E8D7AC1D47E6E031BE06CD14F25" Name="netstandard2.0" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirA00609CDBD9F0015B160BA6458FA2628">
+            <Directory Id="dir5A85C8CCC2D5E8B5B6C413D693270888" Name="azc" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dir58E8247E2885C01898CAD009F9EFD8BA">
+            <Directory Id="dir5F0118E4ED66D8B1659511C1E8A17479" Name="centos7-x64" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirAB938E01FF631F59E3DDECDCF6C04863">
+            <Directory Id="dir60EB5E5147B97B05443C54CE6AD8BE4A" Name="native" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirA00609CDBD9F0015B160BA6458FA2628">
+            <Directory Id="dir63BBC5DE2A4ADAE341F912514F8D894E" Name="poz" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirFF6AADC4B618984E1542CDA5FCBD7BB1">
+            <Directory Id="dir65EC979D52EB501E3A656AA03EE4F2F5" Name="native" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirA00609CDBD9F0015B160BA6458FA2628">
+            <Directory Id="dir6B05F8EA91D0BC9C0D7B5918C6D4A103" Name="bat" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dir58E8247E2885C01898CAD009F9EFD8BA">
+            <Directory Id="dir6F75383DB633D8F130457F52F58EA410" Name="linux-arm" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dir58E8247E2885C01898CAD009F9EFD8BA">
+            <Directory Id="dir70F38B88DB4DC03061EE0EF8042EBCC6" Name="android-x64" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dir42B901FB10752B2744AE05D46EAF35EC">
+            <Directory Id="dir71D0D403061D4DE071C64AEB774E16CF" Name="native" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dir58E8247E2885C01898CAD009F9EFD8BA">
+            <Directory Id="dir725C710B19977C76374038BEBFE449A4" Name="maccatalyst-x64" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirA00609CDBD9F0015B160BA6458FA2628">
+            <Directory Id="dir8310F8E4C6DC244D14C90776FCC17F48" Name="ccs" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dir58E8247E2885C01898CAD009F9EFD8BA">
+            <Directory Id="dir885F950A2D631138687919946BC358C7" Name="android-arm64" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirA00609CDBD9F0015B160BA6458FA2628">
+            <Directory Id="dir90F655F1E126B6F5AC59D6B4064FD438" Name="iro" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirA00609CDBD9F0015B160BA6458FA2628">
+            <Directory Id="dir9266D294F75C2BC4939060CE7A33F0D4" Name="zle" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dir58E8247E2885C01898CAD009F9EFD8BA">
+            <Directory Id="dir92F336DAA82E5A629052407A3F87EF27" Name="win-x86" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirA00609CDBD9F0015B160BA6458FA2628">
+            <Directory Id="dir930E4EF4E2D33EEB60C6E8F2B659A4DA" Name="esx" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dir70F38B88DB4DC03061EE0EF8042EBCC6">
+            <Directory Id="dir979ACB8C5F1F56D5053B455A0584BE62" Name="native" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dir58E8247E2885C01898CAD009F9EFD8BA">
+            <Directory Id="dir986BEF73997BE02DCDBC34E856C19B36" Name="linux-x64" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirCAD3B0463F375DAD27B0DCF48EEB933F">
+            <Directory Id="dir9A148561629B0714FBEDFF1629ECA00D" Name="netstandard2.0" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dir58E8247E2885C01898CAD009F9EFD8BA">
+            <Directory Id="dir9BE9104649A116CC7BCCF4D9CCD3331B" Name="win" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dir58E8247E2885C01898CAD009F9EFD8BA">
+            <Directory Id="dir9F2CCE8E52B78D0F3ABEA786C8A3730C" Name="android-arm" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dir58E8247E2885C01898CAD009F9EFD8BA">
+            <Directory Id="dir9FF0F9C1A7463CA0B24689AA89D869B5" Name="win-arm" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dir2D911BBAFF8C03C75E6D8F0401038E01">
+            <Directory Id="dirA00609CDBD9F0015B160BA6458FA2628" Name="lang" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dir4368456DE80A31A0FABEF422CF868A74">
+            <Directory Id="dirA36C69D942A5D70F4D74C8CE46630FD6" Name="lib" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dir3D8DEB3C640C048A998C6F06E4AD1F18">
+            <Directory Id="dirA860B78D72E443CC23C14C535935C0DC" Name="native" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirA00609CDBD9F0015B160BA6458FA2628">
+            <Directory Id="dirA960CF6FFCA68AEA493A9FB99DAAEFDE" Name="tai" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dir58E8247E2885C01898CAD009F9EFD8BA">
+            <Directory Id="dirAB938E01FF631F59E3DDECDCF6C04863" Name="android-x86" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirA00609CDBD9F0015B160BA6458FA2628">
+            <Directory Id="dirABE93A467AA865B4DD4FF9940E52861E" Name="miz" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirF92FE280AE7A7481896BA9274D79CB3D">
+            <Directory Id="dirB210ED1C5BF85FD07F210F8E48F37F4A" Name="native" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirF225F807D4C0C805BB2DB76192CCDC8D">
+            <Directory Id="dirB3BEA9CD83A720F645DE2F0CD6595280" Name="netstandard2.0" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirA00609CDBD9F0015B160BA6458FA2628">
+            <Directory Id="dirB4CDAF65D627C5EF28F89ED708917A3E" Name="itc" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dir58E8247E2885C01898CAD009F9EFD8BA">
+            <Directory Id="dirB9C75524282911E40C3C964A8836A714" Name="win-x64" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirA00609CDBD9F0015B160BA6458FA2628">
+            <Directory Id="dirBA37B9A9164061F576982F25BDB13294" Name="art" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dir5F0118E4ED66D8B1659511C1E8A17479">
+            <Directory Id="dirC0E5FF1FE837ADD8F189E0AEA77CAD9C" Name="native" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirA00609CDBD9F0015B160BA6458FA2628">
+            <Directory Id="dirC4FBC45C5406E012A25A4E85444BE4AB" Name="myn" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dir2D911BBAFF8C03C75E6D8F0401038E01">
+            <Directory Id="dirC73827A628608D6D356DCCCFBE8066C8" Name="voices" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirA00609CDBD9F0015B160BA6458FA2628">
+            <Directory Id="dirC77BB283B3E122BBC26E2B70BD7CEEE0" Name="dra" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dir6F75383DB633D8F130457F52F58EA410">
+            <Directory Id="dirCAD3B0463F375DAD27B0DCF48EEB933F" Name="lib" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dir58E8247E2885C01898CAD009F9EFD8BA">
+            <Directory Id="dirD10AE190C8206884578D7E81B62AD4A6" Name="iossimulator-x64" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dir9BE9104649A116CC7BCCF4D9CCD3331B">
+            <Directory Id="dirD19B0610952D1EE2D417EB5361695989" Name="lib" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirA00609CDBD9F0015B160BA6458FA2628">
+            <Directory Id="dirD25662175D561D2A713A2BA13D6867C5" Name="ine" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dir4368456DE80A31A0FABEF422CF868A74">
+            <Directory Id="dirD4D406B0649E8BA45C0D436FC1C3D7B7" Name="native" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirA00609CDBD9F0015B160BA6458FA2628">
+            <Directory Id="dirD7BDA869AA492D2CCE0824D1653D9487" Name="ira" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dir58E8247E2885C01898CAD009F9EFD8BA">
+            <Directory Id="dirD99FDB93EE0FF8EBF475D423F347AC92" Name="maccatalyst-arm64" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirA00609CDBD9F0015B160BA6458FA2628">
+            <Directory Id="dirDC8B467EC67FB41462A370567F7D9BAB" Name="roa" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirD19B0610952D1EE2D417EB5361695989">
+            <Directory Id="dirDD971CF8A24F0A315231939725032995" Name="net7.0" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dir2F16A789372805F097C242E23779E164">
+            <Directory Id="dirDDF7A7B34ADCA7436A3BB71EE6456564" Name="lib" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dir6F75383DB633D8F130457F52F58EA410">
+            <Directory Id="dirDE2B6474A7AE43169B31CD69645DD47A" Name="native" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dir986BEF73997BE02DCDBC34E856C19B36">
+            <Directory Id="dirE1E651EB5B4F1522E5E10B81FEA70677" Name="native" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirA00609CDBD9F0015B160BA6458FA2628">
+            <Directory Id="dirE1F571F42D05992D395979295B90BB86" Name="grk" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirDF07101D491916338FDC45A285DC3902">
+            <Directory Id="dirE34FEA5E01D67A906AFBBF6EA2DCFC2A" Name="en_GB-alan-medium" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirA00609CDBD9F0015B160BA6458FA2628">
+            <Directory Id="dirEC676C14E03A7A81855EBDCC039E6F82" Name="inc" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirA00609CDBD9F0015B160BA6458FA2628">
+            <Directory Id="dirEEC8DF8F8BC55E2779B56496A489D780" Name="gmw" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dir42B901FB10752B2744AE05D46EAF35EC">
+            <Directory Id="dirF225F807D4C0C805BB2DB76192CCDC8D" Name="lib" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dir58E8247E2885C01898CAD009F9EFD8BA">
+            <Directory Id="dirF92FE280AE7A7481896BA9274D79CB3D" Name="iossimulator-arm64" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirA00609CDBD9F0015B160BA6458FA2628">
+            <Directory Id="dirFB866D7E8CB9D56715E5A3590DFE7EC2" Name="sit" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dir986BEF73997BE02DCDBC34E856C19B36">
+            <Directory Id="dirFCC1680685057D688EC2F43BD2F5A551" Name="lib" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dir58E8247E2885C01898CAD009F9EFD8BA">
+            <Directory Id="dirFF6AADC4B618984E1542CDA5FCBD7BB1" Name="win-arm64" />
+        </DirectoryRef>
+    </Fragment>
+</Wix>

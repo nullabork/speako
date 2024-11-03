@@ -4,6 +4,8 @@ using speako.Services.Audio;
 using System.ComponentModel;
 using System.Windows;
 using speako.Themes;
+using System.Windows.Forms;
+using System.Configuration;
 
 namespace speako.Settings
 {
@@ -59,11 +61,35 @@ namespace speako.Settings
     private void saveButton_Click(object sender, RoutedEventArgs e)
     {
 
+      var working = ObjectUtils.Clone(_workingPreferences);
+      //  if (working.DataLocation != _originalPreferences.DataLocation)
+      //{
+        
+      //  var to = working.DataLocation;
+      //  var from = AppConfig.Default.SaveLocation;
+      //  if (String.IsNullOrWhiteSpace(to))
+      //  {
+      //    to = AppConfig.Default.DefaultSaveLocation;
+      //  }
 
-      _originalPreferences.InjectFrom(ObjectUtils.Clone(_workingPreferences));
+      //  if(String.IsNullOrWhiteSpace(from))
+      //  {
+      //    from = AppConfig.Default.DefaultSaveLocation;
+      //  }
+
+      //  if(to == from)
+      //  {
+      //    return;
+      //  }
+
+      //  JsonConfigTools.CopyDataLocation(from, to, true);
+
+      //  AppConfig.Default.SaveLocation = working.DataLocation;
+      //  AppConfig.Default.Save();
+      //}
+
+      _originalPreferences.InjectFrom(working);
       _originalPreferences.Save();
-      
-      //DataContext = _workingPreferences;
 
       SaveButtonState();
 
@@ -78,5 +104,29 @@ namespace speako.Settings
     {
 
     }
+
+    //private void dataLocationoiButton_Click(object sender, RoutedEventArgs e)
+    //{
+
+    //  using (var dialog = new FolderBrowserDialog())
+    //  {
+    //    dialog.Description = "Select a folder";
+    //    dialog.ShowNewFolderButton = true;
+    //    dialog.RootFolder = Environment.SpecialFolder.MyComputer;
+
+    //    if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+    //    {
+    //      string selectedPath = dialog.SelectedPath;
+    //      // Use the selected path as needed
+    //      dataLocationTextBox.Text = selectedPath;
+    //    }
+    //  }
+
+    //}
+
+    //private void dataLocationClearButton_Click(object sender, RoutedEventArgs e)
+    //{
+    //  dataLocationTextBox.Text = "";
+    //}
   }
 }

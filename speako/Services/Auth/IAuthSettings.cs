@@ -12,7 +12,7 @@ namespace speako.Services.Auth
  
     public ITTSProvider GetProvider();
 
-    void Init();
+    Task Init();
 
     public IProviderSettingsControl SettingsControl();
 

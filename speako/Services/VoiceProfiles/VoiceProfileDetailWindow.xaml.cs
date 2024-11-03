@@ -62,7 +62,7 @@ namespace speako.Services.VoiceProfiles
       voiceComboBox.ItemsSource = voices;
       voiceComboBox.SelectedIndex = voices.ToList().FindIndex(item =>
       {
-        return item.Name == selectedVoiceID;
+        return item.Id == selectedVoiceID;
       });
     }
 
@@ -72,7 +72,7 @@ namespace speako.Services.VoiceProfiles
       _workingVoiceProfile = ObjectUtils.Clone(voice);
       _workingVoiceProfile.AudioDevices = new ObservableCollection<AudioDevice>(_originalVoiceProfile.AudioDevices);
       _workingVoiceProfile.PostProcessors = new ObservableCollection<PostProcessorItem>(_originalVoiceProfile.PostProcessors);
-
+      SaveButtonState();
       _workingVoiceProfile.PropertyChanged += OnPropertyChanged;
 
       DataContext = _workingVoiceProfile;
@@ -96,14 +96,15 @@ namespace speako.Services.VoiceProfiles
     {
       if (Saved != null)
       {
-        _originalVoiceProfile = _workingVoiceProfile;
-        _workingVoiceProfile = ObjectUtils.Clone(_workingVoiceProfile);
-        _workingVoiceProfile.AudioDevices = new ObservableCollection<AudioDevice>(_originalVoiceProfile.AudioDevices);
-        _workingVoiceProfile.PostProcessors = new ObservableCollection<PostProcessorItem>(_originalVoiceProfile.PostProcessors);
+        //_originalVoiceProfile = _workingVoiceProfile;
+        //_workingVoiceProfile = ObjectUtils.Clone(_workingVoiceProfile);
+        //_workingVoiceProfile.AudioDevices = new ObservableCollection<AudioDevice>(_originalVoiceProfile.AudioDevices);
+        //_workingVoiceProfile.PostProcessors = new ObservableCollection<PostProcessorItem>(_originalVoiceProfile.PostProcessors);
 
-        DataContext = _workingVoiceProfile;
+        //DataContext = _workingVoiceProfile;
+        _originalVoiceProfile = ObjectUtils.Clone(_workingVoiceProfile);
 
-        Saved.Invoke(this, _workingVoiceProfile);
+        Saved.Invoke(this, _originalVoiceProfile);
         SaveButtonState();
       }
     }
@@ -116,7 +117,7 @@ namespace speako.Services.VoiceProfiles
 
     private void volumeValueSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
     {
-
+      var t = "Asd";
     }
 
     private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)

@@ -1,0 +1,45 @@
+﻿<Window x:Class="speako.Services.Providers.Piper.DownloadPiperVoice"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:speako.Services.Providers.Piper"
+        mc:Ignorable="d"
+        Style="{StaticResource CustomWindowStyle}"
+        Title="DownloadPiperVoice" Height="159" Width="417" Loaded="Window_Loaded">
+    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+        <StackPanel x:Name="initialContent" Visibility="Visible">
+            <StackPanel Orientation="Horizontal">
+                <Label>Downloading:</Label>
+                <Label d:Content="Mark" Content="{Binding Name}"/>
+                <TextBlock Padding="5">
+                    <Run Text="(" />
+                    <Run Text="{Binding Size}" d:Text="65 MB" />
+                    <Run Text=")" />
+                </TextBlock>
+            </StackPanel>
+            <ProgressBar x:Name="downloadProgressBar" HorizontalAlignment="Left" Height="29"  VerticalAlignment="Top" IsIndeterminate="True" Width="244"/>
+        </StackPanel>
+        <StackPanel x:Name="finishedContent" Visibility="Collapsed">
+            <StackPanel Orientation="Horizontal">
+                <Label>Downloaded:</Label>
+                <Label d:Content="Mark" Content="{Binding Name}"/>
+                <TextBlock Padding="5">
+                    <Run Text="(" />
+                    <Run Text="{Binding Size}" d:Text="65 MB" />
+                    <Run Text=")" />
+                </TextBlock>
+            </StackPanel>
+            <TextBlock Style="{StaticResource Description}" HorizontalAlignment="Center">
+            <Bold>You can close this window now :) <LineBreak /> I dont even know why i made this window <LineBreak /> the downloads are very fast.</Bold>
+            </TextBlock>
+        </StackPanel>
+
+        <StackPanel x:Name="errorContent" Visibility="Collapsed">
+            <Label HorizontalAlignment="Center">Something went wrong</Label>
+            <TextBlock Style="{StaticResource Description}" HorizontalAlignment="Center">
+                <Bold>I have a feeling this voice is not gonna work</Bold>
+            </TextBlock>    
+        </StackPanel>
+    </StackPanel>
+</Window>

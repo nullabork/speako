@@ -46,7 +46,9 @@
                                           IsEditable="True" 
                                           IsReadOnly="True" 
                                           Text="Select Provider Voice" 
-                                          SelectedItem="{Binding VoiceID, UpdateSourceTrigger=PropertyChanged}" 
+                                          DisplayMemberPath="Name"
+                                          SelectedValuePath="Id"
+                                          SelectedValue="{Binding VoiceID, UpdateSourceTrigger=PropertyChanged}" 
                                           VerticalAlignment="Top"/>
                             </StackPanel>
                         </ContentControl>
@@ -169,7 +171,7 @@
                                           IsReadOnly="True"
                                           Text="Select Audio Device"
                                           Grid.Column="0" HorizontalContentAlignment="Stretch" VerticalAlignment="Top"/>
-                                <StackPanel Orientation="Horizontal" Grid.Column="1" Margin="0,0,0,0" Style="{StaticResource SaveGroup}">
+                                <StackPanel Orientation="Horizontal" Grid.Column="1" Margin="0,0,0,0" Style="{StaticResource ButtonGroup}">
                                     <Button Content="Add" x:Name="addDevice" VerticalAlignment="Top" Click="addDeviceButton_click" />
                                     <Button Content="Delete" x:Name="delDevice" VerticalAlignment="Top" Click="delDeviceButton_click" />
                                 </StackPanel>
@@ -199,7 +201,7 @@
                       IsReadOnly="True"
                       Text="Select Pre Processor"
                       Grid.Column="0" HorizontalContentAlignment="Stretch" VerticalAlignment="Top"/>
-                                <StackPanel Orientation="Horizontal" Grid.Column="1" Margin="0,0,0,0" Style="{StaticResource SaveGroup}">
+                                <StackPanel Orientation="Horizontal" Grid.Column="1" Margin="0,0,0,0" Style="{StaticResource ButtonGroup}">
                                     <Button Content="Add" x:Name="addPreProcessor" VerticalAlignment="Top" Click="addPreProcessor_Click" />
                                     <Button Content="Delete" x:Name="delPreProcessor" VerticalAlignment="Top" Click="delPreProcessor_Click" />
                                 </StackPanel>
@@ -232,7 +234,7 @@
                                           IsReadOnly="True"
                                           Text="Select Post Processor"
                                           Grid.Column="0" HorizontalContentAlignment="Stretch" VerticalAlignment="Top"/>
-                                <StackPanel Orientation="Horizontal" Grid.Column="1" Margin="0,0,0,0" Style="{StaticResource SaveGroup}">
+                                <StackPanel Orientation="Horizontal" Grid.Column="1" Margin="0,0,0,0" Style="{StaticResource ButtonGroup}">
                                     <Button Content="Add" x:Name="addProcessor" VerticalAlignment="Top" Click="addProcessor_Click" />
                                     <Button Content="Delete" x:Name="delProcessor" VerticalAlignment="Top" Click="delProcessor_Click" />
                                 </StackPanel>
@@ -252,7 +254,7 @@
         </TabControl>
 
         <!-- Save and Cancel Buttons -->
-        <StackPanel Style="{StaticResource SaveGroup}">
+        <StackPanel Style="{StaticResource ButtonGroup}">
             <Button x:Name="saveButton" Content="Save" Click="saveButton_Click" Width="70"/>
             <Button x:Name="cancelButton" Content="Cancel" Click="cancelButton_Click" Width="70"/>
         </StackPanel>

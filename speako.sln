@@ -9,6 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		.gitignore = .gitignore
+		build.xslt = build.xslt
 		README.md = README.md
 	EndProjectSection
 EndProject
@@ -26,8 +27,8 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{7986AE3F-B15F-47B3-B829-AA5B1D1E8E96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7986AE3F-B15F-47B3-B829-AA5B1D1E8E96}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7986AE3F-B15F-47B3-B829-AA5B1D1E8E96}.Debug|x64.ActiveCfg = Debug|x64
-		{7986AE3F-B15F-47B3-B829-AA5B1D1E8E96}.Debug|x64.Build.0 = Debug|x64
+		{7986AE3F-B15F-47B3-B829-AA5B1D1E8E96}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7986AE3F-B15F-47B3-B829-AA5B1D1E8E96}.Debug|x64.Build.0 = Debug|Any CPU
 		{7986AE3F-B15F-47B3-B829-AA5B1D1E8E96}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{7986AE3F-B15F-47B3-B829-AA5B1D1E8E96}.Debug|x86.Build.0 = Debug|Any CPU
 		{7986AE3F-B15F-47B3-B829-AA5B1D1E8E96}.Release|Any CPU.ActiveCfg = Release|Any CPU

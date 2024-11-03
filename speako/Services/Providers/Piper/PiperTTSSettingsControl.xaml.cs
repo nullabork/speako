@@ -1,4 +1,5 @@
-﻿using speako.Common;
+﻿using PiperSharp;
+using speako.Common;
 using speako.Services.Auth;
 using speako.Services.ProviderSettings;
 using System.ComponentModel;
@@ -26,7 +27,7 @@ namespace speako.Services.Providers.Piper
     }
 
     //set data context
-    public void Configure(IAuthSettings settings)
+    public async void Configure(IAuthSettings settings)
     {
 
       var og = (PiperTTSAuthSettings)settings;
@@ -56,7 +57,7 @@ namespace speako.Services.Providers.Piper
       if (!Compare.ObjectsPropertiesEqual(_working, _original))
       {
         MessageBoxResult result = MessageBox.Show($"Do you want to save your changes?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
-        if(result == MessageBoxResult.Yes)
+        if (result == MessageBoxResult.Yes)
         {
           return _working;
         }
@@ -66,7 +67,7 @@ namespace speako.Services.Providers.Piper
 
     private void saveButton_Click(object sender, RoutedEventArgs e)
     {
-      
+
       Saved.Invoke(this, _working);
       Configure(_working);
     }
@@ -74,6 +75,30 @@ namespace speako.Services.Providers.Piper
     private void cancelButton_Click(object sender, RoutedEventArgs e)
     {
       Cancel.Invoke(this, _working);
+    }
+
+    private async void voicesDataGrid_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)
+    {
+      var row = (PiperTTSVoice) e.Row.DataContext;
+      var download = new DownloadPiperVoice(row);
+      
+
+      download.Downloaded += (object? sender, PiperTTSVoice e) =>
+      {
+        row.Downloaded = true;
+      };
+
+      download.ShowDialog();
+    }
+
+    private void Download_Downloaded(object? sender, PiperTTSVoice e)
+    {
+      e.Downloaded = true;
+    }
+
+    private void voicesDataGrid_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
+    {
+
     }
   }
 }

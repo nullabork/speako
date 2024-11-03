@@ -71,10 +71,10 @@ namespace speako.Services.Providers.Google
 
     public string GUID { get; set; }
 
-    public void Init()
+    public async Task Init()
     {
       _provider = new GoogleTTSProvider();
-      _provider.Configure(this);
+      await _provider.Configure(this);
     }
 
     //this is like... do the fields at least look filled out

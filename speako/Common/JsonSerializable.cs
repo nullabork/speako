@@ -1,13 +1,16 @@
-﻿using Newtonsoft.Json;
-
+﻿using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json;
+using speako;
 using speako.Common;
+using speako.Settings;
+using System.Drawing;
 
 public abstract class JsonSerializable<T> where T : JsonSerializable<T>, new()
 {
 
   public event EventHandler<T> Saved;
   public event EventHandler<T> Loaded;
-
+  
   public string FileName { get; set; }
 
   public void Save()
@@ -20,10 +23,16 @@ public abstract class JsonSerializable<T> where T : JsonSerializable<T>, new()
     }
   }
 
-
   public string GetFileBase()
   {
-    return Path.GetFullPath("Config");
+    var path = JsonConfigTools.GetDataDirectory();
+
+    if (!Directory.Exists(path))
+    {
+      Directory.CreateDirectory(path);
+    }
+
+    return path;
   }
 
   public string GetFilePath()

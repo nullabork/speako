@@ -15,5 +15,7 @@ namespace speako.Services.Providers.IBM
     public string Name { get; }
     public string Language { get; }
     public string ConfuredProviderGUID => throw new NotImplementedException();
+
+    public string Id => throw new NotImplementedException();
   }
 }

@@ -39,7 +39,7 @@
         </Style.Resources>
     </Style>
     
-    <Style x:Key="SaveGroup" TargetType="StackPanel">
+    <Style x:Key="ButtonGroup" TargetType="StackPanel">
         <Setter Property="Margin" Value="0,0,15,10" />
         <Setter Property="Orientation" Value="Horizontal" />
         <Setter Property="HorizontalAlignment" Value="Right" />
@@ -84,5 +84,6 @@
         <Setter Property="HorizontalAlignment" Value="Left" />
     </Style>
 
+    
 
 </ResourceDictionary>

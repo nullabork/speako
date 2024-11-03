@@ -81,7 +81,7 @@
 
                         </ComboBox>
                     </Grid>
-                    <StackPanel Grid.Column="1" Style="{StaticResource SaveGroup}" Margin="0" >
+                    <StackPanel Grid.Column="1" Style="{StaticResource ButtonGroup}" Margin="0" >
                         <Button Content="Add" x:Name="addChannel" VerticalAlignment="Top" Click="addChannelButton_click" />
                         <Button Content="Delete" x:Name="delChannel" VerticalAlignment="Top" Click="delChannelButton_click" />
                     </StackPanel>
@@ -97,7 +97,7 @@
             </StackPanel>
         </ContentControl>
 
-        <StackPanel Style="{StaticResource SaveGroup}">
+        <StackPanel Style="{StaticResource ButtonGroup}">
             
             <Button x:Name="saveButton" Content="Save" Click="saveButton_Click" Width="50" />
             <Button x:Name="cancelButton" Content="Cancel" Click="cancelButton_Click" Width="70" />

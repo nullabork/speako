@@ -96,7 +96,7 @@ namespace speako.Services.Providers.ElevenLabs
       throw new NotImplementedException();
     }
 
-    public object CreateClient(IAuthSettings authSettings)
+    public async Task<object> CreateClient()
     {
       throw new NotImplementedException();
     }

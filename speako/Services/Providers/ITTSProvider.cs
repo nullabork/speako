@@ -21,7 +21,7 @@ namespace speako.Services.Providers
 
         public Task<bool> CanConnectToTTSClient();
 
-        public object CreateClient(IAuthSettings authSettings);
+        public Task<object> CreateClient();
   }
 
 }

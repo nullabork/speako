@@ -14,6 +14,8 @@ namespace speako.Services.Providers.Azure
     public string Language { get; }
 
     public string ConfuredProviderGUID => throw new NotImplementedException();
+
+    public string Id => throw new NotImplementedException();
   }
 }
 

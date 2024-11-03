@@ -36,9 +36,9 @@
                 <DataGridTextColumn Width="*" Header="Audio Input Text" Binding="{Binding VoiceText, UpdateSourceTrigger=PropertyChanged}" />
             </DataGrid.Columns>
         </DataGrid>
-       
 
-        <StackPanel Style="{StaticResource SaveGroup}">
+
+        <StackPanel Style="{StaticResource ButtonGroup}">
             
             <Button x:Name="saveButton" Content="Save" Click="saveButton_Click" Width="50" />
             <Button x:Name="cancelButton" Content="Cancel" Click="cancelButton_Click" Width="70" />

@@ -25,7 +25,35 @@
             </StackPanel>
         </ContentControl>
 
-        <StackPanel Style="{StaticResource SaveGroup}">
+        <ContentControl Style="{StaticResource Bordered}">
+            <StackPanel>
+                <Label Content="Download Models" />
+                <TextBlock Text="You need to download models before they can be used" Style="{StaticResource Description}"/>
+                <DataGrid x:Name="voicesDataGrid"
+                    AutoGenerateColumns="False"
+                    CanUserAddRows="False"
+                    CanUserDeleteRows="False"
+                    ItemsSource="{Binding PiperTTSVoices, UpdateSourceTrigger=PropertyChanged}"
+                    
+                    Height="260"
+                    ScrollViewer.CanContentScroll="True" 
+                    
+                    BeginningEdit="voicesDataGrid_BeginningEdit" RowEditEnding="voicesDataGrid_RowEditEnding">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn IsReadOnly="True" Header="Name" Width="*" Binding="{Binding Name}" />
+                        <DataGridTextColumn IsReadOnly="True" Header="Language" Width="*" Binding="{Binding Language}" />
+                        <DataGridTextColumn IsReadOnly="True" Header="ID" Width="*" Binding="{Binding Id}" />
+                        <DataGridTextColumn IsReadOnly="True" Header="Size" Width="*" Binding="{Binding Size}" />
+                        <DataGridCheckBoxColumn IsReadOnly="False" Header="Downloaded"  Width="*" Binding="{Binding Downloaded, UpdateSourceTrigger=PropertyChanged}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+                <TextBlock Style="{StaticResource Description}">
+                    <Bold>Right Click</Bold> the voice and select <Bold>Download</Bold>
+                </TextBlock>
+            </StackPanel>
+        </ContentControl>
+
+        <StackPanel Style="{StaticResource ButtonGroup}">
             <Button x:Name="saveButton" Content="Save" Click="saveButton_Click" Width="50" />
             <Button x:Name="cancelButton" Content="Cancel" Click="cancelButton_Click" Width="70" />
         </StackPanel>

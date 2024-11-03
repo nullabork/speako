@@ -38,14 +38,35 @@
                     IsReadOnly="True"    
                           SelectedItem="{Binding Theme, UpdateSourceTrigger=PropertyChanged}"
                     Text="Select Theme" >
-                    
+
                 </ComboBox>
                 <TextBlock Text="Select a theme and save to preview" Style="{StaticResource Description}"/>
             </StackPanel>
         </ContentControl>
 
+        <!--<ContentControl Style="{StaticResource Bordered}">
+            <StackPanel>
+                <Label Content="Data Location" VerticalAlignment="Top"/>
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Style="{StaticResource SaveGroup}">
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBox Grid.Column="0" x:Name="dataLocationTextBox" Text="{Binding DataLocation, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" HorizontalContentAlignment="Stretch"  />
+                    <StackPanel Style="{StaticResource ButtonGroup}" Grid.Column="1" VerticalAlignment="Center" Orientation="Horizontal" Margin="0,0,0,0">
+                        <Button  Content="Select Folder" HorizontalAlignment="Stretch" VerticalAlignment="Center" Click="dataLocationoiButton_Click"/>
+                        <Button  Content="clear" HorizontalAlignment="Stretch" VerticalAlignment="Center" Click="dataLocationClearButton_Click"/>
+                    </StackPanel>
+                </Grid>
+
+                <TextBlock Text="(Optional) Select a custom location this app save its data" Style="{StaticResource Description}"/>
+            </StackPanel>
+        </ContentControl>-->
+
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Style="{StaticResource ButtonGroup}">
             <Button x:Name="saveButton" Content="Save" Click="saveButton_Click" Width="50" />
             <Button x:Name="cancelButton" Content="Cancel" Click="cancelButton_Click" Width="70" />
         </StackPanel>

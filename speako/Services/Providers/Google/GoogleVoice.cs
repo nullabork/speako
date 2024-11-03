@@ -20,6 +20,8 @@ namespace speako.Services.Providers.Google
 
     public string Language => v.LanguageCodes[0];
 
+    public string Id => v.Name;
+
     public override string ToString()
     {
       return v.Name;
