@@ -1,18 +1,9 @@
 ---
 name: Bug report
-about: Create a report to help us improve
-title: ''
-labels: ''
-assignees: ''
-
----
-
----
-name: Bug Report
 about: Report a bug in Speako
 title: "[BUG] - "
-labels: bug
-assignees: ''
+labels: ''
+assignees: zenril
 
 ---
 
